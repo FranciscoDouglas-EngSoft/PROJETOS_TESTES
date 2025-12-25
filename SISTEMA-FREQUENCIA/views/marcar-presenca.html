@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcar Presença - Sistema de Frequência</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/theme.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../img/logo.svg" alt="Logo">
+                <h2>FrequênciaApp</h2>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="dashboard-professor.html" class="menu-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="minhas-escolas.html" class="menu-item">
+                        <i class="fas fa-school"></i>
+                        <span>Minhas Escolas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="marcar-presenca.html" class="menu-item active">
+                        <i class="fas fa-qrcode"></i>
+                        <span>Marcar Presença</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="meu-historico.html" class="menu-item">
+                        <i class="fas fa-history"></i>
+                        <span>Meu Histórico</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="perfil.html" class="menu-item">
+                        <i class="fas fa-user"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h1>Marcar Presença</h1>
+                <div class="user-info">
+                    <img src="../img/avatar-professor.svg" alt="User Avatar" class="user-avatar">
+                    <span class="user-name" id="professorName">Professor Silva</span>
+                </div>
+            </div>
+            
+            <!-- QR Code Scanner Card -->
+            <div class="card">
+                <div class="card-title">
+                    <h2>Scanner de QR Code</h2>
+                </div>
+                <div class="scanner-container">
+                    <p class="scanner-instructions">Para registrar sua presença, escaneie o QR Code disponível na escola.</p>
+                    
+                    <div class="scanner-view">
+                        <div class="scanner-frame"></div>
+                        <video id="qrScanner" autoplay></video>
+                    </div>
+                    
+                    <div class="scanner-actions">
+                        <button class="btn btn-primary" id="startScanBtn">Iniciar Scanner</button>
+                        <button class="btn" id="stopScanBtn">Parar Scanner</button>
+                    </div>
+                    
+                    <div class="scanner-status" id="scannerStatus">
+                        <span>Aguardando inicialização do scanner...</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Manual Attendance Form -->
+            <div class="card">
+                <div class="card-title">
+                    <h2>Registro Manual</h2>
+                </div>
+                <div class="manual-form">
+                    <p class="form-instructions">Se o scanner não estiver funcionando, você pode registrar sua presença manualmente.</p>
+                    
+                    <form id="manualAttendanceForm">
+                        <div class="form-group">
+                            <label for="schoolSelect">Escola</label>
+                            <select id="schoolSelect" required>
+                                <option value="" selected disabled>Selecione a escola</option>
+                                <option value="1">E.E. Maria José</option>
+                                <option value="2">Colégio São Paulo</option>
+                                <option value="3">Instituto Técnico</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subjectSelect">Disciplina</label>
+                            <select id="subjectSelect" required>
+                                <option value="" selected disabled>Selecione a disciplina</option>
+                                <option value="1">Matemática</option>
+                                <option value="2">Estatística</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="attendanceCode">Código de Presença</label>
+                            <div class="input-icon">
+                                <i class="fas fa-key"></i>
+                                <input type="text" id="attendanceCode" placeholder="Insira o código fornecido pela coordenação" required>
+                            </div>
+                            <small class="form-help">Este código é fornecido pela coordenação da escola.</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="attendanceNote">Observação (opcional)</label>
+                            <textarea id="attendanceNote" placeholder="Adicione uma observação sobre sua presença"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Registrar Presença</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Recent Attendances -->
+            <div class="card">
+                <div class="card-title">
+                    <h2>Registros Recentes</h2>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Escola</th>
+                                <th>Disciplina</th>
+                                <th>Horário</th>
+                                <th>Método</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentAttendances">
+                            <tr>
+                                <td>17/10/2025</td>
+                                <td>E.E. Maria José</td>
+                                <td>Matemática</td>
+                                <td>08:15</td>
+                                <td>QR Code</td>
+                                <td><span class="status present">Confirmado</span></td>
+                            </tr>
+                            <tr>
+                                <td>16/10/2025</td>
+                                <td>Colégio São Paulo</td>
+                                <td>Matemática</td>
+                                <td>10:30</td>
+                                <td>QR Code</td>
+                                <td><span class="status present">Confirmado</span></td>
+                            </tr>
+                            <tr>
+                                <td>16/10/2025</td>
+                                <td>Instituto Técnico</td>
+                                <td>Estatística</td>
+                                <td>14:05</td>
+                                <td>Manual</td>
+                                <td><span class="status present">Confirmado</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Presença Registrada</h3>
+                <button class="modal-close" id="closeSuccessModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-message">
+                    <i class="fas fa-check-circle success-icon"></i>
+                    <h3>Presença registrada com sucesso!</h3>
+                    <p>Sua presença foi registrada para:</p>
+                    <div class="attendance-info" id="attendanceInfo">
+                        <p><strong>Escola:</strong> <span id="schoolName">E.E. Maria José</span></p>
+                        <p><strong>Disciplina:</strong> <span id="subjectName">Matemática</span></p>
+                        <p><strong>Data:</strong> <span id="attendanceDate">17/10/2025</span></p>
+                        <p><strong>Horário:</strong> <span id="attendanceTime">08:15</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="okSuccessBtn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/attendance.js"></script>
+</body>
+</html>

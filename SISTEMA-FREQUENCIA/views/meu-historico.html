@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Histórico - Sistema de Frequência</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/theme.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../img/logo.svg" alt="Logo">
+                <h2>FrequênciaApp</h2>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="dashboard-professor.html" class="menu-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="minhas-escolas.html" class="menu-item">
+                        <i class="fas fa-school"></i>
+                        <span>Minhas Escolas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="marcar-presenca.html" class="menu-item">
+                        <i class="fas fa-qrcode"></i>
+                        <span>Marcar Presença</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="meu-historico.html" class="menu-item active">
+                        <i class="fas fa-history"></i>
+                        <span>Meu Histórico</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="perfil.html" class="menu-item">
+                        <i class="fas fa-user"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h1>Meu Histórico de Frequência</h1>
+                <div class="user-info">
+                    <img src="../img/avatar-professor.svg" alt="User Avatar" class="user-avatar">
+                    <span class="user-name" id="professorName">Professor Silva</span>
+                </div>
+            </div>
+            
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label for="dateRangeFilter">Período</label>
+                    <select id="dateRangeFilter">
+                        <option value="7">Últimos 7 dias</option>
+                        <option value="30" selected>Últimos 30 dias</option>
+                        <option value="90">Últimos 3 meses</option>
+                        <option value="180">Últimos 6 meses</option>
+                        <option value="365">Último ano</option>
+                        <option value="custom">Personalizado</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="schoolFilter">Escola</label>
+                    <select id="schoolFilter">
+                        <option value="all" selected>Todas as escolas</option>
+                        <option value="1">E.E. Maria José</option>
+                        <option value="2">Colégio São Paulo</option>
+                        <option value="3">Instituto Técnico</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="statusFilter">Status</label>
+                    <select id="statusFilter">
+                        <option value="all" selected>Todos</option>
+                        <option value="present">Presente</option>
+                        <option value="late">Atrasado</option>
+                        <option value="absent">Ausente</option>
+                        <option value="justified">Justificado</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-primary" id="applyFiltersBtn">Aplicar Filtros</button>
+                <button class="btn" id="downloadReportBtn"><i class="fas fa-download"></i> Baixar Relatório</button>
+            </div>
+            
+            <!-- Custom Date Range Modal -->
+            <div class="custom-date-range" id="customDateRange" style="display: none;">
+                <div class="date-inputs">
+                    <div class="input-group">
+                        <label for="startDate">Data inicial</label>
+                        <input type="date" id="startDate">
+                    </div>
+                    <div class="input-group">
+                        <label for="endDate">Data final</label>
+                        <input type="date" id="endDate">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Statistics Cards -->
+            <div class="stats-container">
+                <div class="card stat-card">
+                    <div class="stat-icon blue">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalDays">22</h3>
+                        <p>Dias de Trabalho</p>
+                    </div>
+                </div>
+                
+                <div class="card stat-card">
+                    <div class="stat-icon green">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="presentDays">21</h3>
+                        <p>Dias Presente</p>
+                    </div>
+                </div>
+                
+                <div class="card stat-card">
+                    <div class="stat-icon orange">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="lateDays">0</h3>
+                        <p>Dias com Atraso</p>
+                    </div>
+                </div>
+                
+                <div class="card stat-card">
+                    <div class="stat-icon red">
+                        <i class="fas fa-times-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="absentDays">1</h3>
+                        <p>Dias Ausente</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Attendance History -->
+            <div class="card">
+                <div class="card-title">
+                    <h2>Histórico de Frequência</h2>
+                    <div class="card-actions">
+                        <button class="btn-icon" id="refreshHistoryBtn" title="Atualizar histórico"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Dia</th>
+                                <th>Escola</th>
+                                <th>Disciplina</th>
+                                <th>Horário</th>
+                                <th>Entrada</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendanceHistoryTable">
+                            <tr>
+                                <td>17/10/2025</td>
+                                <td>Sexta-feira</td>
+                                <td>E.E. Maria José</td>
+                                <td>Matemática</td>
+                                <td>08:00 - 10:00</td>
+                                <td>08:05</td>
+                                <td><span class="status present">Presente</span></td>
+                                <td class="actions">
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>16/10/2025</td>
+                                <td>Quinta-feira</td>
+                                <td>Instituto Técnico</td>
+                                <td>Estatística</td>
+                                <td>14:00 - 16:00</td>
+                                <td>14:00</td>
+                                <td><span class="status present">Presente</span></td>
+                                <td class="actions">
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>16/10/2025</td>
+                                <td>Quinta-feira</td>
+                                <td>Colégio São Paulo</td>
+                                <td>Matemática</td>
+                                <td>10:30 - 12:30</td>
+                                <td>10:40</td>
+                                <td><span class="status late">Atrasado</span></td>
+                                <td class="actions">
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>15/10/2025</td>
+                                <td>Quarta-feira</td>
+                                <td>E.E. Maria José</td>
+                                <td>Matemática</td>
+                                <td>08:00 - 10:00</td>
+                                <td>08:10</td>
+                                <td><span class="status present">Presente</span></td>
+                                <td class="actions">
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>14/10/2025</td>
+                                <td>Terça-feira</td>
+                                <td>Instituto Técnico</td>
+                                <td>Estatística</td>
+                                <td>14:00 - 16:00</td>
+                                <td>-</td>
+                                <td><span class="status absent">Ausente</span></td>
+                                <td class="actions">
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                    <button title="Justificar ausência"><i class="fas fa-comment"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="pagination">
+                    <button title="Página anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="active">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button title="Próxima página"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <!-- Monthly Summary -->
+            <div class="card">
+                <div class="card-title">
+                    <h2>Resumo Mensal (Outubro 2025)</h2>
+                </div>
+                
+                <div class="monthly-summary">
+                    <div class="summary-chart">
+                        <div class="chart-container">
+                            <div class="chart-bar" style="height: 95%;">
+                                <span class="bar-label">Seg</span>
+                            </div>
+                            <div class="chart-bar" style="height: 95%;">
+                                <span class="bar-label">Ter</span>
+                            </div>
+                            <div class="chart-bar" style="height: 95%;">
+                                <span class="bar-label">Qua</span>
+                            </div>
+                            <div class="chart-bar" style="height: 70%;">
+                                <span class="bar-label">Qui</span>
+                            </div>
+                            <div class="chart-bar" style="height: 95%;">
+                                <span class="bar-label">Sex</span>
+                            </div>
+                        </div>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color present"></span>
+                                <span>Presente</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color late"></span>
+                                <span>Atrasado</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color absent"></span>
+                                <span>Ausente</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="summary-stats">
+                        <div class="summary-stat-item">
+                            <div class="stat-label">Taxa de Presença:</div>
+                            <div class="stat-value">95.5%</div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 95.5%;"></div>
+                            </div>
+                        </div>
+                        <div class="summary-stat-item">
+                            <div class="stat-label">Pontualidade:</div>
+                            <div class="stat-value">90.9%</div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90.9%;"></div>
+                            </div>
+                        </div>
+                        <div class="summary-stat-item">
+                            <div class="stat-label">Horas Trabalhadas:</div>
+                            <div class="stat-value">84h / 88h</div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 95.5%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Attendance Detail Modal -->
+    <div class="modal" id="attendanceDetailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Detalhes da Frequência</h3>
+                <button class="modal-close" id="closeAttendanceDetailModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="attendance-detail">
+                    <div class="detail-row">
+                        <div class="detail-label">Data:</div>
+                        <div class="detail-value" id="detailDate">17/10/2025</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Escola:</div>
+                        <div class="detail-value" id="detailSchool">E.E. Maria José</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Disciplina:</div>
+                        <div class="detail-value" id="detailSubject">Matemática</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Horário Previsto:</div>
+                        <div class="detail-value" id="detailSchedule">08:00 - 10:00</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Horário de Entrada:</div>
+                        <div class="detail-value" id="detailEntry">08:05</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Horário de Saída:</div>
+                        <div class="detail-value" id="detailExit">10:00</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Método de Registro:</div>
+                        <div class="detail-value" id="detailMethod">QR Code</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Status:</div>
+                        <div class="detail-value"><span class="status present" id="detailStatus">Presente</span></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Observações:</div>
+                        <div class="detail-value" id="detailNotes">Nenhuma observação registrada.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="closeDetailBtn">Fechar</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Justify Absence Modal -->
+    <div class="modal" id="justifyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Justificar Ausência</h3>
+                <button class="modal-close" id="closeJustifyModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="justifyForm">
+                    <div class="form-group">
+                        <label for="justifyDate">Data da Ausência</label>
+                        <input type="text" id="justifyDate" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="justifySchool">Escola</label>
+                        <input type="text" id="justifySchool" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="justifyReason">Motivo da Ausência</label>
+                        <select id="justifyReason" required>
+                            <option value="" selected disabled>Selecione um motivo</option>
+                            <option value="doenca">Doença</option>
+                            <option value="consulta">Consulta Médica</option>
+                            <option value="transporte">Problemas de Transporte</option>
+                            <option value="emergencia">Emergência Familiar</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="justifyDescription">Descrição</label>
+                        <textarea id="justifyDescription" rows="4" required placeholder="Descreva detalhadamente o motivo da ausência"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="justifyDocument">Anexar Documento (opcional)</label>
+                        <input type="file" id="justifyDocument">
+                        <small class="form-help">Anexe um atestado médico ou outro documento comprobatório.</small>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="cancelJustifyBtn">Cancelar</button>
+                <button class="btn btn-primary" id="submitJustifyBtn">Enviar Justificativa</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/common.js"></script>
+    <script src="../js/history.js"></script>
+</body>
+</html>

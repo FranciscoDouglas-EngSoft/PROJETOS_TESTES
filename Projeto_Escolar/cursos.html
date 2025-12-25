@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Francisco Douglas">
+    <meta name="description" content="Cursos oferecidos pela E.U. Evaristo Campelo de Matos - Reforço escolar e cursos complementares">
+    <title>Cursos | E.U. Evaristo Campelo de Matos</title>
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./source/img/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./source/css/base.css">
+    <link rel="stylesheet" href="./source/css/layout.css">
+    <link rel="stylesheet" href="./source/css/components.css">
+    <link rel="stylesheet" href="./source/css/cursos.css">
+    <link rel="stylesheet" href="./source/css/animacoes.css">
+</head>
+<body>
+    <header id="header">
+        <div class="sup_links">
+            <h2><i class="fas fa-school"></i> E.U. Evaristo Campelo de Matos</h2>
+            <div class="links_sup">
+                <ul>
+                    <li><a href="tel:86999999999"><i class="fas fa-phone"></i><span class="contact-text">(86) 99999-9999</span></a></li>
+                    <li><a href="mailto:escola@exemplo.com"><i class="fas fa-envelope"></i><span class="contact-text">escola@exemplo.com</span></a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i><span class="contact-text">08:00 - 17:00 (Seg-Sex)</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <nav class="navBar">
+            <div class="icone_logo">
+                <a href="index.html">
+                    <img src="./source/img/Logo moderno para a .png" alt="Ícone Escola">
+                </a>
+            </div>
+            <ul class="nav-menu" id="menuLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#sobre">Sobre</a></li>
+                <li><a href="index.html#escola">Escola</a></li>
+                <li><a href="./eja.html">EJA</a></li>
+                <li class="has-dropdown">
+                    <a href="#" class="active">Páginas <i class="fas fa-chevron-down"></i></a>
+                    <ul class="paginas">
+                        <li><a href="./cursos.html" class="active"><i class="fas fa-graduation-cap"></i> Cursos</a></li>
+                        <li><a href="./eventos.html"><i class="fas fa-calendar-alt"></i> Eventos</a></li>
+                        <li><a href="index.html#profissionais"><i class="fas fa-users"></i> Professores</a></li>
+                        <li><a href="./galeria.html"><i class="fas fa-images"></i> Galeria</a></li>
+                        <li><a href="./biblioteca.html"><i class="fas fa-book"></i> Biblioteca</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#contato" class="contact">Contato</a></li>
+            </ul>
+            
+            <div class="menu_amburgue" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="container">
+        <!-- Banner Principal -->
+        <section id="courses-hero" class="courses-hero">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h3>Educação Complementar</h3>
+                <h1>Cursos de Reforço e Aprendizado Extra</h1>
+                <p>Oferecemos uma variedade de cursos de reforço escolar e desenvolvimento de habilidades para nossos alunos e toda a comunidade.</p>
+                <div class="hero-buttons">
+                    <a href="#all-courses" class="btn">Ver todos os cursos</a>
+                    <a href="#como-funciona" class="btn btn-outline">Como funciona</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro Cards -->
+        <section class="courses-cards">
+            <div class="section-container">
+                <div class="cards-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Reforço Escolar</h3>
+                        <p>Suporte especializado para as disciplinas do currículo regular, ajudando os alunos a superar dificuldades.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Cursos de Informática</h3>
+                        <p>Capacitação em tecnologia e informática para alunos e comunidade, do básico ao avançado.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Desenvolvimento Pessoal</h3>
+                        <p>Cursos que desenvolvem habilidades socioemocionais e auxiliam no crescimento pessoal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Funciona -->
+        <section id="como-funciona" class="section-padding bg-light">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Metodologia</span>
+                    <h2 class="section-title">Como funcionam nossos cursos</h2>
+                    <p class="section-desc">Conheça a metodologia aplicada em nossos cursos complementares e como eles podem ajudar no desenvolvimento acadêmico e pessoal.</p>
+                </div>
+
+                <div class="how-it-works">
+                    <div class="how-step">
+                        <div class="step-icon">
+                            <i class="fas fa-user-check"></i>
+                            <span>01</span>
+                        </div>
+                        <div class="step-content">
+                            <h3>Diagnóstico</h3>
+                            <p>Realizamos uma avaliação diagnóstica para identificar as necessidades específicas de cada aluno e personalizar o plano de estudos.</p>
+                        </div>
+                    </div>
+
+                    <div class="how-step">
+                        <div class="step-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>02</span>
+                        </div>
+                        <div class="step-content">
+                            <h3>Aulas Dinâmicas</h3>
+                            <p>As aulas são ministradas por professores especializados, com metodologias ativas que engajam os alunos e facilitam o aprendizado.</p>
+                        </div>
+                    </div>
+
+                    <div class="how-step">
+                        <div class="step-icon">
+                            <i class="fas fa-tasks"></i>
+                            <span>03</span>
+                        </div>
+                        <div class="step-content">
+                            <h3>Acompanhamento</h3>
+                            <p>Monitoramos constantemente o progresso dos alunos, com avaliações periódicas e feedbacks para ajustar o ritmo e conteúdo quando necessário.</p>
+                        </div>
+                    </div>
+
+                    <div class="how-step">
+                        <div class="step-icon">
+                            <i class="fas fa-chart-line"></i>
+                            <span>04</span>
+                        </div>
+                        <div class="step-content">
+                            <h3>Resultados</h3>
+                            <p>Ao final de cada módulo, realizamos uma avaliação de resultados e entregamos um relatório de desenvolvimento ao aluno e responsáveis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="methodology-features">
+                    <div class="method-feature">
+                        <i class="fas fa-users"></i>
+                        <p>Turmas reduzidas</p>
+                    </div>
+                    <div class="method-feature">
+                        <i class="fas fa-calendar-check"></i>
+                        <p>Horários flexíveis</p>
+                    </div>
+                    <div class="method-feature">
+                        <i class="fas fa-file-alt"></i>
+                        <p>Material didático</p>
+                    </div>
+                    <div class="method-feature">
+                        <i class="fas fa-certificate"></i>
+                        <p>Certificado</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorias de Cursos -->
+        <section class="section-padding">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Áreas de Conhecimento</span>
+                    <h2 class="section-title">Categorias de Cursos</h2>
+                    <p class="section-desc">Explore nossas categorias de cursos e encontre a opção ideal para suas necessidades</p>
+                </div>
+
+                <div class="categories-container">
+                    <div class="category-tabs">
+                        <button class="tab-btn active" data-target="fundamental">Reforço Fundamental</button>
+                        <button class="tab-btn" data-target="medio">Reforço Médio</button>
+                        <button class="tab-btn" data-target="informatica">Informática</button>
+                        <button class="tab-btn" data-target="idiomas">Idiomas</button>
+                        <button class="tab-btn" data-target="artes">Artes</button>
+                    </div>
+
+                    <div class="category-content">
+                        <div class="tab-content active" id="fundamental">
+                            <div class="tab-header">
+                                <h3>Reforço para Ensino Fundamental</h3>
+                                <p>Suporte nas principais disciplinas do Ensino Fundamental para fortalecer a base educacional dos alunos.</p>
+                            </div>
+                            <div class="category-grid">
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Matemática Fundamental">
+                                    <div class="category-overlay">
+                                        <h4>Matemática</h4>
+                                        <p>Operações fundamentais, frações, geometria básica e álgebra</p>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Português Fundamental">
+                                    <div class="category-overlay">
+                                        <h4>Português</h4>
+                                        <p>Gramática, interpretação de texto e produção textual</p>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Ciências Fundamental">
+                                    <div class="category-overlay">
+                                        <h4>Ciências</h4>
+                                        <p>Biologia, química e física básica para o ensino fundamental</p>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1572058685580-95454aea4ca9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Geografia Fundamental">
+                                    <div class="category-overlay">
+                                        <h4>Geografia</h4>
+                                        <p>Cartografia, clima, relevo e geografia política</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="medio">
+                            <div class="tab-header">
+                                <h3>Reforço para Ensino Médio</h3>
+                                <p>Preparação para as disciplinas do Ensino Médio com foco em vestibulares e ENEM.</p>
+                            </div>
+                            <div class="category-grid">
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Matemática Médio">
+                                    <div class="category-overlay">
+                                        <h4>Matemática</h4>
+                                        <p>Funções, trigonometria, geometria analítica e estatística</p>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Redação ENEM">
+                                    <div class="category-overlay">
+                                        <h4>Redação ENEM</h4>
+                                        <p>Técnicas de redação específicas para o ENEM</p>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1581093583449-6e9f5cf35a0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Física">
+                                    <div class="category-overlay">
+                                        <h4>Física</h4>
+                                        <p>Mecânica, eletricidade, óptica e física moderna</p>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Química">
+                                    <div class="category-overlay">
+                                        <h4>Química</h4>
+                                        <p>Química orgânica, inorgânica e físico-química</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="informatica">
+                            <div class="tab-header">
+                                <h3>Cursos de Informática</h3>
+                                <p>Desenvolvimento de habilidades digitais essenciais para o mundo contemporâneo.</p>
+                            </div>
+                            <div class="category-grid">
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Informática Básica">
+                                    <div class="category-overlay">
+                                        <h4>Informática Básica</h4>
+                                        <p>Introdução ao computador, internet e pacote Office básico</p>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Office Avançado">
+                                    <div class="category-overlay">
+                                        <h4>Office Avançado</h4>
+                                        <p>Word, Excel, PowerPoint e Access com recursos avançados</p>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Programação para Iniciantes">
+                                    <div class="category-overlay">
+                                        <h4>Programação para Iniciantes</h4>
+                                        <p>Lógica de programação, HTML, CSS e JavaScript básico</p>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Design Gráfico">
+                                    <div class="category-overlay">
+                                        <h4>Design Gráfico</h4>
+                                        <p>Photoshop, Illustrator e princípios de design</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="idiomas">
+                            <div class="tab-header">
+                                <h3>Cursos de Idiomas</h3>
+                                <p>Aprenda novos idiomas e amplie seus horizontes culturais e profissionais.</p>
+                            </div>
+                            <div class="category-grid">
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1546900703-cf06143d1239?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Inglês">
+                                    <div class="category-overlay">
+                                        <h4>Inglês</h4>
+                                        <p>Do básico ao avançado com foco em comunicação</p>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1569880153113-76e33fc52d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Espanhol">
+                                    <div class="category-overlay">
+                                        <h4>Espanhol</h4>
+                                        <p>Gramática, vocabulário e conversação em espanhol</p>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1518133835878-5a93cc3f89e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Francês">
+                                    <div class="category-overlay">
+                                        <h4>Francês</h4>
+                                        <p>Introdução ao idioma e cultura francesa</p>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1543769657-fcf1236421bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Libras">
+                                    <div class="category-overlay">
+                                        <h4>Libras</h4>
+                                        <p>Língua Brasileira de Sinais para comunicação inclusiva</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="artes">
+                            <div class="tab-header">
+                                <h3>Cursos de Artes</h3>
+                                <p>Desenvolva talentos artísticos e explore sua criatividade.</p>
+                            </div>
+                            <div class="category-grid">
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Música">
+                                    <div class="category-overlay">
+                                        <h4>Música</h4>
+                                        <p>Teoria musical, instrumentos e canto</p>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Desenho">
+                                    <div class="category-overlay">
+                                        <h4>Desenho</h4>
+                                        <p>Técnicas de desenho artístico e ilustração</p>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1517420879524-86d64ac2f339?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Teatro">
+                                    <div class="category-overlay">
+                                        <h4>Teatro</h4>
+                                        <p>Expressão corporal, interpretação e improvisação</p>
+                                    </div>
+                                </div>
+                                <div class="category-item">
+                                    <img src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1296&q=80" alt="Dança">
+                                    <div class="category-overlay">
+                                        <h4>Dança</h4>
+                                        <p>Diversos estilos de dança e expressão corporal</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cursos em Destaque -->
+        <section id="all-courses" class="section-padding bg-light">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Confira nossos cursos</span>
+                    <h2 class="section-title">Cursos em Destaque</h2>
+                    <p class="section-desc">Os cursos mais populares e bem avaliados pelos nossos alunos</p>
+                </div>
+
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="reforco">Reforço</button>
+                    <button class="filter-btn" data-filter="informatica">Informática</button>
+                    <button class="filter-btn" data-filter="idiomas">Idiomas</button>
+                    <button class="filter-btn" data-filter="artes">Artes</button>
+                </div>
+
+                <div class="courses-grid">
+                    <!-- Cursos de Reforço -->
+                    <div class="course-card" data-category="reforco">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Matemática Fundamental" loading="lazy">
+                            <div class="course-badge">Reforço</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-info">
+                                <div><i class="fas fa-clock"></i> 3 meses</div>
+                                <div><i class="fas fa-users"></i> 10 vagas</div>
+                                <div><i class="fas fa-star"></i> 4.8</div>
+                            </div>
+                            <h3>Matemática Fundamental</h3>
+                            <p>Reforço escolar de matemática para alunos do 6° ao 9° ano do Ensino Fundamental.</p>
+                            <div class="course-details">
+                                <div class="instructor">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profa. Ana Lima">
+                                    <span>Profa. Ana Lima</span>
+                                </div>
+                                <a href="#" class="btn-details">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-card" data-category="reforco">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Redação para ENEM" loading="lazy">
+                            <div class="course-badge">Reforço</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-info">
+                                <div><i class="fas fa-clock"></i> 4 meses</div>
+                                <div><i class="fas fa-users"></i> 15 vagas</div>
+                                <div><i class="fas fa-star"></i> 5.0</div>
+                            </div>
+                            <h3>Redação para ENEM</h3>
+                            <p>Curso especializado em técnicas de redação para obter nota máxima no ENEM.</p>
+                            <div class="course-details">
+                                <div class="instructor">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Prof. Carlos Santos">
+                                    <span>Prof. Carlos Santos</span>
+                                </div>
+                                <a href="#" class="btn-details">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cursos de Informática -->
+                    <div class="course-card" data-category="informatica">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Programação para Jovens" loading="lazy">
+                            <div class="course-badge">Informática</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-info">
+                                <div><i class="fas fa-clock"></i> 3 meses</div>
+                                <div><i class="fas fa-users"></i> 12 vagas</div>
+                                <div><i class="fas fa-star"></i> 4.9</div>
+                            </div>
+                            <h3>Programação para Jovens</h3>
+                            <p>Introdução ao mundo da programação com HTML, CSS e JavaScript para alunos de 12 a 17 anos.</p>
+                            <div class="course-details">
+                                <div class="instructor">
+                                    <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Prof. Rafael Costa">
+                                    <span>Prof. Rafael Costa</span>
+                                </div>
+                                <a href="#" class="btn-details">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-card" data-category="informatica">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Office Completo" loading="lazy">
+                            <div class="course-badge">Informática</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-info">
+                                <div><i class="fas fa-clock"></i> 2 meses</div>
+                                <div><i class="fas fa-users"></i> 20 vagas</div>
+                                <div><i class="fas fa-star"></i> 4.7</div>
+                            </div>
+                            <h3>Office Completo</h3>
+                            <p>Aprenda a utilizar Word, Excel, PowerPoint e Access do básico ao avançado.</p>
+                            <div class="course-details">
+                                <div class="instructor">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Profa. Juliana Martins">
+                                    <span>Profa. Juliana Martins</span>
+                                </div>
+                                <a href="#" class="btn-details">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cursos de Idiomas -->
+                    <div class="course-card" data-category="idiomas">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Inglês Básico" loading="lazy">
+                            <div class="course-badge">Idiomas</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-info">
+                                <div><i class="fas fa-clock"></i> 6 meses</div>
+                                <div><i class="fas fa-users"></i> 15 vagas</div>
+                                <div><i class="fas fa-star"></i> 4.8</div>
+                            </div>
+                            <h3>Inglês Básico</h3>
+                            <p>Curso de inglês para iniciantes com foco em conversação e situações do dia a dia.</p>
+                            <div class="course-details">
+                                <div class="instructor">
+                                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Profa. Amanda Silva">
+                                    <span>Profa. Amanda Silva</span>
+                                </div>
+                                <a href="#" class="btn-details">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-card" data-category="idiomas">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1551018612-9715965c6742?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Espanhol para Viagens" loading="lazy">
+                            <div class="course-badge">Idiomas</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-info">
+                                <div><i class="fas fa-clock"></i> 3 meses</div>
+                                <div><i class="fas fa-users"></i> 12 vagas</div>
+                                <div><i class="fas fa-star"></i> 4.6</div>
+                            </div>
+                            <h3>Espanhol para Viagens</h3>
+                            <p>Aprenda o essencial do espanhol para se comunicar em viagens para países hispânicos.</p>
+                            <div class="course-details">
+                                <div class="instructor">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Prof. Miguel Rodriguez">
+                                    <span>Prof. Miguel Rodriguez</span>
+                                </div>
+                                <a href="#" class="btn-details">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cursos de Arte -->
+                    <div class="course-card" data-category="artes">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Violão Iniciante" loading="lazy">
+                            <div class="course-badge">Artes</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-info">
+                                <div><i class="fas fa-clock"></i> 4 meses</div>
+                                <div><i class="fas fa-users"></i> 8 vagas</div>
+                                <div><i class="fas fa-star"></i> 4.9</div>
+                            </div>
+                            <h3>Violão Iniciante</h3>
+                            <p>Aprenda a tocar violão do zero, com técnicas simples e progressivas.</p>
+                            <div class="course-details">
+                                <div class="instructor">
+                                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Prof. Marcos Oliveira">
+                                    <span>Prof. Marcos Oliveira</span>
+                                </div>
+                                <a href="#" class="btn-details">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-card" data-category="artes">
+                        <div class="course-image">
+                            <img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Desenho Artístico" loading="lazy">
+                            <div class="course-badge">Artes</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-info">
+                                <div><i class="fas fa-clock"></i> 3 meses</div>
+                                <div><i class="fas fa-users"></i> 10 vagas</div>
+                                <div><i class="fas fa-star"></i> 4.8</div>
+                            </div>
+                            <h3>Desenho Artístico</h3>
+                            <p>Do rabisco ao desenho profissional: técnicas básicas e avançadas de desenho artístico.</p>
+                            <div class="course-details">
+                                <div class="instructor">
+                                    <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Profa. Luísa Mendes">
+                                    <span>Profa. Luísa Mendes</span>
+                                </div>
+                                <a href="#" class="btn-details">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pagination">
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#" class="next">Próxima <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professores -->
+        <section class="section-padding">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Nossa Equipe</span>
+                    <h2 class="section-title">Professores Especializados</h2>
+                    <p class="section-desc">Conheça alguns dos nossos talentosos professores que ministram os cursos</p>
+                </div>
+
+                <div class="teachers-slider">
+                    <div class="teacher-card">
+                        <div class="teacher-image">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profa. Ana Lima">
+                            <div class="teacher-social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="teacher-info">
+                            <h3>Profa. Ana Lima</h3>
+                            <span class="teacher-subject">Matemática</span>
+                            <p>Mestre em Educação Matemática com 10 anos de experiência no ensino fundamental e médio.</p>
+                        </div>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-image">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Prof. Carlos Santos">
+                            <div class="teacher-social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="teacher-info">
+                            <h3>Prof. Carlos Santos</h3>
+                            <span class="teacher-subject">Português e Redação</span>
+                            <p>Escritor e professor com especialização em Língua Portuguesa e Literatura Brasileira.</p>
+                        </div>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-image">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Profa. Juliana Martins">
+                            <div class="teacher-social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="teacher-info">
+                            <h3>Profa. Juliana Martins</h3>
+                            <span class="teacher-subject">Informática</span>
+                            <p>Graduada em Sistemas de Informação com certificações Microsoft Office Specialist.</p>
+                        </div>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-image">
+                            <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Prof. Rafael Costa">
+                            <div class="teacher-social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="teacher-info">
+                            <h3>Prof. Rafael Costa</h3>
+                            <span class="teacher-subject">Programação</span>
+                            <p>Desenvolvedor web com mais de 8 anos de experiência e paixão por ensinar jovens a programar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider-controls">
+                    <button class="slider-btn prev" id="prevTeacher"><i class="fas fa-arrow-left"></i></button>
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="slider-btn next" id="nextTeacher"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos -->
+        <section class="section-padding bg-light">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">O que dizem</span>
+                    <h2 class="section-title">Depoimentos de Alunos</h2>
+                </div>
+
+                <div class="testimonials-slider">
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>O curso de Matemática me ajudou a superar minhas dificuldades na escola. A professora Ana tem uma forma muito clara de explicar, e consegui melhorar minhas notas significativamente.</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/79.jpg" alt="Lucas Mendes">
+                                <div>
+                                    <h4>Lucas Mendes</h4>
+                                    <p>Aluno do 8º ano</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>Depois do curso de Redação para ENEM, minha nota subiu de 680 para 920! As técnicas ensinadas pelo professor Carlos fizeram toda a diferença. Agora estou me preparando para o vestibular com muito mais confiança.</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/62.jpg" alt="Mariana Costa">
+                                <div>
+                                    <h4>Mariana Costa</h4>
+                                    <p>Aluna do 3º ano</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>O curso de Programação para Jovens abriu meus horizontes. Nunca imaginei que seria capaz de criar meu próprio site com 15 anos! O professor Rafael é muito paciente e explica tudo passo a passo.</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Pedro Almeida">
+                                <div>
+                                    <h4>Pedro Almeida</h4>
+                                    <p>Aluno de Informática</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider-controls">
+                    <button class="slider-btn prev" id="prevTestimonial"><i class="fas fa-arrow-left"></i></button>
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="slider-btn next" id="nextTestimonial"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inscrições -->
+        <section class="section-padding registration-section">
+            <div class="section-container">
+                <div class="registration-container">
+                    <div class="registration-content">
+                        <span class="section-badge">Inscrições Abertas</span>
+                        <h2>Comece sua jornada de aprendizado hoje</h2>
+                        <p>Nossas turmas têm vagas limitadas. Garanta já sua vaga e comece a transformar seu futuro.</p>
+                        <ul class="registration-features">
+                            <li><i class="fas fa-check-circle"></i> Material didático incluído</li>
+                            <li><i class="fas fa-check-circle"></i> Professores qualificados</li>
+                            <li><i class="fas fa-check-circle"></i> Certificado de conclusão</li>
+                            <li><i class="fas fa-check-circle"></i> Suporte contínuo</li>
+                        </ul>
+                        <a href="index.html#contato" class="btn">Inscreva-se agora</a>
+                    </div>
+                    <div class="registration-image">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Alunos estudando" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section-padding bg-light">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Perguntas Frequentes</span>
+                    <h2 class="section-title">Dúvidas sobre nossos cursos</h2>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Como funcionam as aulas de reforço?</h3>
+                            <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>As aulas de reforço são oferecidas em horários complementares ao turno escolar. Trabalhamos em grupos pequenos, com no máximo 10 alunos, para garantir atenção individualizada. Os conteúdos são alinhados ao currículo escolar, reforçando os assuntos que os alunos têm mais dificuldade.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Qual é a duração dos cursos?</h3>
+                            <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>A duração varia conforme o curso. Os cursos de reforço escolar geralmente duram um semestre letivo, com encontros semanais. Cursos de idiomas e informática têm duração de 3 a 6 meses, dependendo do nível. Cursos específicos como Redação para ENEM podem ter formatos intensivos mais curtos.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Há algum desconto para alunos da escola?</h3>
+                            <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sim! Alunos matriculados na E.U. Evaristo Campelo de Matos têm 15% de desconto em todos os cursos complementares. Além disso, oferecemos bolsas integrais para alunos de baixa renda com bom desempenho acadêmico.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>É necessário ter conhecimento prévio para fazer os cursos?</h3>
+                            <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>A maioria dos nossos cursos possui turmas para iniciantes, não exigindo conhecimento prévio. Para cursos mais avançados, realizamos uma avaliação diagnóstica para identificar se o aluno possui os pré-requisitos necessários ou se precisaria iniciar em um nível mais básico.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Como são formadas as turmas?</h3>
+                            <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>As turmas são formadas considerando a faixa etária e o nível de conhecimento dos alunos. Buscamos criar grupos homogêneos para garantir que o ritmo de aprendizado seja adequado para todos. Limitamos o número de alunos por turma para assegurar um atendimento de qualidade.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Os cursos emitem certificado?</h3>
+                            <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sim, todos os nossos cursos emitem certificado de conclusão, desde que o aluno tenha frequência mínima de 75% e aproveitamento satisfatório nas avaliações. Os certificados dos cursos de informática são reconhecidos pelo mercado de trabalho.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="content_footer">
+            <div class="footer-column">
+                <h3>Sobre Nós</h3>
+                <p>A E.U. Evaristo Campelo de Matos é uma instituição dedicada à excelência no ensino, formando cidadãos preparados para os desafios do futuro.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="index.html#escola">Escola</a></li>
+                    <li><a href="./eja.html">EJA</a></li>
+                    <li><a href="./cursos.html">Cursos</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Cursos Populares</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Matemática Fundamental</a></li>
+                    <li><a href="#">Redação para ENEM</a></li>
+                    <li><a href="#">Programação para Jovens</a></li>
+                    <li><a href="#">Inglês Básico</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contato</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> Av. Principal, 1000, Centro</li>
+                    <li><i class="fas fa-phone"></i> (86) 99999-9999</li>
+                    <li><i class="fas fa-envelope"></i> escola@exemplo.com</li>
+                    <li><i class="fas fa-clock"></i> Segunda a Sexta: 8h às 17h</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 E.U. Evaristo Campelo de Matos. Todos os direitos reservados.</p>
+            <p>Desenvolvido por <span>Francisco Douglas</span></p>
+        </div>
+        <a href="#" class="back-to-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></a>
+    </footer>
+
+    <script src="./source/js/script_cursos.js"></script>
+</body>
+</html>

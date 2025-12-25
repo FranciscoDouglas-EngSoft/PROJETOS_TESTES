@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Professor - Sistema de Frequência</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/theme.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../img/logo.svg" alt="Logo">
+                <h2>FrequênciaApp</h2>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="dashboard-professor.html" class="menu-item active">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="minhas-escolas.html" class="menu-item">
+                        <i class="fas fa-school"></i>
+                        <span>Minhas Escolas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="marcar-presenca.html" class="menu-item">
+                        <i class="fas fa-qrcode"></i>
+                        <span>Marcar Presença</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="meu-historico.html" class="menu-item">
+                        <i class="fas fa-history"></i>
+                        <span>Meu Histórico</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="perfil.html" class="menu-item">
+                        <i class="fas fa-user"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h1>Dashboard do Professor</h1>
+                <div class="user-info">
+                    <img src="../img/avatar-professor.svg" alt="User Avatar" class="user-avatar">
+                    <span class="user-name" id="professorName">Professor Silva</span>
+                </div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="stats-container">
+                <div class="card stat-card">
+                    <div class="stat-icon blue">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>3</h3>
+                        <p>Escolas Vinculadas</p>
+                    </div>
+                </div>
+                
+                <div class="card stat-card">
+                    <div class="stat-icon green">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>98%</h3>
+                        <p>Taxa de Presença</p>
+                    </div>
+                </div>
+                
+                <div class="card stat-card">
+                    <div class="stat-icon orange">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>12</h3>
+                        <p>Horas Hoje</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Actions -->
+            <div class="card">
+                <div class="card-title">
+                    <h2>Ações Rápidas</h2>
+                </div>
+                
+                <div class="quick-actions">
+                    <button class="action-button" id="scanQrBtn">
+                        <i class="fas fa-qrcode"></i>
+                        <span>Escanear QR Code</span>
+                    </button>
+                    
+                    <button class="action-button" id="downloadReportBtn">
+                        <i class="fas fa-download"></i>
+                        <span>Baixar Relatório</span>
+                    </button>
+                    
+                    <button class="action-button" id="requestLeaveBtn">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Solicitar Folga</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Today's Schedule -->
+            <div class="card">
+                <div class="card-title">
+                    <h2>Agenda de Hoje</h2>
+                    <button class="btn-icon" id="refreshSchedule" title="Atualizar agenda">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Escola</th>
+                                <th>Disciplina</th>
+                                <th>Horário</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scheduleTable">
+                            <tr>
+                                <td>E.E. Maria José</td>
+                                <td>Matemática</td>
+                                <td>08:00 - 10:00</td>
+                                <td><span class="status present">Registrado</span></td>
+                                <td class="actions">
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Colégio São Paulo</td>
+                                <td>Matemática</td>
+                                <td>10:30 - 12:30</td>
+                                <td><span class="status">Pendente</span></td>
+                                <td class="actions">
+                                    <button title="Registrar presença"><i class="fas fa-qrcode"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Instituto Técnico</td>
+                                <td>Estatística</td>
+                                <td>14:00 - 16:00</td>
+                                <td><span class="status">Pendente</span></td>
+                                <td class="actions">
+                                    <button title="Registrar presença"><i class="fas fa-qrcode"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Recent Activities -->
+            <div class="card">
+                <div class="card-title">
+                    <h2>Histórico Recente</h2>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Escola</th>
+                                <th>Disciplina</th>
+                                <th>Horário</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>16/10/2025</td>
+                                <td>E.E. Maria José</td>
+                                <td>Matemática</td>
+                                <td>08:00 - 10:00</td>
+                                <td><span class="status present">Presente</span></td>
+                            </tr>
+                            <tr>
+                                <td>16/10/2025</td>
+                                <td>Colégio São Paulo</td>
+                                <td>Matemática</td>
+                                <td>10:30 - 12:30</td>
+                                <td><span class="status present">Presente</span></td>
+                            </tr>
+                            <tr>
+                                <td>16/10/2025</td>
+                                <td>Instituto Técnico</td>
+                                <td>Estatística</td>
+                                <td>14:00 - 16:00</td>
+                                <td><span class="status present">Presente</span></td>
+                            </tr>
+                            <tr>
+                                <td>15/10/2025</td>
+                                <td>E.E. Maria José</td>
+                                <td>Matemática</td>
+                                <td>08:00 - 10:00</td>
+                                <td><span class="status present">Presente</span></td>
+                            </tr>
+                            <tr>
+                                <td>15/10/2025</td>
+                                <td>Instituto Técnico</td>
+                                <td>Estatística</td>
+                                <td>14:00 - 16:00</td>
+                                <td><span class="status absent">Ausente</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="pagination">
+                    <button title="Página anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="active">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button title="Próxima página"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- QR Scanner Modal -->
+    <div class="modal" id="qrScannerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Escanear QR Code</h3>
+                <button class="modal-close" id="closeQrScannerModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="scanner-container">
+                    <div class="scanner-view">
+                        <div class="scanner-frame"></div>
+                        <video id="qrScanner" autoplay playsinline></video>
+                    </div>
+                    <p class="scanner-info">Posicione o QR Code da escola dentro do quadro para registrar sua presença.</p>
+                    <div class="scanner-options">
+                        <button class="btn btn-primary" id="startScanBtn">Iniciar Scanner</button>
+                        <button class="btn" id="cancelScanBtn">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Presença Registrada</h3>
+                <button class="modal-close" id="closeSuccessModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-message">
+                    <i class="fas fa-check-circle" style="font-size: 48px; color: var(--success-color); margin-bottom: 20px;"></i>
+                    <h3>Presença registrada com sucesso!</h3>
+                    <p>Sua presença foi registrada para:</p>
+                    <div class="attendance-info" id="attendanceInfo">
+                        <p><strong>Escola:</strong> <span id="schoolName">E.E. Maria José</span></p>
+                        <p><strong>Disciplina:</strong> <span id="subjectName">Matemática</span></p>
+                        <p><strong>Data:</strong> <span id="attendanceDate">17/10/2025</span></p>
+                        <p><strong>Horário:</strong> <span id="attendanceTime">08:15</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="okSuccessBtn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/common.js"></script>
+    <script src="../js/dashboard-professor.js"></script>
+</body>
+</html>

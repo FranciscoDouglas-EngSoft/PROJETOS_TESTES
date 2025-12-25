@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Francisco Douglas">
+    <meta name="description" content="EJA - Educação de Jovens e Adultos - E.U. Evaristo Campelo de Matos">
+    <title>EJA | E.U. Evaristo Campelo de Matos</title>
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./source/img/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./source/css/base.css">
+    <link rel="stylesheet" href="./source/css/layout.css">
+    <link rel="stylesheet" href="./source/css/components.css">
+
+    <style>
+        /* Estilos específicos para a página EJA */
+        #home.eja-home {
+            background-image: linear-gradient(rgba(0, 47, 113, 0.75), rgba(0, 47, 113, 0.85)), url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            min-height: 500px;
+        }
+
+        .eja-feature {
+            background-color: var(--color-bg-alt);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eja-feature::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            background-color: var(--color-primary);
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .eja-benefits {
+            padding: 20px;
+            background-color: var(--color-white);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .eja-benefits:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .eja-benefits::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--color-secondary);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+        }
+
+        .eja-benefits:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .benefit-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--color-primary);
+            color: var(--color-white);
+            font-size: 1.5rem;
+        }
+
+        .benefit-title {
+            font-size: 1.4rem;
+            color: var(--color-dark);
+            font-weight: 700;
+        }
+
+        .benefit-desc {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--color-bg-alt);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: var(--color-secondary);
+            border: 4px solid var(--color-primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -12px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background: var(--color-white);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .timeline-content h3 {
+            color: var(--color-primary);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-date {
+            color: var(--color-secondary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .registration-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .step-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius-md);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            font-size: 1.3rem;
+            color: var(--color-dark);
+            margin-bottom: 15px;
+        }
+
+        .testimonials {
+            background: linear-gradient(to right, rgba(0, 47, 113, 0.9), rgba(0, 47, 113, 0.85)), url('https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--color-white);
+            padding: 80px 0;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-md);
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '\201C';
+            font-size: 6rem;
+            font-family: Georgia, serif;
+            color: var(--color-secondary);
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--color-secondary);
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .faq-section {
+            padding: 80px 0;
+        }
+
+        .accordion {
+            margin-top: 40px;
+        }
+
+        .accordion-item {
+            margin-bottom: 15px;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .accordion-header {
+            background-color: var(--color-white);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .accordion-header:hover {
+            background-color: var(--color-bg-alt);
+        }
+
+        .accordion-header h3 {
+            font-size: 1.1rem;
+            color: var(--color-dark);
+            font-weight: 600;
+        }
+
+        .accordion-header i {
+            color: var(--color-primary);
+            transition: var(--transition);
+        }
+
+        .accordion-content {
+            background-color: var(--color-white);
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content p {
+            padding: 10px 0 20px;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        .accordion-item.active .accordion-header {
+            background-color: var(--color-bg-alt);
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 300px;
+        }
+
+        .accordion-item.active .accordion-header i {
+            transform: rotate(180deg);
+        }
+
+        .eja-cta {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            padding: 80px 0;
+            color: var(--color-white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eja-cta::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            top: -100px;
+            left: -100px;
+        }
+
+        .eja-cta::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgba(255, 180, 0, 0.2);
+            bottom: -50px;
+            right: -50px;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .eja-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .eja-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .eja-cta .btn {
+            background-color: var(--color-secondary);
+            color: var(--color-dark);
+            font-size: 1.1rem;
+            padding: 15px 40px;
+        }
+
+        .eja-cta .btn:hover {
+            background-color: var(--color-white);
+        }
+
+        /* Responsivo */
+        @media (max-width: 992px) {
+            .timeline-container::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .benefit-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .eja-cta h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .eja-cta h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="sup_links">
+            <h2><i class="fas fa-school"></i> E.U. Evaristo Campelo de Matos</h2>
+            <div class="links_sup">
+                <ul>
+                    <li><a href="tel:86999999999"><i class="fas fa-phone"></i><span class="contact-text">(86) 99999-9999</span></a></li>
+                    <li><a href="mailto:escola@exemplo.com"><i class="fas fa-envelope"></i><span class="contact-text">escola@exemplo.com</span></a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i><span class="contact-text">08:00 - 17:00 (Seg-Sex)</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <nav class="navBar">
+            <div class="icone_logo">
+                <a href="index.html">
+                    <img src="./source/img/Logo moderno para a .png" alt="Ícone Escola">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#sobre">Sobre</a></li>
+                <li><a href="index.html#escola">Escola</a></li>
+                <li><a href="./eja.html" class="active escola_eja">EJA</a></li>
+                <li class="has-dropdown">
+                    <a href="#galeria">Páginas <i class="fas fa-chevron-down"></i></a>
+                    <ul class="paginas">
+                        <li><a href="./cursos.html"><i class="fas fa-graduation-cap"></i> Cursos</a></li>
+                        <li><a href="./eventos.html"><i class="fas fa-calendar-alt"></i> Eventos</a></li>
+                        <li><a href="index.html#profissionais"><i class="fas fa-users"></i> Professores</a></li>
+                        <li><a href="./galeria.html"><i class="fas fa-images"></i> Galeria</a></li>
+                        <li><a href="./biblioteca.html"><i class="fas fa-book"></i> Biblioteca</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#contato" class="contact">Contato</a></li>
+            </ul>
+            
+            <div class="menu_amburgue" aria-label="Abrir menu" aria-expanded="false">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="container">
+        <!-- Banner Principal -->
+        <section id="home" class="eja-home">
+            <h3>Educação de Jovens e Adultos</h3>
+
+            <h1>Nunca é tarde para recomeçar sua jornada de aprendizado</h1>
+
+            <p>O programa EJA da E.U. Evaristo Campelo de Matos oferece uma segunda chance de educação para quem não pôde concluir os estudos na idade convencional, com metodologia especializada e professores capacitados.</p>
+
+            <a href="#inscricao" class="btn">Faça sua inscrição</a>
+        </section>
+        
+        <!-- Sobre o EJA -->
+        <section id="sobre-eja" class="section-padding">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Conheça o EJA</span>
+                    <h2 class="section-title">Educação de Jovens e Adultos</h2>
+                    <p class="section-desc">Nossa proposta pedagógica é especialmente desenvolvida para atender às necessidades educacionais de jovens e adultos, respeitando seus conhecimentos prévios e experiências de vida.</p>
+                </div>
+                
+                <div class="vision-container">
+                    <div class="vision-content">
+                        <h3>O que é o EJA?</h3>
+                        <p>A Educação de Jovens e Adultos (EJA) é uma modalidade de ensino criada pelo Governo Federal para garantir a formação de jovens e adultos que não completaram o Ensino Fundamental ou Médio na idade apropriada.</p>
+                        
+                        <h3>Como funciona?</h3>
+                        <p>O programa oferece um currículo adaptado, com metodologia específica e carga horária diferenciada, permitindo a conclusão dos estudos em menos tempo, sem perder a qualidade do ensino. As aulas são ministradas por professores especializados em educação para adultos.</p>
+                        
+                        <h3>Quem pode participar?</h3>
+                        <p>Podem participar do EJA pessoas com 15 anos ou mais para o Ensino Fundamental e 18 anos ou mais para o Ensino Médio, que não tiveram oportunidade de estudar ou concluir seus estudos na idade convencional.</p>
+                        
+                        <a href="#inscricao" class="btn btn-secondary">Inscreva-se Agora</a>
+                    </div>
+                    
+                    <div class="vision-image">
+                        <img src="https://images.unsplash.com/photo-1524069290683-0457abfe42c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Estudantes EJA em sala de aula" loading="lazy">
+                        <div class="experience-badge">
+                            <span class="exp-number">10+</span>
+                            <span class="exp-text">Anos de EJA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefícios -->
+        <section class="eja-feature">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Por que escolher nosso EJA?</span>
+                    <h2 class="section-title">Benefícios da Educação EJA</h2>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px;">
+                    <div class="eja-benefits">
+                        <div class="benefit-header">
+                            <div class="benefit-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3 class="benefit-title">Horário Flexível</h3>
+                        </div>
+                        <p class="benefit-desc">Oferecemos aulas nos períodos noturno e vespertino, permitindo que você concilie os estudos com o trabalho e outras responsabilidades.</p>
+                    </div>
+                    
+                    <div class="eja-benefits">
+                        <div class="benefit-header">
+                            <div class="benefit-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h3 class="benefit-title">Professores Especializados</h3>
+                        </div>
+                        <p class="benefit-desc">Contamos com educadores formados e capacitados para a educação de jovens e adultos, com metodologias específicas para este público.</p>
+                    </div>
+                    
+                    <div class="eja-benefits">
+                        <div class="benefit-header">
+                            <div class="benefit-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <h3 class="benefit-title">Certificado Oficial</h3>
+                        </div>
+                        <p class="benefit-desc">Ao concluir o programa EJA, você receberá um certificado oficial reconhecido pelo MEC, com o mesmo valor de um diploma regular.</p>
+                    </div>
+                    
+                    <div class="eja-benefits">
+                        <div class="benefit-header">
+                            <div class="benefit-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h3 class="benefit-title">Material Didático Específico</h3>
+                        </div>
+                        <p class="benefit-desc">Utilizamos material didático desenvolvido especificamente para o público adulto, respeitando suas vivências e com conteúdo relevante.</p>
+                    </div>
+                    
+                    <div class="eja-benefits">
+                        <div class="benefit-header">
+                            <div class="benefit-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3 class="benefit-title">Preparação para o Trabalho</h3>
+                        </div>
+                        <p class="benefit-desc">Além do conteúdo acadêmico, oferecemos formação voltada para o mercado de trabalho e orientação profissional.</p>
+                    </div>
+                    
+                    <div class="eja-benefits">
+                        <div class="benefit-header">
+                            <div class="benefit-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="benefit-title">Turmas Reduzidas</h3>
+                        </div>
+                        <p class="benefit-desc">Nossas turmas possuem número reduzido de alunos, permitindo um atendimento mais próximo e personalizado para cada estudante.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Etapas e Modalidades -->
+        <section class="section-padding">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Modalidades</span>
+                    <h2 class="section-title">Etapas do EJA</h2>
+                    <p class="section-desc">Conheça as etapas disponíveis no programa EJA da nossa instituição</p>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>EJA Fundamental I</h3>
+                            <span class="timeline-date">1° ao 5° ano</span>
+                            <p>Corresponde às séries iniciais do ensino fundamental (1° ao 5° ano). Foco em alfabetização, desenvolvimento da leitura, escrita e noções básicas de matemática.</p>
+                            <ul style="margin-top: 10px; list-style: disc inside; color: var(--color-text-light);">
+                                <li>Duração: 2 anos</li>
+                                <li>Aulas: 3 vezes por semana</li>
+                                <li>Horários disponíveis: Vespertino e Noturno</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>EJA Fundamental II</h3>
+                            <span class="timeline-date">6° ao 9° ano</span>
+                            <p>Corresponde às séries finais do ensino fundamental (6° ao 9° ano). Aprofunda os conhecimentos das diversas disciplinas, preparando o aluno para o ensino médio.</p>
+                            <ul style="margin-top: 10px; list-style: disc inside; color: var(--color-text-light);">
+                                <li>Duração: 2 anos</li>
+                                <li>Aulas: 4 vezes por semana</li>
+                                <li>Horários disponíveis: Vespertino e Noturno</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>EJA Ensino Médio</h3>
+                            <span class="timeline-date">1° ao 3° ano</span>
+                            <p>Corresponde ao ensino médio completo. Além do conteúdo acadêmico, há preparação para o ENEM e vestibulares, e orientação profissional.</p>
+                            <ul style="margin-top: 10px; list-style: disc inside; color: var(--color-text-light);">
+                                <li>Duração: 1,5 anos</li>
+                                <li>Aulas: 5 vezes por semana</li>
+                                <li>Horários disponíveis: Noturno</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>EJA Profissionalizante</h3>
+                            <span class="timeline-date">Ensino Médio + Técnico</span>
+                            <p>Combina o ensino médio com formação técnica profissional. Opções disponíveis em: Administração, Informática e Logística.</p>
+                            <ul style="margin-top: 10px; list-style: disc inside; color: var(--color-text-light);">
+                                <li>Duração: 2 anos</li>
+                                <li>Aulas: 5 vezes por semana</li>
+                                <li>Horários disponíveis: Noturno</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como se inscrever -->
+        <section id="inscricao" class="section-padding bg-light">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Processo de Inscrição</span>
+                    <h2 class="section-title">Como se inscrever no EJA</h2>
+                    <p class="section-desc">Siga os passos abaixo para realizar sua inscrição no programa EJA da E.U. Evaristo Campelo de Matos</p>
+                </div>
+
+                <div class="registration-steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Pré-inscrição</h3>
+                        <p>Faça sua pré-inscrição através do formulário online ou presencialmente na secretaria da escola.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Documentação</h3>
+                        <p>Apresente os documentos necessários: RG, CPF, comprovante de residência e histórico escolar (se houver).</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Entrevista</h3>
+                        <p>Participe de uma entrevista com nossa equipe pedagógica para avaliar seu nível de conhecimento.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>Matrícula</h3>
+                        <p>Após aprovação, efetue sua matrícula e receba informações sobre início das aulas e materiais.</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <p style="margin-bottom: 20px; font-size: 1.1rem;">Está pronto para dar esse importante passo? Entre em contato conosco!</p>
+                    <a href="index.html#contato" class="btn">Fale Conosco</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos -->
+        <section class="testimonials">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge" style="color: var(--color-secondary);">Histórias de Sucesso</span>
+                    <h2 class="section-title" style="color: var(--color-white);">O que nossos alunos dizem</h2>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px;">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">O EJA mudou minha vida completamente. Aos 45 anos, finalmente consegui concluir o ensino médio e agora estou cursando faculdade de Pedagogia. Os professores foram fundamentais nessa conquista.</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Maria Silva">
+                            </div>
+                            <div class="author-info">
+                                <h4>Maria Silva</h4>
+                                <p>Ex-aluna EJA Ensino Médio</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Trabalho desde os 14 anos e nunca tive chance de estudar. Com o EJA, consegui me alfabetizar e hoje consigo ler para meus netos. A flexibilidade de horários foi essencial para mim.</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="João Santos">
+                            </div>
+                            <div class="author-info">
+                                <h4>João Santos</h4>
+                                <p>Ex-aluno EJA Fundamental I</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Após concluir o EJA Profissionalizante em Administração, consegui uma promoção no meu trabalho. O conhecimento que adquiri me deu confiança para buscar novas oportunidades.</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Ana Oliveira">
+                            </div>
+                            <div class="author-info">
+                                <h4>Ana Oliveira</h4>
+                                <p>Ex-aluna EJA Profissionalizante</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Dúvidas Frequentes</span>
+                    <h2 class="section-title">Perguntas e Respostas sobre o EJA</h2>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Qual é a idade mínima para ingressar no EJA?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Para o Ensino Fundamental, a idade mínima é de 15 anos completos. Para o Ensino Médio, é necessário ter 18 anos completos.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>As aulas são todos os dias?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>A frequência das aulas varia conforme a etapa do EJA. Para o EJA Fundamental I, as aulas são 3 vezes por semana. No EJA Fundamental II, 4 vezes por semana. Já para o EJA Ensino Médio e Profissionalizante, as aulas ocorrem 5 vezes por semana.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Preciso ter estudado antes para ingressar no EJA?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Não é obrigatório ter estudado anteriormente. No momento da matrícula, realizamos uma avaliação para identificar o nível adequado para cada aluno. Pessoas sem nenhuma escolaridade anterior podem ingressar no EJA Fundamental I.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>O certificado do EJA tem o mesmo valor de um diploma regular?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Sim, o certificado de conclusão do EJA tem o mesmo valor legal de um certificado do ensino regular. Ele é reconhecido pelo MEC e permite que o aluno prossiga nos estudos ou utilize o documento para fins profissionais.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Posso fazer faculdade após concluir o EJA?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Sim! Com o certificado de conclusão do EJA Ensino Médio, você pode prestar vestibular, ENEM ou qualquer outro processo seletivo para ingresso em cursos de graduação, com os mesmos direitos de alunos formados no ensino regular.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>O EJA é gratuito?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Sim, em nossa instituição o programa EJA é totalmente gratuito. O material didático básico também é fornecido sem custos para os alunos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="eja-cta">
+            <div class="cta-container">
+                <h2>Comece agora sua jornada educacional</h2>
+                <p>Não deixe que o tempo perdido impeça você de realizar seus sonhos. O EJA da E.U. Evaristo Campelo de Matos está pronto para te ajudar a retomar sua educação e transformar seu futuro.</p>
+                <a href="index.html#contato" class="btn">Inscreva-se Hoje</a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="content_footer">
+            <div class="footer-column">
+                <h3>Sobre Nós</h3>
+                <p>A E.U. Evaristo Campelo de Matos é uma instituição dedicada à excelência no ensino, formando cidadãos preparados para os desafios do futuro.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="index.html#escola">Escola</a></li>
+                    <li><a href="index.html#profissionais">Professores</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contato</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> Av. Principal, 1000, Centro</li>
+                    <li><i class="fas fa-phone"></i> (86) 99999-9999</li>
+                    <li><i class="fas fa-envelope"></i> escola@exemplo.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 E.U. Evaristo Campelo de Matos. Todos os direitos reservados.</p>
+            <p>Desenvolvido por <span>Francisco Douglas</span></p>
+        </div>
+        <a href="#home" class="back-to-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></a>
+    </footer>
+
+    <script>
+        // Menu hamburguer
+        const menuBtn = document.querySelector('.menu_amburgue');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuBtn.addEventListener('click', function() {
+            this.classList.toggle('change');
+            navMenu.classList.toggle('active');
+            
+            const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+            this.setAttribute('aria-expanded', !expanded);
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuBtn.classList.remove('change');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Animação de rolagem suave para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Accordion FAQ
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Fechar todos os itens
+                accordionItems.forEach(accItem => {
+                    accItem.classList.remove('active');
+                });
+                
+                // Abrir o atual se não estava ativo
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Botão "Voltar ao topo" - mostrar/esconder conforme rolagem
+        const backToTopButton = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

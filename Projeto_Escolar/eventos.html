@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Francisco Douglas">
+    <meta name="description" content="Eventos da E.U. Evaristo Campelo de Matos - Calendário de atividades e celebrações escolares">
+    <title>Eventos | E.U. Evaristo Campelo de Matos</title>
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./source/img/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./source/css/base.css">
+    <link rel="stylesheet" href="./source/css/layout.css">
+    <link rel="stylesheet" href="./source/css/components.css">
+    <link rel="stylesheet" href="./source/css/eventos.css">
+    <link rel="stylesheet" href="./source/css/eventos-componentes.css">
+    <link rel="stylesheet" href="./source/css/animacoes.css">
+</head>
+<body>
+    <header id="header">
+        <div class="sup_links">
+            <h2><i class="fas fa-school"></i> E.U. Evaristo Campelo de Matos</h2>
+            <div class="links_sup">
+                <ul>
+                    <li><a href="tel:86999999999"><i class="fas fa-phone"></i><span class="contact-text">(86) 99999-9999</span></a></li>
+                    <li><a href="mailto:escola@exemplo.com"><i class="fas fa-envelope"></i><span class="contact-text">escola@exemplo.com</span></a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i><span class="contact-text">08:00 - 17:00 (Seg-Sex)</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <nav class="navBar">
+            <div class="icone_logo">
+                <a href="index.html">
+                    <img src="./source/img/Logo moderno para a .png" alt="Ícone Escola">
+                </a>
+            </div>
+            <ul class="nav-menu" id="menuLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#sobre">Sobre</a></li>
+                <li><a href="index.html#escola">Escola</a></li>
+                <li><a href="./eja.html">EJA</a></li>
+                <li class="has-dropdown">
+                    <a href="#" class="active">Páginas <i class="fas fa-chevron-down"></i></a>
+                    <ul class="paginas">
+                        <li><a href="./cursos.html"><i class="fas fa-graduation-cap"></i> Cursos</a></li>
+                        <li><a href="./eventos.html" class="active"><i class="fas fa-calendar-alt"></i> Eventos</a></li>
+                        <li><a href="index.html#profissionais"><i class="fas fa-users"></i> Professores</a></li>
+                        <li><a href="./galeria.html"><i class="fas fa-images"></i> Galeria</a></li>
+                        <li><a href="./biblioteca.html"><i class="fas fa-book"></i> Biblioteca</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#contato" class="contact">Contato</a></li>
+            </ul>
+            
+            <div class="menu_amburgue" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="container">
+        <!-- Banner Principal -->
+        <section id="events-hero" class="events-hero">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h3>Agenda Escolar</h3>
+                <h1>Eventos e Atividades Escolares</h1>
+                <p>Acompanhe nossa programação de eventos, celebrações e atividades extracurriculares que enriquecem a experiência educacional de nossos alunos.</p>
+                <div class="hero-buttons">
+                    <a href="#eventos-atuais" class="btn">Eventos Atuais</a>
+                    <a href="#calendario" class="btn btn-outline">Calendário Completo</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destaque de Eventos -->
+        <section class="section-padding">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Próximos Eventos</span>
+                    <h2 class="section-title">Não Perca Nossas Próximas Atividades</h2>
+                    <p class="section-desc">Confira os eventos que estão para acontecer em nossa escola e participe!</p>
+                </div>
+
+                <div class="featured-events">
+                    <!-- Evento Destaque -->
+                    <div class="featured-event">
+                        <div class="event-date">
+                            <span class="day">15</span>
+                            <span class="month">NOV</span>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-image">
+                                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Feira de Ciências Anual" loading="lazy">
+                                <div class="event-badge">Destacado</div>
+                            </div>
+                            <div class="event-info">
+                                <h3>Feira de Ciências Anual</h3>
+                                <div class="event-meta">
+                                    <span><i class="far fa-clock"></i> 09:00 - 17:00</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Pátio da Escola</span>
+                                </div>
+                                <p>Nossa feira de ciências anual apresenta projetos inovadores desenvolvidos por alunos de todas as séries, com experimentos, demonstrações e exposições interativas que exploram diversos campos científicos.</p>
+                                <div class="event-actions">
+                                    <a href="#" class="btn-details" data-event-id="1">Ver Detalhes</a>
+                                    <a href="#" class="btn-reminder"><i class="far fa-bell"></i> Lembrete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lista de Eventos -->
+                <div id="eventos-atuais" class="events-grid">
+                    <!-- Evento 1 -->
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mostra Cultural" loading="lazy">
+                            <div class="event-date-badge">
+                                <span class="day">22</span>
+                                <span class="month">NOV</span>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-category">Arte & Cultura</div>
+                            <h3>Mostra Cultural</h3>
+                            <div class="event-details">
+                                <span><i class="far fa-clock"></i> 14:00 - 18:00</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Auditório</span>
+                            </div>
+                            <p>Exposição de trabalhos artísticos e apresentações culturais dos alunos, celebrando a diversidade cultural brasileira.</p>
+                            <a href="#" class="event-link" data-event-id="2">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Evento 2 -->
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Torneio Esportivo Interclasse" loading="lazy">
+                            <div class="event-date-badge">
+                                <span class="day">05</span>
+                                <span class="month">DEZ</span>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-category">Esporte</div>
+                            <h3>Torneio Esportivo Interclasse</h3>
+                            <div class="event-details">
+                                <span><i class="far fa-clock"></i> 08:00 - 16:00</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Quadra Poliesportiva</span>
+                            </div>
+                            <p>Competições esportivas entre turmas, promovendo espírito de equipe e atividade física saudável.</p>
+                            <a href="#" class="event-link" data-event-id="3">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Evento 3 -->
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Palestra sobre Meio Ambiente" loading="lazy">
+                            <div class="event-date-badge">
+                                <span class="day">10</span>
+                                <span class="month">DEZ</span>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-category">Palestra</div>
+                            <h3>Palestra sobre Meio Ambiente</h3>
+                            <div class="event-details">
+                                <span><i class="far fa-clock"></i> 10:00 - 12:00</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Sala Multiuso</span>
+                            </div>
+                            <p>Especialistas discutem sustentabilidade e preservação ambiental com alunos do Ensino Fundamental II.</p>
+                            <a href="#" class="event-link" data-event-id="4">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Evento 4 -->
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Formatura do 9º Ano" loading="lazy">
+                            <div class="event-date-badge">
+                                <span class="day">15</span>
+                                <span class="month">DEZ</span>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-category">Cerimônia</div>
+                            <h3>Formatura do 9º Ano</h3>
+                            <div class="event-details">
+                                <span><i class="far fa-clock"></i> 19:00 - 22:00</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Auditório Principal</span>
+                            </div>
+                            <p>Cerimônia de conclusão do Ensino Fundamental para os alunos do 9º ano, com entrega de certificados e homenagens.</p>
+                            <a href="#" class="event-link" data-event-id="5">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Evento 5 -->
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1607453998774-d533f65dac99?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Festa de Natal" loading="lazy">
+                            <div class="event-date-badge">
+                                <span class="day">20</span>
+                                <span class="month">DEZ</span>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-category">Celebração</div>
+                            <h3>Festa de Natal</h3>
+                            <div class="event-details">
+                                <span><i class="far fa-clock"></i> 16:00 - 19:00</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Pátio Coberto</span>
+                            </div>
+                            <p>Celebração natalina com apresentações musicais, teatro e confraternização para toda a comunidade escolar.</p>
+                            <a href="#" class="event-link" data-event-id="6">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Evento 6 -->
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Matrícula para Novos Alunos" loading="lazy">
+                            <div class="event-date-badge">
+                                <span class="day">10</span>
+                                <span class="month">JAN</span>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-category">Administrativo</div>
+                            <h3>Matrícula para Novos Alunos</h3>
+                            <div class="event-details">
+                                <span><i class="far fa-clock"></i> 08:00 - 17:00</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Secretaria</span>
+                            </div>
+                            <p>Início do período de matrículas para novos alunos para o ano letivo de 2024. Traga os documentos necessários.</p>
+                            <a href="#" class="event-link" data-event-id="7">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botão para mais eventos -->
+                <div class="center-button">
+                    <a href="#" class="btn btn-secondary load-more-events">Carregar Mais Eventos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendário de Eventos -->
+        <section id="calendario" class="section-padding bg-light">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Planejamento Anual</span>
+                    <h2 class="section-title">Calendário de Eventos</h2>
+                    <p class="section-desc">Visualize nosso calendário anual de eventos e organize sua agenda para participar das atividades escolares.</p>
+                </div>
+
+                <div class="calendar-container">
+                    <div class="calendar-navigation">
+                        <button id="prevMonth" class="calendar-nav-btn"><i class="fas fa-chevron-left"></i></button>
+                        <h3 id="currentMonth" class="current-month">Novembro 2025</h3>
+                        <button id="nextMonth" class="calendar-nav-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+
+                    <div class="calendar-view">
+                        <!-- Os dias do calendário serão gerados via JavaScript -->
+                        <div class="calendar-weekdays">
+                            <div>Dom</div>
+                            <div>Seg</div>
+                            <div>Ter</div>
+                            <div>Qua</div>
+                            <div>Qui</div>
+                            <div>Sex</div>
+                            <div>Sáb</div>
+                        </div>
+                        <div id="calendarDays" class="calendar-days">
+                            <!-- Os dias serão inseridos via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eventos do mês selecionado -->
+                <div class="month-events">
+                    <h3>Eventos em Novembro</h3>
+                    <div class="event-timeline">
+                        <!-- Os eventos do mês serão gerados via JavaScript -->
+                        <div class="timeline-event">
+                            <div class="timeline-date">
+                                <span class="day">15</span>
+                                <span class="month">NOV</span>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Feira de Ciências Anual</h4>
+                                <div class="event-time"><i class="far fa-clock"></i> 09:00 - 17:00</div>
+                                <div class="event-location"><i class="fas fa-map-marker-alt"></i> Pátio da Escola</div>
+                                <div class="event-description">Exposição de projetos científicos desenvolvidos pelos alunos durante o ano letivo.</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-event">
+                            <div class="timeline-date">
+                                <span class="day">22</span>
+                                <span class="month">NOV</span>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Mostra Cultural</h4>
+                                <div class="event-time"><i class="far fa-clock"></i> 14:00 - 18:00</div>
+                                <div class="event-location"><i class="fas fa-map-marker-alt"></i> Auditório</div>
+                                <div class="event-description">Apresentações artísticas e exposição de trabalhos culturais dos alunos.</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-event">
+                            <div class="timeline-date">
+                                <span class="day">28</span>
+                                <span class="month">NOV</span>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Reunião de Pais e Mestres</h4>
+                                <div class="event-time"><i class="far fa-clock"></i> 18:30 - 20:30</div>
+                                <div class="event-location"><i class="fas fa-map-marker-alt"></i> Salas de Aula</div>
+                                <div class="event-description">Encontro entre pais e professores para discutir o desempenho dos alunos e atividades do próximo bimestre.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorias de Eventos -->
+        <section class="section-padding">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Tipos de Eventos</span>
+                    <h2 class="section-title">Categorias de Eventos</h2>
+                    <p class="section-desc">Nossa escola promove diversas categorias de eventos para enriquecer a experiência educacional dos alunos</p>
+                </div>
+
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Científicos</h3>
+                        <p>Feiras de ciências, olimpíadas do conhecimento e demonstrações de experimentos</p>
+                        <a href="#" class="category-link">Ver eventos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Culturais</h3>
+                        <p>Mostras artísticas, apresentações teatrais e celebrações culturais</p>
+                        <a href="#" class="category-link">Ver eventos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h3>Esportivos</h3>
+                        <p>Competições, jogos interclasse e atividades de educação física</p>
+                        <a href="#" class="category-link">Ver eventos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Acadêmicos</h3>
+                        <p>Formaturas, premiações por mérito acadêmico e concursos de conhecimento</p>
+                        <a href="#" class="category-link">Ver eventos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Comunitários</h3>
+                        <p>Reuniões com pais, festas comunitárias e ações sociais</p>
+                        <a href="#" class="category-link">Ver eventos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3>Palestras</h3>
+                        <p>Conversas com especialistas, seminários e debates temáticos</p>
+                        <a href="#" class="category-link">Ver eventos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Eventos Passados - Galeria -->
+        <section class="section-padding bg-light">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Memórias Escolares</span>
+                    <h2 class="section-title">Eventos Anteriores</h2>
+                    <p class="section-desc">Relembre momentos especiais de eventos anteriores realizados em nossa escola</p>
+                </div>
+
+                <div class="past-events-gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Festa Junina 2024" loading="lazy">
+                        <div class="gallery-caption">
+                            <h4>Festa Junina 2024</h4>
+                            <p>Junho/2024</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gincana Escolar" loading="lazy">
+                        <div class="gallery-caption">
+                            <h4>Gincana Escolar</h4>
+                            <p>Maio/2024</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Semana do Meio Ambiente" loading="lazy">
+                        <div class="gallery-caption">
+                            <h4>Semana do Meio Ambiente</h4>
+                            <p>Abril/2024</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dia da Consciência Negra" loading="lazy">
+                        <div class="gallery-caption">
+                            <h4>Dia da Consciência Negra</h4>
+                            <p>Novembro/2023</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Festival de Artes" loading="lazy">
+                        <div class="gallery-caption">
+                            <h4>Festival de Artes</h4>
+                            <p>Outubro/2023</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Feira de Ciências 2023" loading="lazy">
+                        <div class="gallery-caption">
+                            <h4>Feira de Ciências 2023</h4>
+                            <p>Setembro/2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="center-button">
+                    <a href="./galeria.html" class="btn">Ver Galeria Completa</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inscrições para Eventos -->
+        <section class="section-padding event-registration">
+            <div class="section-container">
+                <div class="registration-container">
+                    <div class="registration-content">
+                        <span class="section-badge">Participe</span>
+                        <h2>Inscreva-se para Próximos Eventos</h2>
+                        <p>Receba notificações sobre eventos futuros e reserve seu lugar em atividades que exigem inscrição prévia.</p>
+                        <form class="event-subscription-form">
+                            <div class="form-group">
+                                <input type="text" placeholder="Nome completo" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="E-mail" required>
+                            </div>
+                            <div class="form-group">
+                                <select required>
+                                    <option value="" disabled selected>Selecione seu interesse</option>
+                                    <option value="cultural">Eventos Culturais</option>
+                                    <option value="esportivo">Eventos Esportivos</option>
+                                    <option value="academico">Eventos Acadêmicos</option>
+                                    <option value="todos">Todos os Eventos</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn">Inscrever-se</button>
+                        </form>
+                    </div>
+                    <div class="registration-image">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Estudantes em evento escolar" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ sobre Eventos -->
+        <section class="section-padding bg-light">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Dúvidas Frequentes</span>
+                    <h2 class="section-title">Perguntas sobre nossos eventos</h2>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Como posso participar dos eventos da escola?</h3>
+                            <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Os eventos são abertos para alunos, familiares e, em alguns casos, para toda a comunidade. Para eventos específicos que exigem inscrição, as informações serão disponibilizadas no site e enviadas aos pais por e-mail ou circular.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Preciso pagar para participar dos eventos?</h3>
+                            <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>A maioria dos eventos escolares é gratuita para alunos e seus familiares diretos. Eventos beneficentes ou alguns eventos especiais podem ter contribuição voluntária ou ingressos com valores simbólicos, que serão informados com antecedência.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Como posso saber sobre os próximos eventos?</h3>
+                            <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Você pode acompanhar nosso calendário de eventos nesta página, que é atualizado regularmente. Também enviamos comunicados por e-mail e circulares impressas para os alunos levarem para casa.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Posso sugerir eventos para a escola?</h3>
+                            <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sim! Sugestões são sempre bem-vindas e podem ser enviadas para o e-mail eventos@escola.com ou através do formulário de contato do site. As sugestões serão avaliadas pela coordenação pedagógica.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>É permitido fotografar os eventos escolares?</h3>
+                            <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sim, fotografias para uso pessoal são permitidas. No entanto, pedimos que seja respeitada a privacidade dos alunos e que não sejam publicadas fotos de outros estudantes em redes sociais sem autorização dos pais ou responsáveis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Evento -->
+    <div class="event-modal" id="eventModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <!-- Conteúdo será inserido via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <div class="content_footer">
+            <div class="footer-column">
+                <h3>Sobre Nós</h3>
+                <p>A E.U. Evaristo Campelo de Matos é uma instituição dedicada à excelência no ensino, formando cidadãos preparados para os desafios do futuro.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="index.html#escola">Escola</a></li>
+                    <li><a href="./eja.html">EJA</a></li>
+                    <li><a href="./cursos.html">Cursos</a></li>
+                    <li><a href="./eventos.html">Eventos</a></li>
+                    <li><a href="./galeria.html">Galeria</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Próximos Eventos</h3>
+                <ul class="footer-events">
+                    <li>
+                        <span class="event-date">15 Nov</span>
+                        <a href="#">Feira de Ciências Anual</a>
+                    </li>
+                    <li>
+                        <span class="event-date">22 Nov</span>
+                        <a href="#">Mostra Cultural</a>
+                    </li>
+                    <li>
+                        <span class="event-date">05 Dez</span>
+                        <a href="#">Torneio Esportivo Interclasse</a>
+                    </li>
+                    <li>
+                        <span class="event-date">20 Dez</span>
+                        <a href="#">Festa de Natal</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contato</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> Av. Principal, 1000, Centro</li>
+                    <li><i class="fas fa-phone"></i> (86) 99999-9999</li>
+                    <li><i class="fas fa-envelope"></i> escola@exemplo.com</li>
+                    <li><i class="fas fa-clock"></i> Segunda a Sexta: 8h às 17h</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 E.U. Evaristo Campelo de Matos. Todos os direitos reservados.</p>
+            <p>Desenvolvido por <span>Francisco Douglas</span></p>
+        </div>
+        <a href="#" class="back-to-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></a>
+    </footer>
+
+    <script src="./source/js/script_eventos.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada Interativa</title>
+    
+    <link rel="stylesheet" href="./style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-calculator"></i>
+                    <span>MathMaster</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Tabuada</a></li>
+                    <li><a href="#">Exercícios</a></li>
+                    <li><a href="#">Sobre</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="contain">
+            <div class="hero-section">
+                <h1>Tabuada <span>Interativa</span></h1>
+                <p class="subtitle">Aprenda matemática de forma divertida e eficiente</p>
+            </div>
+            
+            <div class="input-section">
+                <div class="number-selector">
+                    <label for="numberInput">Escolha um número para ver sua tabuada:</label>
+                    <div class="input-container">
+                        <button class="btn-control" id="decrementBtn"><i class="fas fa-minus"></i></button>
+                        <input type="number" id="numberInput" min="1" max="100" value="5">
+                        <button class="btn-control" id="incrementBtn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+                <div class="range-container">
+                    <label for="rangeInput">Até quanto você quer multiplicar? <span id="rangeValue">10</span></label>
+                    <input type="range" id="rangeInput" min="1" max="20" value="10" class="range-slider">
+                </div>
+                <button id="generateButton" class="primary-button">
+                    <i class="fas fa-magic"></i> Gerar Tabuada
+                </button>
+            </div>
+
+            <div id="resultContainer" class="result-container">
+                <h2>Tabuada do <span id="tableNumber">5</span></h2>
+                <div class="results-grid" id="resultList"></div>
+            </div>
+            
+            <div class="info-cards">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Dica</h3>
+                    <p>Pratique a tabuada diariamente para memorizar melhor. Tente fazer cálculos mentais sempre que possível.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Progresso</h3>
+                    <p>Comece com números menores e vá aumentando gradualmente conforme ganhar confiança.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-gamepad"></i></div>
+                    <h3>Desafio</h3>
+                    <p>Tente responder às multiplicações o mais rápido possível para testar seu conhecimento.</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 MathMaster - Aprenda matemática de forma divertida</p>
+            <p>Desenvolvidor por: <a href="#">Francisco Douglas</a></p>
+        </footer>
+    </div>
+    
+    <script src="./script.js"></script>
+</body>
+</html>

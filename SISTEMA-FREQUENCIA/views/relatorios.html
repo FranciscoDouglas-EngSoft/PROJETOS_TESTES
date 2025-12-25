@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - Sistema de Frequência</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/theme.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../img/logo.svg" alt="Logo">
+                <h2>FrequênciaApp</h2>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="dashboard.html" class="menu-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="escolas.html" class="menu-item">
+                        <i class="fas fa-school"></i>
+                        <span>Escolas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="professores.html" class="menu-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Professores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="disciplinas.html" class="menu-item">
+                        <i class="fas fa-book"></i>
+                        <span>Disciplinas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="relatorios.html" class="menu-item active">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.html" class="menu-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h1>Relatórios e Análises</h1>
+                <div class="user-info">
+                    <img src="../img/avatar.svg" alt="User Avatar" class="user-avatar">
+                    <span class="user-name">Administrador</span>
+                </div>
+            </div>
+            
+            <!-- Filter Options -->
+            <div class="filter-options" id="reportFilters">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label for="filterReportType">Tipo de Relatório</label>
+                        <select id="filterReportType">
+                            <option value="presenca">Frequência de Professores</option>
+                            <option value="atrasos">Atrasos</option>
+                            <option value="faltas">Faltas e Ausências</option>
+                            <option value="atestados">Atestados Médicos</option>
+                            <option value="escolas">Desempenho por Escola</option>
+                            <option value="disciplinas">Análise por Disciplina</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterSchool">Escola</label>
+                        <select id="filterSchool">
+                            <option value="all">Todas as escolas</option>
+                            <option value="1">E.E. Maria José</option>
+                            <option value="2">Colégio São Paulo</option>
+                            <option value="3">Instituto Técnico</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterPeriodo">Período</label>
+                        <select id="filterPeriodo">
+                            <option value="semana">Última Semana</option>
+                            <option value="mes" selected>Último Mês</option>
+                            <option value="trimestre">Último Trimestre</option>
+                            <option value="semestre">Último Semestre</option>
+                            <option value="ano">Último Ano</option>
+                            <option value="custom">Personalizado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-row" id="customDateRange" style="display: none;">
+                    <div class="filter-group">
+                        <label for="dataInicio">Data Início</label>
+                        <input type="date" id="dataInicio">
+                    </div>
+                    <div class="filter-group">
+                        <label for="dataFim">Data Fim</label>
+                        <input type="date" id="dataFim">
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button class="btn btn-outline" id="downloadReportBtn">
+                        <i class="fas fa-download"></i> Baixar Relatório
+                    </button>
+                    <button class="btn btn-primary" id="generateReportBtn">
+                        <i class="fas fa-chart-line"></i> Gerar Relatório
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Report Container -->
+            <div class="report-container">
+                <!-- Main Report Card -->
+                <div class="card large-card">
+                    <div class="card-title">
+                        <h2>Frequência de Professores</h2>
+                        <div class="card-subtitle">Último Mês - Todas as Escolas</div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="mainChart" height="300"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Report Stats -->
+                <div class="stats-row">
+                    <div class="card stat-card">
+                        <div class="stat-icon green">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-title">Taxa de Presença</span>
+                            <span class="stat-value">94.2%</span>
+                            <span class="stat-change positive">+2.1% <i class="fas fa-arrow-up"></i></span>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-icon yellow">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-title">Atrasos</span>
+                            <span class="stat-value">3.5%</span>
+                            <span class="stat-change negative">+0.8% <i class="fas fa-arrow-up"></i></span>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-icon red">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-title">Faltas</span>
+                            <span class="stat-value">2.3%</span>
+                            <span class="stat-change positive">-1.4% <i class="fas fa-arrow-down"></i></span>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-icon blue">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-title">Atestados</span>
+                            <span class="stat-value">1.8%</span>
+                            <span class="stat-change negative">+0.3% <i class="fas fa-arrow-up"></i></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Detailed Reports -->
+                <div class="detailed-reports">
+                    <div class="card medium-card">
+                        <div class="card-title">
+                            <h2>Frequência por Escola</h2>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="schoolChart" height="250"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="card medium-card">
+                        <div class="card-title">
+                            <h2>Comparação de Período</h2>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="periodChart" height="250"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Detailed Tables -->
+                <div class="detailed-tables">
+                    <div class="card">
+                        <div class="card-title">
+                            <h2>Faltas por Motivo</h2>
+                            <div class="card-actions">
+                                <button class="btn-icon" title="Exportar dados"><i class="fas fa-download"></i></button>
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Motivo</th>
+                                        <th>Quantidade</th>
+                                        <th>% do Total</th>
+                                        <th>Comparação ao Mês Anterior</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Saúde (com atestado)</td>
+                                        <td>32</td>
+                                        <td>48.5%</td>
+                                        <td class="table-trend positive">-3.2% <i class="fas fa-arrow-down"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Motivos Pessoais</td>
+                                        <td>18</td>
+                                        <td>27.3%</td>
+                                        <td class="table-trend negative">+5.1% <i class="fas fa-arrow-up"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Capacitação/Treinamento</td>
+                                        <td>10</td>
+                                        <td>15.2%</td>
+                                        <td class="table-trend neutral">0% <i class="fas fa-equals"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Emergências</td>
+                                        <td>6</td>
+                                        <td>9.0%</td>
+                                        <td class="table-trend positive">-1.5% <i class="fas fa-arrow-down"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">
+                            <h2>Ranking de Professores</h2>
+                            <div class="card-actions">
+                                <button class="btn-icon" title="Exportar dados"><i class="fas fa-download"></i></button>
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Ranking</th>
+                                        <th>Professor</th>
+                                        <th>Taxa de Presença</th>
+                                        <th>Taxa de Pontualidade</th>
+                                        <th>Escola</th>
+                                        <th>Disciplina</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="ranking gold">1</td>
+                                        <td>
+                                            <div class="user-info-table">
+                                                <img src="../img/avatar-professor.svg" alt="Professor" class="small-avatar">
+                                                <div class="user-name-table">João Silva</div>
+                                            </div>
+                                        </td>
+                                        <td>100%</td>
+                                        <td>98.5%</td>
+                                        <td>Múltiplas</td>
+                                        <td>Matemática</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ranking silver">2</td>
+                                        <td>
+                                            <div class="user-info-table">
+                                                <img src="../img/avatar-professor-2.svg" alt="Professor" class="small-avatar">
+                                                <div class="user-name-table">Ana Oliveira</div>
+                                            </div>
+                                        </td>
+                                        <td>99.2%</td>
+                                        <td>97.1%</td>
+                                        <td>E.E. Maria José</td>
+                                        <td>Português</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ranking bronze">3</td>
+                                        <td>
+                                            <div class="user-info-table">
+                                                <img src="../img/avatar-professor-3.svg" alt="Professor" class="small-avatar">
+                                                <div class="user-name-table">Carlos Ferreira</div>
+                                            </div>
+                                        </td>
+                                        <td>98.7%</td>
+                                        <td>94.3%</td>
+                                        <td>Colégio São Paulo</td>
+                                        <td>História</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>
+                                            <div class="user-info-table">
+                                                <img src="../img/avatar-professor-4.svg" alt="Professor" class="small-avatar">
+                                                <div class="user-name-table">Maria Santos</div>
+                                            </div>
+                                        </td>
+                                        <td>95.8%</td>
+                                        <td>92.2%</td>
+                                        <td>Instituto Técnico</td>
+                                        <td>Biologia</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atestados Médicos -->
+                <div class="card">
+                    <div class="card-title">
+                        <h2>Atestados Médicos Recentes</h2>
+                        <div class="card-actions">
+                            <button class="btn-icon" title="Exportar dados"><i class="fas fa-download"></i></button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Professor</th>
+                                    <th>Período</th>
+                                    <th>Tipo</th>
+                                    <th>Motivo</th>
+                                    <th>Médico</th>
+                                    <th>CRM</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="user-info-table">
+                                            <img src="../img/avatar-professor-2.svg" alt="Professor" class="small-avatar">
+                                            <div class="user-name-table">Ana Oliveira</div>
+                                        </div>
+                                    </td>
+                                    <td>15/10/2025 - 17/10/2025</td>
+                                    <td>Atestado Médico</td>
+                                    <td>Gripe</td>
+                                    <td>Dr. Paulo Ferreira</td>
+                                    <td>CRM-SP 98765</td>
+                                    <td><span class="status present">Aprovado</span></td>
+                                    <td class="actions">
+                                        <button title="Ver documento"><i class="fas fa-file-pdf"></i></button>
+                                        <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-info-table">
+                                            <img src="../img/avatar-professor-4.svg" alt="Professor" class="small-avatar">
+                                            <div class="user-name-table">Maria Santos</div>
+                                        </div>
+                                    </td>
+                                    <td>10/10/2025 - 14/10/2025</td>
+                                    <td>Atestado Médico</td>
+                                    <td>Cirurgia</td>
+                                    <td>Dra. Carla Mendes</td>
+                                    <td>CRM-SP 76543</td>
+                                    <td><span class="status present">Aprovado</span></td>
+                                    <td class="actions">
+                                        <button title="Ver documento"><i class="fas fa-file-pdf"></i></button>
+                                        <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-info-table">
+                                            <img src="../img/avatar-professor-3.svg" alt="Professor" class="small-avatar">
+                                            <div class="user-name-table">Carlos Ferreira</div>
+                                        </div>
+                                    </td>
+                                    <td>05/10/2025 - 07/10/2025</td>
+                                    <td>Atestado Médico</td>
+                                    <td>COVID-19</td>
+                                    <td>Dr. Roberto Almeida</td>
+                                    <td>CRM-SP 54321</td>
+                                    <td><span class="status late">Em Análise</span></td>
+                                    <td class="actions">
+                                        <button title="Ver documento"><i class="fas fa-file-pdf"></i></button>
+                                        <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Atestado Modal -->
+    <div class="modal" id="viewAtestadoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Atestado Médico</h3>
+                <button class="modal-close" id="closeAtestadoModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="atestado-detail">
+                    <div class="atestado-header">
+                        <div class="atestado-professor">
+                            <img src="../img/avatar-professor-2.svg" alt="Professor" class="medium-avatar">
+                            <div>
+                                <h4>Ana Oliveira</h4>
+                                <div>Professora de Português</div>
+                            </div>
+                        </div>
+                        <div class="atestado-status approved">Aprovado</div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Informações do Atestado</h4>
+                        <div class="detail-row">
+                            <div class="detail-label">Período</div>
+                            <div class="detail-value">15/10/2025 a 17/10/2025 (3 dias)</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Tipo</div>
+                            <div class="detail-value">Atestado Médico</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Motivo</div>
+                            <div class="detail-value">Gripe</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">CID</div>
+                            <div class="detail-value">J11 - Influenza [gripe] devida a vírus não identificado</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Informações Médicas</h4>
+                        <div class="detail-row">
+                            <div class="detail-label">Médico</div>
+                            <div class="detail-value">Dr. Paulo Ferreira</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">CRM</div>
+                            <div class="detail-value">CRM-SP 98765</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Instituição</div>
+                            <div class="detail-value">Hospital Santa Clara</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Data de Emissão</div>
+                            <div class="detail-value">15/10/2025</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Documento</h4>
+                        <div class="document-preview">
+                            <img src="../img/atestado-example.jpg" alt="Atestado Médico" class="atestado-image">
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Observações</h4>
+                        <div class="detail-notes">
+                            Atestado validado pela secretaria em 15/10/2025. Aulas reagendadas para a próxima semana.
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Histórico</h4>
+                        <div class="history-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">15/10/2025 08:45</div>
+                                <div class="timeline-content">Atestado enviado pelo professor</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">15/10/2025 10:20</div>
+                                <div class="timeline-content">Verificação de autenticidade</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">15/10/2025 11:05</div>
+                                <div class="timeline-content">Aprovado por: Admin (administrador@sistema.com)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="closeDetailBtn">Fechar</button>
+                <button class="btn btn-outline" id="printAtestadoBtn"><i class="fas fa-print"></i> Imprimir</button>
+                <button class="btn btn-primary" id="downloadAtestadoBtn"><i class="fas fa-download"></i> Baixar PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/reports.js"></script>
+</body>
+</html>

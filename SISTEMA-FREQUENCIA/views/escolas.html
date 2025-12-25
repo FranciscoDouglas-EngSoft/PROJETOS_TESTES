@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Escolas - Sistema de Frequência</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/theme.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../img/logo.svg" alt="Logo">
+                <h2>FrequênciaApp</h2>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="dashboard.html" class="menu-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="escolas.html" class="menu-item active">
+                        <i class="fas fa-school"></i>
+                        <span>Escolas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="professores.html" class="menu-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Professores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="disciplinas.html" class="menu-item">
+                        <i class="fas fa-book"></i>
+                        <span>Disciplinas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="relatorios.html" class="menu-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.html" class="menu-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h1>Gerenciamento de Escolas</h1>
+                <div class="user-info">
+                    <img src="../img/avatar.svg" alt="User Avatar" class="user-avatar">
+                    <span class="user-name">Administrador</span>
+                </div>
+            </div>
+            
+            <!-- Actions Bar -->
+            <div class="actions-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar escola..." id="searchSchool">
+                </div>
+                <button class="btn btn-primary" id="addSchoolBtn"><i class="fas fa-plus"></i> Nova Escola</button>
+            </div>
+            
+            <!-- Schools List -->
+            <div class="card">
+                <div class="card-title">
+                    <h2>Escolas Cadastradas</h2>
+                    <div class="card-actions">
+                        <button class="btn-icon" title="Exportar lista"><i class="fas fa-download"></i></button>
+                        <button class="btn-icon" title="Atualizar lista" id="refreshSchoolsBtn"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Endereço</th>
+                                <th>Telefone</th>
+                                <th>Qtd. Professores</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="schoolsTable">
+                            <tr>
+                                <td>1</td>
+                                <td>E.E. Maria José</td>
+                                <td>Rua das Flores, 123</td>
+                                <td>(11) 3456-7890</td>
+                                <td>15</td>
+                                <td><span class="status present">Ativo</span></td>
+                                <td class="actions">
+                                    <button title="Ver QR Code"><i class="fas fa-qrcode"></i></button>
+                                    <button title="Editar"><i class="fas fa-edit"></i></button>
+                                    <button title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Colégio São Paulo</td>
+                                <td>Av. Paulista, 1500</td>
+                                <td>(11) 2345-6789</td>
+                                <td>24</td>
+                                <td><span class="status present">Ativo</span></td>
+                                <td class="actions">
+                                    <button title="Ver QR Code"><i class="fas fa-qrcode"></i></button>
+                                    <button title="Editar"><i class="fas fa-edit"></i></button>
+                                    <button title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Instituto Técnico</td>
+                                <td>Rua dos Técnicos, 500</td>
+                                <td>(11) 3456-1234</td>
+                                <td>18</td>
+                                <td><span class="status present">Ativo</span></td>
+                                <td class="actions">
+                                    <button title="Ver QR Code"><i class="fas fa-qrcode"></i></button>
+                                    <button title="Editar"><i class="fas fa-edit"></i></button>
+                                    <button title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Escola Municipal São José</td>
+                                <td>Rua dos Estudantes, 800</td>
+                                <td>(11) 7890-1234</td>
+                                <td>12</td>
+                                <td><span class="status present">Ativo</span></td>
+                                <td class="actions">
+                                    <button title="Ver QR Code"><i class="fas fa-qrcode"></i></button>
+                                    <button title="Editar"><i class="fas fa-edit"></i></button>
+                                    <button title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Colégio Técnico</td>
+                                <td>Av. das Indústrias, 2000</td>
+                                <td>(11) 8765-4321</td>
+                                <td>15</td>
+                                <td><span class="status present">Ativo</span></td>
+                                <td class="actions">
+                                    <button title="Ver QR Code"><i class="fas fa-qrcode"></i></button>
+                                    <button title="Editar"><i class="fas fa-edit"></i></button>
+                                    <button title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="pagination">
+                    <button title="Página anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="active">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button title="Próxima página"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add/Edit School Modal -->
+    <div class="modal" id="schoolModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="schoolModalTitle">Adicionar Escola</h3>
+                <button class="modal-close" id="closeSchoolModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="schoolForm">
+                    <input type="hidden" id="schoolId">
+                    
+                    <div class="form-group">
+                        <label for="schoolName">Nome da Escola</label>
+                        <input type="text" id="schoolName" placeholder="Digite o nome da escola" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="schoolAddress">Endereço</label>
+                        <input type="text" id="schoolAddress" placeholder="Digite o endereço da escola" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="schoolPhone">Telefone</label>
+                            <input type="tel" id="schoolPhone" placeholder="(00) 0000-0000" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="schoolEmail">E-mail</label>
+                            <input type="email" id="schoolEmail" placeholder="email@escola.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="schoolDirector">Diretor(a)</label>
+                        <input type="text" id="schoolDirector" placeholder="Nome do(a) diretor(a)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="schoolNotes">Observações</label>
+                        <textarea id="schoolNotes" placeholder="Observações adicionais"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="cancelSchoolBtn">Cancelar</button>
+                <button class="btn btn-primary" id="saveSchoolBtn">Salvar</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- QR Code Modal -->
+    <div class="modal" id="qrCodeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>QR Code da Escola</h3>
+                <button class="modal-close" id="closeQrCodeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="qr-code-container">
+                    <h4 id="qrSchoolName">E.E. Maria José</h4>
+                    <div class="qr-code" id="schoolQrCode">
+                        <img src="../img/sample-qr.png" alt="QR Code da Escola">
+                    </div>
+                    <p class="qr-code-info">Este QR Code deve ser impresso e colocado na entrada da escola para registro de presença dos professores.</p>
+                    <button class="btn btn-primary" id="downloadQrBtn">
+                        <i class="fas fa-download"></i> Baixar QR Code
+                    </button>
+                    <button class="btn" id="printQrBtn">
+                        <i class="fas fa-print"></i> Imprimir QR Code
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirmar Exclusão</h3>
+                <button class="modal-close" id="closeConfirmationModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja excluir a escola <span id="schoolToDelete">E.E. Maria José</span>?</p>
+                <p class="warning-text">Esta ação não pode ser desfeita e todos os registros associados serão removidos.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="cancelDeleteBtn">Cancelar</button>
+                <button class="btn btn-danger" id="confirmDeleteBtn">Sim, Excluir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/common.js"></script>
+    <script src="../js/schools.js"></script>
+</body>
+</html>

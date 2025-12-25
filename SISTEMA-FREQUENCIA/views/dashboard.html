@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administrativo - Sistema de Frequência</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/theme.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../img/logo.svg" alt="Logo">
+                <h2>FrequênciaApp</h2>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="dashboard.html" class="menu-item active">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="escolas.html" class="menu-item">
+                        <i class="fas fa-school"></i>
+                        <span>Escolas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="professores.html" class="menu-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Professores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="disciplinas.html" class="menu-item">
+                        <i class="fas fa-book"></i>
+                        <span>Disciplinas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="relatorios.html" class="menu-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.html" class="menu-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h1>Dashboard Administrativo</h1>
+                <div class="user-info">
+                    <img src="../img/avatar.svg" alt="User Avatar" class="user-avatar">
+                    <span class="user-name">Administrador</span>
+                </div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="stats-container">
+                <div class="card stat-card">
+                    <div class="stat-icon blue">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>5</h3>
+                        <p>Escolas Cadastradas</p>
+                    </div>
+                </div>
+                
+                <div class="card stat-card">
+                    <div class="stat-icon green">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>48</h3>
+                        <p>Professores Ativos</p>
+                    </div>
+                </div>
+                
+                <div class="card stat-card">
+                    <div class="stat-icon orange">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>92%</h3>
+                        <p>Taxa de Presença</p>
+                    </div>
+                </div>
+                
+                <div class="card stat-card">
+                    <div class="stat-icon red">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>3</h3>
+                        <p>Faltas Hoje</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Activities -->
+            <div class="card">
+                <div class="card-title">
+                    <h2>Atividades Recentes</h2>
+                    <button class="btn-icon" id="refreshActivities" title="Atualizar atividades">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Professor</th>
+                                <th>Escola</th>
+                                <th>Horário</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activitiesTable">
+                            <tr>
+                                <td>João Silva</td>
+                                <td>E.E. Maria José</td>
+                                <td>17/10/2025 - 08:00</td>
+                                <td><span class="status present">Presente</span></td>
+                                <td class="actions">
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ana Souza</td>
+                                <td>Colégio São Paulo</td>
+                                <td>17/10/2025 - 07:45</td>
+                                <td><span class="status present">Presente</span></td>
+                                <td class="actions">
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Carlos Oliveira</td>
+                                <td>Instituto Técnico</td>
+                                <td>17/10/2025 - 07:55</td>
+                                <td><span class="status late">Atrasado</span></td>
+                                <td class="actions">
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Márcia Santos</td>
+                                <td>Escola Municipal</td>
+                                <td>17/10/2025 - 08:30</td>
+                                <td><span class="status absent">Ausente</span></td>
+                                <td class="actions">
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="pagination">
+                    <button title="Página anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="active" title="Página 1">1</button>
+                    <button title="Página 2">2</button>
+                    <button title="Página 3">3</button>
+                    <button title="Próxima página"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <!-- Escolas com maior índice de faltas -->
+            <div class="card">
+                <div class="card-title">
+                    <h2>Escolas com Maior Índice de Faltas</h2>
+                    <button class="btn-icon" title="Baixar relatório">
+                        <i class="fas fa-download"></i>
+                    </button>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Escola</th>
+                                <th>Total de Professores</th>
+                                <th>Faltas (Mês)</th>
+                                <th>Taxa de Ausência</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Escola Municipal São José</td>
+                                <td>12</td>
+                                <td>8</td>
+                                <td>5.3%</td>
+                            </tr>
+                            <tr>
+                                <td>Colégio Técnico</td>
+                                <td>15</td>
+                                <td>6</td>
+                                <td>3.2%</td>
+                            </tr>
+                            <tr>
+                                <td>E.E. Maria José</td>
+                                <td>9</td>
+                                <td>4</td>
+                                <td>3.0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/common.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

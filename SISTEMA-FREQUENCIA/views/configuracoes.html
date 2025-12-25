@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - Sistema de Frequência</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/theme.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../img/logo.svg" alt="Logo">
+                <h2>FrequênciaApp</h2>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="dashboard.html" class="menu-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="escolas.html" class="menu-item">
+                        <i class="fas fa-school"></i>
+                        <span>Escolas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="professores.html" class="menu-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Professores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="disciplinas.html" class="menu-item">
+                        <i class="fas fa-book"></i>
+                        <span>Disciplinas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="relatorios.html" class="menu-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.html" class="menu-item active">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h1>Configurações do Sistema</h1>
+                <div class="user-info">
+                    <img src="../img/avatar.svg" alt="User Avatar" class="user-avatar">
+                    <span class="user-name">Administrador</span>
+                </div>
+            </div>
+            
+            <div class="config-container">
+                <!-- Config Navigation -->
+                <div class="config-sidebar">
+                    <ul class="config-menu">
+                        <li class="config-menu-item active" data-target="gerais">
+                            <i class="fas fa-sliders-h"></i>
+                            <span>Configurações Gerais</span>
+                        </li>
+                        <li class="config-menu-item" data-target="escolas">
+                            <i class="fas fa-school"></i>
+                            <span>Escolas</span>
+                        </li>
+                        <li class="config-menu-item" data-target="professores">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Professores</span>
+                        </li>
+                        <li class="config-menu-item" data-target="disciplinas">
+                            <i class="fas fa-book"></i>
+                            <span>Disciplinas</span>
+                        </li>
+                        <li class="config-menu-item" data-target="horarios">
+                            <i class="fas fa-clock"></i>
+                            <span>Horários</span>
+                        </li>
+                        <li class="config-menu-item" data-target="atestados">
+                            <i class="fas fa-file-medical"></i>
+                            <span>Atestados</span>
+                        </li>
+                        <li class="config-menu-item" data-target="notificacoes">
+                            <i class="fas fa-bell"></i>
+                            <span>Notificações</span>
+                        </li>
+                        <li class="config-menu-item" data-target="usuarios">
+                            <i class="fas fa-users-cog"></i>
+                            <span>Usuários</span>
+                        </li>
+                        <li class="config-menu-item" data-target="sistema">
+                            <i class="fas fa-server"></i>
+                            <span>Sistema</span>
+                        </li>
+                        <li class="config-menu-item" data-target="backup">
+                            <i class="fas fa-database"></i>
+                            <span>Backup e Restauração</span>
+                        </li>
+                        <li class="config-menu-item" data-target="logs">
+                            <i class="fas fa-history"></i>
+                            <span>Logs do Sistema</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Config Content -->
+                <div class="config-content">
+                    <!-- Configurações Gerais -->
+                    <div class="config-section active" id="gerais">
+                        <h2>Configurações Gerais</h2>
+                        <div class="config-panel">
+                            <div class="config-panel-title">Informações do Sistema</div>
+                            <div class="config-form">
+                                <div class="input-group">
+                                    <label for="systemName">Nome do Sistema</label>
+                                    <input type="text" id="systemName" value="Sistema de Frequência">
+                                </div>
+                                <div class="input-group">
+                                    <label for="systemLogo">Logo do Sistema</label>
+                                    <div class="file-input">
+                                        <input type="file" id="systemLogo">
+                                        <label for="systemLogo" class="file-label">Escolher arquivo</label>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label for="systemEmail">Email de Contato</label>
+                                    <input type="email" id="systemEmail" value="contato@frequenciaapp.com.br">
+                                </div>
+                                <div class="input-group">
+                                    <label for="systemPhone">Telefone de Contato</label>
+                                    <input type="text" id="systemPhone" value="(11) 3456-7890">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-panel">
+                            <div class="config-panel-title">Personalização</div>
+                            <div class="config-form">
+                                <div class="input-group">
+                                    <label for="primaryColor">Cor Primária</label>
+                                    <input type="color" id="primaryColor" value="#4361ee">
+                                </div>
+                                <div class="input-group">
+                                    <label for="secondaryColor">Cor Secundária</label>
+                                    <input type="color" id="secondaryColor" value="#3f37c9">
+                                </div>
+                                <div class="input-group">
+                                    <label for="accentColor">Cor de Destaque</label>
+                                    <input type="color" id="accentColor" value="#4cc9f0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="themeSwitcher">Tema</label>
+                                    <select id="themeSwitcher">
+                                        <option value="light">Claro</option>
+                                        <option value="dark">Escuro</option>
+                                        <option value="system">Usar preferência do sistema</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-panel">
+                            <div class="config-panel-title">Opções Regionais</div>
+                            <div class="config-form">
+                                <div class="input-group">
+                                    <label for="language">Idioma</label>
+                                    <select id="language">
+                                        <option value="pt-BR" selected>Português (Brasil)</option>
+                                        <option value="en-US">English (US)</option>
+                                        <option value="es">Español</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="timezone">Fuso Horário</label>
+                                    <select id="timezone">
+                                        <option value="America/Sao_Paulo" selected>América/São Paulo</option>
+                                        <option value="America/New_York">América/Nova York</option>
+                                        <option value="Europe/London">Europa/Londres</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="dateFormat">Formato de Data</label>
+                                    <select id="dateFormat">
+                                        <option value="DD/MM/YYYY" selected>DD/MM/AAAA</option>
+                                        <option value="MM/DD/YYYY">MM/DD/AAAA</option>
+                                        <option value="YYYY-MM-DD">AAAA-MM-DD</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="timeFormat">Formato de Hora</label>
+                                    <select id="timeFormat">
+                                        <option value="24h" selected>24 horas</option>
+                                        <option value="12h">12 horas (AM/PM)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-actions">
+                            <button class="btn btn-outline">Cancelar</button>
+                            <button class="btn btn-primary">Salvar Alterações</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Configurações de Escolas -->
+                    <div class="config-section" id="escolas">
+                        <h2>Configurações de Escolas</h2>
+                        <div class="config-panel">
+                            <div class="config-panel-title">Regras de Registro</div>
+                            <div class="config-form">
+                                <div class="input-group">
+                                    <label for="registroQrExpiracao">Tempo de expiração do QR Code</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="registroQrExpiracao" value="5">
+                                        <span class="input-unit">minutos</span>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label for="distanciaRegistro">Distância máxima permitida para registro</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="distanciaRegistro" value="100">
+                                        <span class="input-unit">metros</span>
+                                    </div>
+                                </div>
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="verificarLocalizacao" checked>
+                                    <label for="verificarLocalizacao">Verificar localização no registro</label>
+                                </div>
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="permitirRegistroOffline">
+                                    <label for="permitirRegistroOffline">Permitir registro offline</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-panel">
+                            <div class="config-panel-title">Períodos Escolares</div>
+                            <div class="config-form">
+                                <table class="config-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Período</th>
+                                            <th>Hora Início</th>
+                                            <th>Hora Fim</th>
+                                            <th>Tolerância (min)</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Matutino</td>
+                                            <td><input type="time" value="07:30"></td>
+                                            <td><input type="time" value="12:00"></td>
+                                            <td><input type="number" value="10" min="0" max="60"></td>
+                                            <td class="actions">
+                                                <button title="Editar"><i class="fas fa-edit"></i></button>
+                                                <button title="Remover"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vespertino</td>
+                                            <td><input type="time" value="13:00"></td>
+                                            <td><input type="time" value="17:30"></td>
+                                            <td><input type="number" value="10" min="0" max="60"></td>
+                                            <td class="actions">
+                                                <button title="Editar"><i class="fas fa-edit"></i></button>
+                                                <button title="Remover"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Noturno</td>
+                                            <td><input type="time" value="18:30"></td>
+                                            <td><input type="time" value="22:30"></td>
+                                            <td><input type="number" value="15" min="0" max="60"></td>
+                                            <td class="actions">
+                                                <button title="Editar"><i class="fas fa-edit"></i></button>
+                                                <button title="Remover"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="table-actions">
+                                    <button class="btn btn-sm">
+                                        <i class="fas fa-plus"></i> Adicionar Período
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-actions">
+                            <button class="btn btn-outline">Cancelar</button>
+                            <button class="btn btn-primary">Salvar Alterações</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Configurações de Atestados -->
+                    <div class="config-section" id="atestados">
+                        <h2>Configurações de Atestados Médicos</h2>
+                        <div class="config-panel">
+                            <div class="config-panel-title">Regras para Aceitação de Atestados</div>
+                            <div class="config-form">
+                                <div class="input-group">
+                                    <label for="prazoEnvioAtestado">Prazo máximo para envio de atestado</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="prazoEnvioAtestado" value="3">
+                                        <span class="input-unit">dias úteis</span>
+                                    </div>
+                                </div>
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="exigirCID" checked>
+                                    <label for="exigirCID">Exigir CID no atestado</label>
+                                </div>
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="exigirAssinatura" checked>
+                                    <label for="exigirAssinatura">Exigir assinatura do médico</label>
+                                </div>
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="exigirCarimbo" checked>
+                                    <label for="exigirCarimbo">Exigir carimbo do médico</label>
+                                </div>
+                                <div class="input-group">
+                                    <label for="diasMaximosSemCID">Dias máximos sem exigir CID</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="diasMaximosSemCID" value="2">
+                                        <span class="input-unit">dias</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-panel">
+                            <div class="config-panel-title">Fluxo de Aprovação</div>
+                            <div class="config-form">
+                                <div class="input-group radio-group">
+                                    <p class="group-label">Quem pode aprovar atestados:</p>
+                                    <div class="radio-option">
+                                        <input type="radio" id="aprovacaoAdmin" name="aprovacao" checked>
+                                        <label for="aprovacaoAdmin">Apenas administradores</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="aprovacaoCoordenador" name="aprovacao">
+                                        <label for="aprovacaoCoordenador">Coordenadores e administradores</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="aprovacaoAutomatic" name="aprovacao">
+                                        <label for="aprovacaoAutomatic">Aprovação automática</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="notificarAprovacao" checked>
+                                    <label for="notificarAprovacao">Notificar professor sobre aprovação/rejeição</label>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label for="justificativaRejeicao">Exigir justificativa para rejeição</label>
+                                    <select id="justificativaRejeicao">
+                                        <option value="obrigatorio">Obrigatório</option>
+                                        <option value="opcional">Opcional</option>
+                                        <option value="nao">Não exigir</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-panel">
+                            <div class="config-panel-title">Tipos de Atestados Aceitos</div>
+                            <div class="config-form">
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="tipoMedico" checked>
+                                    <label for="tipoMedico">Atestado Médico</label>
+                                </div>
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="tipoOdontologico" checked>
+                                    <label for="tipoOdontologico">Atestado Odontológico</label>
+                                </div>
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="tipoFisioterapia" checked>
+                                    <label for="tipoFisioterapia">Atestado de Fisioterapia</label>
+                                </div>
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="tipoPsicologico">
+                                    <label for="tipoPsicologico">Atestado Psicológico</label>
+                                </div>
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="tipoAcompanhamento">
+                                    <label for="tipoAcompanhamento">Acompanhamento de dependente (filho/a)</label>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <button class="btn btn-sm">
+                                        <i class="fas fa-plus"></i> Adicionar Tipo Personalizado
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-actions">
+                            <button class="btn btn-outline">Cancelar</button>
+                            <button class="btn btn-primary">Salvar Alterações</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Configurações de Notificações -->
+                    <div class="config-section" id="notificacoes">
+                        <h2>Configurações de Notificações</h2>
+                        <div class="config-panel">
+                            <div class="config-panel-title">Canais de Notificação</div>
+                            <div class="config-form">
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="notifEmail" checked>
+                                    <label for="notifEmail">E-mail</label>
+                                </div>
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="notifSMS">
+                                    <label for="notifSMS">SMS</label>
+                                </div>
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="notifPush" checked>
+                                    <label for="notifPush">Notificações Push</label>
+                                </div>
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="notifWhatsapp">
+                                    <label for="notifWhatsapp">WhatsApp</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-panel">
+                            <div class="config-panel-title">Eventos de Notificação</div>
+                            <div class="config-form">
+                                <table class="config-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Evento</th>
+                                            <th>E-mail</th>
+                                            <th>SMS</th>
+                                            <th>Push</th>
+                                            <th>WhatsApp</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Falta não justificada</td>
+                                            <td><input type="checkbox" checked></td>
+                                            <td><input type="checkbox" checked></td>
+                                            <td><input type="checkbox" checked></td>
+                                            <td><input type="checkbox"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Atraso registrado</td>
+                                            <td><input type="checkbox"></td>
+                                            <td><input type="checkbox"></td>
+                                            <td><input type="checkbox" checked></td>
+                                            <td><input type="checkbox"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Atestado médico enviado</td>
+                                            <td><input type="checkbox" checked></td>
+                                            <td><input type="checkbox"></td>
+                                            <td><input type="checkbox" checked></td>
+                                            <td><input type="checkbox"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Atestado médico aprovado</td>
+                                            <td><input type="checkbox" checked></td>
+                                            <td><input type="checkbox"></td>
+                                            <td><input type="checkbox" checked></td>
+                                            <td><input type="checkbox"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Atestado médico rejeitado</td>
+                                            <td><input type="checkbox" checked></td>
+                                            <td><input type="checkbox" checked></td>
+                                            <td><input type="checkbox" checked></td>
+                                            <td><input type="checkbox"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Novo horário de aula atribuído</td>
+                                            <td><input type="checkbox" checked></td>
+                                            <td><input type="checkbox"></td>
+                                            <td><input type="checkbox" checked></td>
+                                            <td><input type="checkbox"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lembrete de aula (15min antes)</td>
+                                            <td><input type="checkbox"></td>
+                                            <td><input type="checkbox"></td>
+                                            <td><input type="checkbox" checked></td>
+                                            <td><input type="checkbox"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="config-panel">
+                            <div class="config-panel-title">Configurações de Email</div>
+                            <div class="config-form">
+                                <div class="input-group">
+                                    <label for="smtpServer">Servidor SMTP</label>
+                                    <input type="text" id="smtpServer" value="smtp.frequenciaapp.com.br">
+                                </div>
+                                <div class="input-group">
+                                    <label for="smtpPort">Porta SMTP</label>
+                                    <input type="number" id="smtpPort" value="587">
+                                </div>
+                                <div class="input-group">
+                                    <label for="smtpUser">Usuário SMTP</label>
+                                    <input type="text" id="smtpUser" value="notificacoes@frequenciaapp.com.br">
+                                </div>
+                                <div class="input-group">
+                                    <label for="smtpPass">Senha SMTP</label>
+                                    <input type="password" id="smtpPass" value="********">
+                                </div>
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="smtpSSL" checked>
+                                    <label for="smtpSSL">Usar SSL/TLS</label>
+                                </div>
+                                <div class="form-actions">
+                                    <button class="btn btn-sm">Testar Conexão</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-actions">
+                            <button class="btn btn-outline">Cancelar</button>
+                            <button class="btn btn-primary">Salvar Alterações</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Configurações de Sistema -->
+                    <div class="config-section" id="sistema">
+                        <h2>Configurações do Sistema</h2>
+                        <div class="config-panel">
+                            <div class="config-panel-title">Manutenção e Desempenho</div>
+                            <div class="config-form">
+                                <div class="input-group">
+                                    <label for="cacheTTL">Tempo de cache (TTL)</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="cacheTTL" value="60">
+                                        <span class="input-unit">minutos</span>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label for="limparCacheAuto">Limpeza automática de cache</label>
+                                    <select id="limparCacheAuto">
+                                        <option value="diario">Diária</option>
+                                        <option value="semanal" selected>Semanal</option>
+                                        <option value="mensal">Mensal</option>
+                                        <option value="nunca">Nunca</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="limiteBuscas">Limite de resultados por busca</label>
+                                    <input type="number" id="limiteBuscas" value="50">
+                                </div>
+                                <div class="form-actions">
+                                    <button class="btn btn-outline btn-sm">Limpar Cache Agora</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-panel">
+                            <div class="config-panel-title">Segurança</div>
+                            <div class="config-form">
+                                <div class="input-group">
+                                    <label for="tempoSessao">Tempo de expiração da sessão</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="tempoSessao" value="30">
+                                        <span class="input-unit">minutos</span>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label for="forcaSenha">Força mínima de senha</label>
+                                    <select id="forcaSenha">
+                                        <option value="baixa">Baixa (mínimo 6 caracteres)</option>
+                                        <option value="media" selected>Média (8+ caracteres, letras e números)</option>
+                                        <option value="alta">Alta (8+ caracteres, letras, números e símbolos)</option>
+                                        <option value="muito-alta">Muito Alta (12+ caracteres, letras, números, símbolos e maiúsculas)</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="expiracaoSenha">Expiração de senha</label>
+                                    <select id="expiracaoSenha">
+                                        <option value="30">30 dias</option>
+                                        <option value="60">60 dias</option>
+                                        <option value="90" selected>90 dias</option>
+                                        <option value="180">180 dias</option>
+                                        <option value="nunca">Nunca</option>
+                                    </select>
+                                </div>
+                                <div class="input-group checkbox">
+                                    <input type="checkbox" id="autenticacaoDupla">
+                                    <label for="autenticacaoDupla">Habilitar autenticação em dois fatores (2FA)</label>
+                                </div>
+                                <div class="input-group">
+                                    <label for="tentativasLogin">Tentativas de login antes do bloqueio</label>
+                                    <input type="number" id="tentativasLogin" value="5">
+                                </div>
+                                <div class="input-group">
+                                    <label for="tempoBloqueio">Tempo de bloqueio após tentativas</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="tempoBloqueio" value="15">
+                                        <span class="input-unit">minutos</span>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button class="btn btn-danger btn-sm">Redefinir Todas as Senhas</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-panel">
+                            <div class="config-panel-title">Versão do Sistema</div>
+                            <div class="version-info">
+                                <div class="version-row">
+                                    <div class="version-label">Versão Atual:</div>
+                                    <div class="version-value">1.5.2</div>
+                                </div>
+                                <div class="version-row">
+                                    <div class="version-label">Data da última atualização:</div>
+                                    <div class="version-value">15/10/2025</div>
+                                </div>
+                                <div class="version-row">
+                                    <div class="version-label">Status:</div>
+                                    <div class="version-value version-uptodate">Atualizado</div>
+                                </div>
+                                <div class="version-actions">
+                                    <button class="btn btn-primary btn-sm">Verificar Atualizações</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-actions">
+                            <button class="btn btn-outline">Cancelar</button>
+                            <button class="btn btn-primary">Salvar Alterações</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Logs do Sistema -->
+                    <div class="config-section" id="logs">
+                        <h2>Logs do Sistema</h2>
+                        <div class="config-panel">
+                            <div class="config-panel-title">Filtros</div>
+                            <div class="config-form">
+                                <div class="filter-row">
+                                    <div class="filter-group">
+                                        <label for="filterLogType">Tipo</label>
+                                        <select id="filterLogType">
+                                            <option value="all">Todos</option>
+                                            <option value="error">Erros</option>
+                                            <option value="warning">Avisos</option>
+                                            <option value="info">Informações</option>
+                                            <option value="security">Segurança</option>
+                                            <option value="login">Login</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label for="filterLogDate">Data</label>
+                                        <input type="date" id="filterLogDate">
+                                    </div>
+                                    <div class="filter-group">
+                                        <label for="filterLogUser">Usuário</label>
+                                        <input type="text" id="filterLogUser" placeholder="Digite o nome do usuário">
+                                    </div>
+                                    <div class="filter-actions">
+                                        <button class="btn btn-primary btn-sm">Filtrar</button>
+                                        <button class="btn btn-outline btn-sm">Limpar Filtros</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="config-panel">
+                            <div class="config-panel-title">Registros do Sistema</div>
+                            <div class="table-container log-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Data/Hora</th>
+                                            <th>Tipo</th>
+                                            <th>Usuário</th>
+                                            <th>IP</th>
+                                            <th>Descrição</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>15/10/2025 10:45:12</td>
+                                            <td><span class="log-type login">Login</span></td>
+                                            <td>admin@sistema.com</td>
+                                            <td>192.168.1.100</td>
+                                            <td>Login realizado com sucesso</td>
+                                            <td class="actions">
+                                                <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>15/10/2025 09:32:05</td>
+                                            <td><span class="log-type warning">Aviso</span></td>
+                                            <td>maria.silva@escola.edu.br</td>
+                                            <td>192.168.1.120</td>
+                                            <td>Tentativa de registro fora da área permitida</td>
+                                            <td class="actions">
+                                                <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>15/10/2025 08:15:45</td>
+                                            <td><span class="log-type error">Erro</span></td>
+                                            <td>sistema</td>
+                                            <td>localhost</td>
+                                            <td>Falha na sincronização de dados</td>
+                                            <td class="actions">
+                                                <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>14/10/2025 16:22:30</td>
+                                            <td><span class="log-type security">Segurança</span></td>
+                                            <td>admin@sistema.com</td>
+                                            <td>192.168.1.100</td>
+                                            <td>Alteração nas permissões de usuário</td>
+                                            <td class="actions">
+                                                <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>14/10/2025 14:05:18</td>
+                                            <td><span class="log-type info">Informação</span></td>
+                                            <td>joao.professor@escola.edu.br</td>
+                                            <td>192.168.1.150</td>
+                                            <td>Registro de frequência realizado</td>
+                                            <td class="actions">
+                                                <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pagination">
+                                <button class="pagination-arrow" disabled><i class="fas fa-chevron-left"></i></button>
+                                <div class="pagination-pages">
+                                    <button class="active">1</button>
+                                    <button>2</button>
+                                    <button>3</button>
+                                    <span>...</span>
+                                    <button>10</button>
+                                </div>
+                                <button class="pagination-arrow"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="config-actions">
+                            <button class="btn btn-outline">Exportar Logs</button>
+                            <button class="btn btn-danger">Limpar Logs Antigos</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/common.js"></script>
+    <script src="../js/configuracoes.js"></script>
+</body>
+</html>

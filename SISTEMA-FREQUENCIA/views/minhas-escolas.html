@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Escolas - Sistema de Frequência</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/theme.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../img/logo.svg" alt="Logo">
+                <h2>FrequênciaApp</h2>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="dashboard-professor.html" class="menu-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="minhas-escolas.html" class="menu-item active">
+                        <i class="fas fa-school"></i>
+                        <span>Minhas Escolas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="marcar-presenca.html" class="menu-item">
+                        <i class="fas fa-qrcode"></i>
+                        <span>Marcar Presença</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="meu-historico.html" class="menu-item">
+                        <i class="fas fa-history"></i>
+                        <span>Meu Histórico</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="perfil.html" class="menu-item">
+                        <i class="fas fa-user"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h1>Minhas Escolas</h1>
+                <div class="user-info">
+                    <img src="../img/avatar-professor.svg" alt="User Avatar" class="user-avatar">
+                    <span class="user-name" id="professorName">Professor Silva</span>
+                </div>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="actions-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar escola..." id="searchMySchool">
+                </div>
+            </div>
+            
+            <!-- Schools Grid -->
+            <div class="schools-grid" id="schoolsGrid">
+                <!-- E.E. Maria José -->
+                <div class="school-card">
+                    <div class="school-header">
+                        <img src="../img/school-icon.svg" alt="Ícone da Escola" class="school-icon">
+                        <h3>E.E. Maria José</h3>
+                    </div>
+                    <div class="school-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Rua das Flores, 123</p>
+                        <p><i class="fas fa-phone"></i> (11) 3456-7890</p>
+                        <p><i class="fas fa-book"></i> Disciplina: <span class="badge">Matemática</span></p>
+                        <p><i class="fas fa-clock"></i> Horários: Seg, Qua, Sex (08:00 - 10:00)</p>
+                    </div>
+                    <div class="school-actions">
+                        <button class="btn btn-primary school-action-btn" data-school="1"><i class="fas fa-qrcode"></i> Marcar Presença</button>
+                        <button class="btn school-action-btn" data-school="1"><i class="fas fa-calendar-alt"></i> Ver Horários</button>
+                    </div>
+                </div>
+                
+                <!-- Colégio São Paulo -->
+                <div class="school-card">
+                    <div class="school-header">
+                        <img src="../img/school-icon.svg" alt="Ícone da Escola" class="school-icon">
+                        <h3>Colégio São Paulo</h3>
+                    </div>
+                    <div class="school-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1500</p>
+                        <p><i class="fas fa-phone"></i> (11) 2345-6789</p>
+                        <p><i class="fas fa-book"></i> Disciplina: <span class="badge">Matemática</span></p>
+                        <p><i class="fas fa-clock"></i> Horários: Seg, Qua, Sex (10:30 - 12:30)</p>
+                    </div>
+                    <div class="school-actions">
+                        <button class="btn btn-primary school-action-btn" data-school="2"><i class="fas fa-qrcode"></i> Marcar Presença</button>
+                        <button class="btn school-action-btn" data-school="2"><i class="fas fa-calendar-alt"></i> Ver Horários</button>
+                    </div>
+                </div>
+                
+                <!-- Instituto Técnico -->
+                <div class="school-card">
+                    <div class="school-header">
+                        <img src="../img/school-icon.svg" alt="Ícone da Escola" class="school-icon">
+                        <h3>Instituto Técnico</h3>
+                    </div>
+                    <div class="school-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Rua dos Técnicos, 500</p>
+                        <p><i class="fas fa-phone"></i> (11) 3456-1234</p>
+                        <p><i class="fas fa-book"></i> Disciplina: <span class="badge">Estatística</span></p>
+                        <p><i class="fas fa-clock"></i> Horários: Ter, Qui (14:00 - 16:00)</p>
+                    </div>
+                    <div class="school-actions">
+                        <button class="btn btn-primary school-action-btn" data-school="3"><i class="fas fa-qrcode"></i> Marcar Presença</button>
+                        <button class="btn school-action-btn" data-school="3"><i class="fas fa-calendar-alt"></i> Ver Horários</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Schedule Modal -->
+            <div class="modal" id="scheduleModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="scheduleModalTitle">Horários - E.E. Maria José</h3>
+                        <button class="modal-close" id="closeScheduleModal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="schedule-container">
+                            <table class="schedule-table">
+                                <thead>
+                                    <tr>
+                                        <th>Dia</th>
+                                        <th>Horário</th>
+                                        <th>Disciplina</th>
+                                        <th>Turma</th>
+                                        <th>Sala</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="scheduleTableBody">
+                                    <tr>
+                                        <td>Segunda</td>
+                                        <td>08:00 - 10:00</td>
+                                        <td>Matemática</td>
+                                        <td>9º Ano A</td>
+                                        <td>Sala 105</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quarta</td>
+                                        <td>08:00 - 10:00</td>
+                                        <td>Matemática</td>
+                                        <td>9º Ano B</td>
+                                        <td>Sala 106</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sexta</td>
+                                        <td>08:00 - 10:00</td>
+                                        <td>Matemática</td>
+                                        <td>9º Ano C</td>
+                                        <td>Sala 107</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" id="closeScheduleBtn">Fechar</button>
+                        <button class="btn btn-primary" id="printScheduleBtn"><i class="fas fa-print"></i> Imprimir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/common.js"></script>
+    <script src="../js/my-schools.js"></script>
+</body>
+</html>

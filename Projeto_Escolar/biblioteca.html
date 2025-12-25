@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Francisco Douglas">
+    <meta name="description" content="Biblioteca da E.U. Evaristo Campelo de Matos - Acervo de livros para todas as séries e áreas do conhecimento">
+    <title>Biblioteca | E.U. Evaristo Campelo de Matos</title>
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./source/img/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./source/css/base.css">
+    <link rel="stylesheet" href="./source/css/layout.css">
+    <link rel="stylesheet" href="./source/css/components.css">
+    <link rel="stylesheet" href="./source/css/biblioteca.css">
+    <link rel="stylesheet" href="./source/css/biblioteca-componentes.css">
+    <link rel="stylesheet" href="./source/css/biblioteca-catalogo.css">
+    <link rel="stylesheet" href="./source/css/animacoes.css">
+</head>
+<body>
+    <header id="header">
+        <div class="sup_links">
+            <h2><i class="fas fa-school"></i> E.U. Evaristo Campelo de Matos</h2>
+            <div class="links_sup">
+                <ul>
+                    <li><a href="tel:86999999999"><i class="fas fa-phone"></i><span class="contact-text">(86) 99999-9999</span></a></li>
+                    <li><a href="mailto:escola@exemplo.com"><i class="fas fa-envelope"></i><span class="contact-text">escola@exemplo.com</span></a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i><span class="contact-text">08:00 - 17:00 (Seg-Sex)</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <nav class="navBar">
+            <div class="icone_logo">
+                <a href="index.html">
+                    <img src="./source/img/Logo moderno para a .png" alt="Ícone Escola">
+                </a>
+            </div>
+            <ul class="nav-menu" id="menuLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#sobre">Sobre</a></li>
+                <li><a href="index.html#escola">Escola</a></li>
+                <li><a href="./eja.html">EJA</a></li>
+                <li class="has-dropdown">
+                    <a href="#">Recursos <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./cursos.html"><i class="fas fa-graduation-cap"></i> Cursos</a></li>
+                        <li><a href="./eventos.html"><i class="fas fa-calendar-alt"></i> Eventos</a></li>
+                        <li><a href="./galeria.html"><i class="fas fa-images"></i> Galeria</a></li>
+                        <li><a href="./biblioteca.html" class="active"><i class="fas fa-book"></i> Biblioteca</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#contato" class="contact">Contato</a></li>
+            </ul>
+            
+            <button class="menu_amburgue" id="menuToggle" aria-label="Abrir menu" aria-controls="menuLinks">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="container">
+        <!-- Banner Principal -->
+        <section id="library-hero" class="library-hero">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h3>Conhecimento ao seu Alcance</h3>
+                <h1>Biblioteca Escolar</h1>
+                <p>Descubra nosso acervo literário organizado por séries escolares, áreas do conhecimento e habilidades, estimulando a leitura e o aprendizado contínuo.</p>
+                <div class="hero-buttons">
+                    <a href="#catalogo" class="btn">Explorar Acervo</a>
+                    <a href="#como-funciona" class="btn btn-outline">Como Funciona</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estatísticas da Biblioteca -->
+        <section class="library-stats">
+            <div class="section-container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-value="2000">0</div>
+                            <div class="stat-label">Livros no Acervo</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-value="200">0</div>
+                            <div class="stat-label">Usuários Ativos</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-value="150">0</div>
+                            <div class="stat-label">Empréstimos Mensais</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-value="500">0</div>
+                            <div class="stat-label">E-books Disponíveis</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Funciona -->
+        <section id="como-funciona" class="section-padding bg-light">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Funcionamento</span>
+                    <h2 class="section-title">Como Utilizar Nossa Biblioteca</h2>
+                    <p class="section-desc">Conheça o processo simples para usufruir de todo o nosso acervo</p>
+                </div>
+
+                <div class="how-it-works">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Cadastro</h3>
+                                <p>Faça seu cadastro na biblioteca apresentando seu documento de identidade e comprovante de matrícula.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Consulta</h3>
+                                <p>Consulte nosso catálogo físico ou digital para encontrar os livros que deseja.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-hand-holding"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Empréstimo</h3>
+                                <p>Solicite o empréstimo ao bibliotecário, que registrará em seu cadastro com prazo de 14 dias para devolução.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-undo"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Devolução</h3>
+                                <p>Devolva o livro dentro do prazo. Se precisar de mais tempo, solicite a renovação antecipadamente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="library-rules">
+                    <div class="rule-item">
+                        <div class="rule-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Até 3 livros por vez</h3>
+                    </div>
+
+                    <div class="rule-item">
+                        <div class="rule-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>14 dias para devolução</h3>
+                    </div>
+
+                    <div class="rule-item">
+                        <div class="rule-icon">
+                            <i class="fas fa-sync"></i>
+                        </div>
+                        <h3>1 renovação permitida</h3>
+                    </div>
+
+                    <div class="rule-item">
+                        <div class="rule-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Atendimento: 08h às 17h</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorias de Livros -->
+        <section class="section-padding">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Organização</span>
+                    <h2 class="section-title">Categorias do Acervo</h2>
+                    <p class="section-desc">Nosso acervo está organizado por níveis escolares e áreas do conhecimento</p>
+                </div>
+
+                <div class="categories-grid">
+                    <!-- Séries Escolares -->
+                    <div class="category-section">
+                        <h3 class="category-heading">Por Série</h3>
+                        <div class="category-items">
+                            <div class="category-item" data-filter="infantil">
+                                <div class="category-icon">
+                                    <i class="fas fa-child"></i>
+                                </div>
+                                <h4>Educação Infantil</h4>
+                                <p>Livros ilustrados, contos de fadas e histórias para primeiros leitores</p>
+                            </div>
+
+                            <div class="category-item" data-filter="fundamental-1">
+                                <div class="category-icon">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                                <h4>Fundamental I</h4>
+                                <p>Literatura infantojuvenil, livros didáticos e paradidáticos</p>
+                            </div>
+
+                            <div class="category-item" data-filter="fundamental-2">
+                                <div class="category-icon">
+                                    <i class="fas fa-book-reader"></i>
+                                </div>
+                                <h4>Fundamental II</h4>
+                                <p>Clássicos adaptados, livros didáticos e literatura juvenil</p>
+                            </div>
+
+                            <div class="category-item" data-filter="eja">
+                                <div class="category-icon">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <h4>EJA</h4>
+                                <p>Material específico para Educação de Jovens e Adultos</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Áreas do Conhecimento -->
+                    <div class="category-section">
+                        <h3 class="category-heading">Por Área</h3>
+                        <div class="category-items">
+                            <div class="category-item" data-filter="linguagens">
+                                <div class="category-icon">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <h4>Linguagens</h4>
+                                <p>Português, Literatura, Idiomas e Artes</p>
+                            </div>
+
+                            <div class="category-item" data-filter="matematica">
+                                <div class="category-icon">
+                                    <i class="fas fa-square-root-alt"></i>
+                                </div>
+                                <h4>Matemática</h4>
+                                <p>Álgebra, Geometria e Raciocínio Lógico</p>
+                            </div>
+
+                            <div class="category-item" data-filter="ciencias">
+                                <div class="category-icon">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <h4>Ciências</h4>
+                                <p>Biologia, Física, Química e Ciências Naturais</p>
+                            </div>
+
+                            <div class="category-item" data-filter="humanas">
+                                <div class="category-icon">
+                                    <i class="fas fa-globe-americas"></i>
+                                </div>
+                                <h4>Ciências Humanas</h4>
+                                <p>História, Geografia, Filosofia e Sociologia</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Habilidades -->
+                    <div class="category-section">
+                        <h3 class="category-heading">Por Habilidades</h3>
+                        <div class="category-items">
+                            <div class="category-item" data-filter="pesquisa">
+                                <div class="category-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <h4>Pesquisa</h4>
+                                <p>Enciclopédias, atlas e materiais de referência</p>
+                            </div>
+
+                            <div class="category-item" data-filter="tecnologia">
+                                <div class="category-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <h4>Tecnologia</h4>
+                                <p>Programação, Robótica e Informática</p>
+                            </div>
+
+                            <div class="category-item" data-filter="artes">
+                                <div class="category-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <h4>Artes</h4>
+                                <p>Música, Artes Visuais, Teatro e Dança</p>
+                            </div>
+
+                            <div class="category-item" data-filter="profissional">
+                                <div class="category-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <h4>Formação Profissional</h4>
+                                <p>Cursos técnicos e preparação para o mercado</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catálogo da Biblioteca -->
+        <section id="catalogo" class="section-padding bg-light">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Acervo</span>
+                    <h2 class="section-title">Nosso Catálogo de Livros</h2>
+                    <p class="section-desc">Explore nossa seleção de livros disponíveis para empréstimo</p>
+                </div>
+
+                <!-- Barra de Pesquisa e Filtros -->
+                <div class="catalog-tools">
+                    <div class="search-bar">
+                        <input type="text" id="search-book" placeholder="Pesquisar por título, autor ou assunto..." aria-label="Pesquisar livros">
+                        <button class="search-btn" title="Pesquisar"><i class="fas fa-search"></i><span class="sr-only">Pesquisar</span></button>
+                    </div>
+                    
+                    <div class="filter-controls">
+                        <div class="filter-dropdown">
+                            <label for="filter-serie">Série:</label>
+                            <select id="filter-serie" class="filter-select">
+                                <option value="todos">Todas</option>
+                                <option value="infantil">Educação Infantil</option>
+                                <option value="fundamental-1">Fundamental I</option>
+                                <option value="fundamental-2">Fundamental II</option>
+                                <option value="eja">EJA</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-dropdown">
+                            <label for="filter-area">Área:</label>
+                            <select id="filter-area" class="filter-select">
+                                <option value="todos">Todas</option>
+                                <option value="linguagens">Linguagens</option>
+                                <option value="matematica">Matemática</option>
+                                <option value="ciencias">Ciências</option>
+                                <option value="humanas">Ciências Humanas</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-dropdown">
+                            <label for="filter-disponibilidade">Disponibilidade:</label>
+                            <select id="filter-disponibilidade" class="filter-select">
+                                <option value="todos">Todos</option>
+                                <option value="disponivel">Disponível</option>
+                                <option value="emprestado">Emprestado</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-dropdown">
+                            <label for="sort-books">Ordenar por:</label>
+                            <select id="sort-books" class="filter-select">
+                                <option value="titulo-asc">Título (A-Z)</option>
+                                <option value="titulo-desc">Título (Z-A)</option>
+                                <option value="autor-asc">Autor (A-Z)</option>
+                                <option value="autor-desc">Autor (Z-A)</option>
+                                <option value="ano-desc">Mais recentes</option>
+                                <option value="ano-asc">Mais antigos</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exibição de Livros -->
+                <div class="books-container">
+                    <div class="books-grid" id="books-grid">
+                        <!-- Os livros serão carregados via JavaScript -->
+                    </div>
+                    
+                    <!-- Estado vazio ou sem resultados -->
+                    <div id="no-results" class="no-results hidden">
+                        <div class="no-results-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Nenhum livro encontrado</h3>
+                        <p>Tente ajustar seus filtros ou termos de pesquisa</p>
+                    </div>
+                    
+                    <!-- Paginação -->
+                    <div class="pagination" id="books-pagination">
+                        <button class="pagination-prev" disabled title="Página anterior"><i class="fas fa-chevron-left"></i><span class="sr-only">Página anterior</span></button>
+                        <div class="pagination-numbers">
+                            <span class="page-number active">1</span>
+                            <span class="page-number">2</span>
+                            <span class="page-number">3</span>
+                        </div>
+                        <button class="pagination-next" title="Próxima página"><i class="fas fa-chevron-right"></i><span class="sr-only">Próxima página</span></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destaques Literários -->
+        <section class="section-padding">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Recomendações</span>
+                    <h2 class="section-title">Destaques Literários</h2>
+                    <p class="section-desc">Confira as obras mais requisitadas e recomendadas pelos nossos leitores</p>
+                </div>
+
+                <div class="featured-books">
+                    <div class="swiper-container" id="featured-books-slider">
+                        <div class="swiper-wrapper">
+                            <!-- Os destaques serão carregados via JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-button-container">
+                        <button class="swiper-button-prev" id="featured-prev" title="Livro anterior"><i class="fas fa-chevron-left"></i><span class="sr-only">Livro anterior</span></button>
+                        <button class="swiper-button-next" id="featured-next" title="Próximo livro"><i class="fas fa-chevron-right"></i><span class="sr-only">Próximo livro</span></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Área de E-books e Recursos Digitais -->
+        <section class="section-padding bg-light ebooks-section">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Biblioteca Digital</span>
+                    <h2 class="section-title">E-books e Recursos Digitais</h2>
+                    <p class="section-desc">Acesse nossa coleção digital com diversos títulos disponíveis para leitura online</p>
+                </div>
+
+                <div class="ebooks-features">
+                    <div class="ebook-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-tablet-alt"></i>
+                        </div>
+                        <h3>Acesso em Qualquer Dispositivo</h3>
+                        <p>Leia em computadores, tablets e smartphones a qualquer momento</p>
+                    </div>
+                    
+                    <div class="ebook-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <h3>Acesso Offline</h3>
+                        <p>Baixe os livros para ler mesmo sem conexão com internet</p>
+                    </div>
+                    
+                    <div class="ebook-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                        <h3>Ferramentas de Estudo</h3>
+                        <p>Destaque trechos, faça anotações e pesquise termos</p>
+                    </div>
+                    
+                    <div class="ebook-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-universal-access"></i>
+                        </div>
+                        <h3>Acessibilidade</h3>
+                        <p>Recursos de acessibilidade para todos os leitores</p>
+                    </div>
+                </div>
+
+                <div class="ebooks-cta">
+                    <h3>Acesse nossa plataforma digital</h3>
+                    <a href="./area-estudos.html" class="btn btn-primary">Área de Estudos</a>
+                    <a href="./dashboard.html" class="btn btn-secondary">Dashboard do Aluno</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Espaços da Biblioteca -->
+        <section class="section-padding library-spaces">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Ambientes</span>
+                    <h2 class="section-title">Espaços de Aprendizagem</h2>
+                    <p class="section-desc">Conheça os diferentes espaços da nossa biblioteca</p>
+                </div>
+
+                <div class="spaces-gallery">
+                    <div class="space-item">
+                        <div class="space-image">
+                            <img src="https://images.unsplash.com/photo-1568667256549-094345857637?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sala de Leitura">
+                        </div>
+                        <div class="space-info">
+                            <h3>Sala de Leitura</h3>
+                            <p>Ambiente tranquilo para leitura individual, com mesas e poltronas confortáveis</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-item">
+                        <div class="space-image">
+                            <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Espaço Infantil">
+                        </div>
+                        <div class="space-info">
+                            <h3>Espaço Infantil</h3>
+                            <p>Área colorida e lúdica com livros, tapetes e mobiliário adequado às crianças</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-item">
+                        <div class="space-image">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sala de Estudos">
+                        </div>
+                        <div class="space-info">
+                            <h3>Sala de Estudos</h3>
+                            <p>Espaço para estudos em grupo, com mesas amplas e possibilidade de discussões</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-item">
+                        <div class="space-image">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Laboratório Digital">
+                        </div>
+                        <div class="space-info">
+                            <h3>Laboratório Digital</h3>
+                            <p>Computadores com acesso à internet para pesquisas e acesso ao acervo digital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clube do Livro -->
+        <section class="section-padding bg-light book-club-section">
+            <div class="section-container">
+                <div class="book-club-content">
+                    <div class="book-club-info">
+                        <span class="section-badge">Leitura Compartilhada</span>
+                        <h2 class="section-title">Clube do Livro</h2>
+                        <p>Participe do nosso clube de leitura e compartilhe experiências literárias com outros estudantes e professores. A cada mês, selecionamos um livro para leitura coletiva e realizamos encontros para discussões.</p>
+                        
+                        <div class="book-club-features">
+                            <div class="club-feature">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Encontros quinzenais</span>
+                            </div>
+                            <div class="club-feature">
+                                <i class="fas fa-users"></i>
+                                <span>Aberto a todos os alunos</span>
+                            </div>
+                            <div class="club-feature">
+                                <i class="fas fa-medal"></i>
+                                <span>Certificado de participação</span>
+                            </div>
+                        </div>
+                        
+                        <div class="book-club-cta">
+                            <a href="#" class="btn btn-secondary">Inscreva-se</a>
+                        </div>
+                    </div>
+                    
+                    <div class="current-book">
+                        <h3>Livro do Mês</h3>
+                        <div class="book-cover">
+                            <img src="https://m.media-amazon.com/images/I/61-hMfd7NGL._AC_UF1000,1000_QL80_.jpg" alt="Capa do Livro do Mês">
+                        </div>
+                        <div class="book-details">
+                            <h4>"O Pequeno Príncipe"</h4>
+                            <p class="book-author">Antoine de Saint-Exupéry</p>
+                            <p class="book-desc">Uma das obras mais traduzidas da literatura mundial, que aborda temas como amizade, amor e o sentido da vida.</p>
+                            <p class="next-meeting"><strong>Próximo encontro:</strong> 25 de outubro, 15:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section-padding">
+            <div class="section-container">
+                <div class="section-header center">
+                    <span class="section-badge">Dúvidas</span>
+                    <h2 class="section-title">Perguntas Frequentes</h2>
+                    <p class="section-desc">Respostas para as dúvidas mais comuns sobre nossa biblioteca</p>
+                </div>
+
+                <div class="accordion" id="faq-accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Quem pode utilizar a biblioteca?</h3>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>A biblioteca está disponível para todos os alunos regularmente matriculados, professores e funcionários da instituição. Visitantes podem consultar o acervo localmente mediante autorização prévia da coordenação.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Como faço para solicitar um livro que não está no acervo?</h3>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>É possível preencher o formulário de sugestão disponível na biblioteca ou enviar um e-mail para biblioteca@escola.com com os detalhes do livro desejado. Todas as sugestões são avaliadas pela equipe responsável pelas aquisições.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Qual o prazo para devolução dos livros?</h3>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>O prazo padrão é de 14 dias corridos. Para materiais de referência e alta demanda, o prazo pode ser menor. Consulte o bibliotecário no momento do empréstimo para confirmar a data de devolução específica para cada material.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>É possível renovar o empréstimo?</h3>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Sim, é permitida uma renovação por empréstimo, desde que seja solicitada antes da data de vencimento e que não haja reserva do material por outro usuário. A renovação pode ser feita presencialmente ou pelo sistema online da biblioteca.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Como acesso os e-books e a biblioteca digital?</h3>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>O acesso é feito através do portal da biblioteca, utilizando as mesmas credenciais do sistema escolar. É possível acessar tanto nos computadores da escola quanto em dispositivos pessoais. Acesse nossa <a href="./area-estudos.html" class="link-accent">Área de Estudos</a> ou o <a href="./dashboard.html" class="link-accent">Dashboard do Aluno</a> para começar a explorar nosso acervo digital. Para mais informações, solicite um tutorial ao bibliotecário.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>O que acontece em caso de atraso na devolução?</h3>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Em caso de atraso, o usuário fica impedido de realizar novos empréstimos por um período equivalente aos dias de atraso. Para casos recorrentes, poderão ser aplicadas outras medidas educativas conforme o regimento da biblioteca.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter/Contato -->
+        <section class="section-padding bg-light library-contact">
+            <div class="section-container">
+                <div class="contact-columns">
+                    <div class="contact-info">
+                        <span class="section-badge">Contato</span>
+                        <h2 class="section-title">Fale com a Biblioteca</h2>
+                        <p>Tire suas dúvidas, solicite informações ou envie sugestões para nossa equipe.</p>
+                        
+                        <ul class="contact-methods">
+                            <li><i class="fas fa-envelope"></i> biblioteca@escola.com</li>
+                            <li><i class="fas fa-phone"></i> (86) 99999-8888</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Bloco C, 1º andar</li>
+                            <li><i class="fas fa-clock"></i> Segunda a Sexta: 8h às 17h</li>
+                        </ul>
+                        
+                        <div class="library-staff">
+                            <h3>Nossa Equipe</h3>
+                            <div class="staff-members">
+                                <div class="staff-member">
+                                    <img src="https://randomuser.me/api/portraits/women/56.jpg" alt="Foto da Bibliotecária">
+                                    <div class="staff-info">
+                                        <h4>Dra. Maria Lúcia</h4>
+                                        <p>Bibliotecária-Chefe</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="staff-member">
+                                    <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Foto do Auxiliar">
+                                    <div class="staff-info">
+                                        <h4>João Pedro</h4>
+                                        <p>Assistente de Biblioteca</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="newsletter-form">
+                        <h3>Novidades da Biblioteca</h3>
+                        <p>Inscreva-se para receber notificações sobre novos livros, eventos literários e prazos de devolução.</p>
+                        
+                        <form id="library-newsletter-form" action="#" method="post">
+                            <div class="form-group">
+                                <label for="name">Nome Completo</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="reader-type">Perfil de Leitor</label>
+                                <select id="reader-type" name="reader-type">
+                                    <option value="estudante">Estudante</option>
+                                    <option value="professor">Professor</option>
+                                    <option value="funcionario">Funcionário</option>
+                                    <option value="comunidade">Comunidade Externa</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">Concordo em receber notificações por email</label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-full">Inscrever-se</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Detalhes do Livro -->
+    <div class="book-modal" id="bookModal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Fechar detalhes do livro" title="Fechar">&times;</button>
+            <div class="modal-body">
+                <!-- Conteúdo será inserido via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <div class="content_footer">
+            <div class="footer-column">
+                <h3>Sobre Nós</h3>
+                <p>A E.U. Evaristo Campelo de Matos é uma instituição dedicada à excelência no ensino, formando cidadãos preparados para os desafios do futuro.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="index.html#escola">Escola</a></li>
+                    <li><a href="index.html#profissionais">Professores</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Recursos</h3>
+                <ul class="footer-links">
+                    <li><a href="./cursos.html">Cursos</a></li>
+                    <li><a href="./eventos.html">Eventos</a></li>
+                    <li><a href="./galeria.html">Galeria</a></li>
+                    <li><a href="./biblioteca.html">Biblioteca</a></li>
+                    <li><a href="./area-estudos.html">Área de Estudos</a></li>
+                    <li><a href="./dashboard.html">Dashboard</a></li>
+                    <li><a href="./eja.html">EJA</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contato</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> Av. Principal, 1000, Centro</li>
+                    <li><i class="fas fa-phone"></i> (86) 99999-9999</li>
+                    <li><i class="fas fa-envelope"></i> escola@exemplo.com</li>
+                    <li><i class="fas fa-clock"></i> Segunda a Sexta: 8h às 17h</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 E.U. Evaristo Campelo de Matos. Todos os direitos reservados.</p>
+            <p>Desenvolvido por <span>Francisco Douglas</span></p>
+        </div>
+        <a href="#" class="back-to-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></a>
+    </footer>
+
+    <script src="./source/js/script_primary.js"></script>
+    <script src="./source/js/script_biblioteca_core.js"></script>
+    <script src="./source/js/script_biblioteca_catalogo.js"></script>
+</body>
+</html>

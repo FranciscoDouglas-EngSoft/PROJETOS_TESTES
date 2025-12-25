@@ -1,0 +1,342 @@
+/* Estilos para a grade de galeria, filtros e layouts */
+
+/* Filtros da Galeria */
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  background-color: var(--color-white);
+  border: none;
+  border-radius: 30px;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background-color: var(--gallery-primary);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+
+/* Layout Toggle */
+.layout-toggle {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.layout-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-white);
+  color: var(--color-text-light);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-left: 10px;
+}
+
+.layout-btn:hover, .layout-btn.active {
+  background-color: var(--gallery-primary);
+  color: var(--color-white);
+}
+
+/* Grid de Galeria */
+.gallery-container {
+  margin-bottom: 40px;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.list-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.list-layout .gallery-item {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.list-layout .gallery-image {
+  width: 35%;
+  height: auto;
+}
+
+.list-layout .gallery-content {
+  width: 65%;
+}
+
+.gallery-item {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeInUp 0.6s forwards;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: var(--shadow-lg);
+}
+
+.gallery-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-slow);
+}
+
+.gallery-item:hover .gallery-image img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 47, 113, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.gallery-item:hover .image-overlay {
+  opacity: 1;
+}
+
+.overlay-link {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  color: var(--gallery-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  transition: var(--transition);
+  transform: translateY(20px);
+}
+
+.gallery-item:hover .overlay-link {
+  transform: translateY(0);
+}
+
+.overlay-link:hover {
+  background-color: var(--gallery-secondary);
+  color: var(--color-dark);
+}
+
+.gallery-content {
+  padding: 25px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Paginação */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.pagination a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  height: 40px;
+  margin: 0 5px;
+  padding: 0 15px;
+  border-radius: 4px;
+  background-color: var(--color-white);
+  color: var(--color-text);
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.pagination a.active, .pagination a:hover {
+  background-color: var(--gallery-primary);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+
+.pagination a.next {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Feed do Instagram */
+.instagram-feed {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin: 40px 0;
+}
+
+.insta-item {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.insta-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.insta-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.insta-item:hover img {
+  transform: scale(1.1);
+}
+
+.insta-item:hover .insta-overlay {
+  opacity: 1;
+}
+
+.insta-overlay a {
+  font-size: 2rem;
+  color: var(--color-white);
+}
+
+/* Newsletter */
+.newsletter-section {
+  background-color: var(--color-white);
+  background-image: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.05), rgba(var(--color-primary-rgb), 0.1));
+}
+
+.newsletter-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.newsletter-content {
+  padding-right: 20px;
+}
+
+.newsletter-content h2 {
+  font-size: 2.2rem;
+  color: var(--color-dark);
+  margin-bottom: 20px;
+}
+
+.newsletter-content p {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.newsletter-form .form-group {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter-form input {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border: 1px solid var(--color-border);
+  border-radius: 30px;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.newsletter-form input:focus {
+  border-color: var(--gallery-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
+}
+
+.newsletter-form .btn {
+  padding: 12px 25px;
+  flex-shrink: 0;
+}
+
+.newsletter-image {
+  position: relative;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  height: 100%;
+  min-height: 400px;
+}
+
+.newsletter-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.newsletter-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(var(--color-primary-rgb), 0.2), transparent);
+}

@@ -1,0 +1,22 @@
+{
+  "name": "mao-animada",
+  "version": "1.0.0",
+  "description": "Projeto de animação de uma mão utilizando HTML, CSS e JavaScript.",
+  "main": "src/js/main.js",
+  "scripts": {
+    "start": "live-server src"
+  },
+  "keywords": [
+    "animação",
+    "mão",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

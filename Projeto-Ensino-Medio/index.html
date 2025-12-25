@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Francisco Douglas" />
+  <meta name="description" content="Calculadoras de Matemática do Ensino Médio: álgebra, geometria, trigonometria, estatística, combinatória, probabilidade e finanças." />
+  <title>Calculadoras Ensino Médio</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Calculadoras do Ensino Médio</h1>
+    <div class="search-bar" role="search">
+      <input id="search" type="search" placeholder="Buscar calculadora (ex.: Bhaskara, Pitágoras, média...)" aria-label="Buscar calculadora" />
+    </div>
+  </header>
+
+  <main class="app">
+    <aside class="sidebar" aria-label="Navegação de categorias">
+      <nav id="category-nav" class="category-nav"></nav>
+      <div class="credits">
+        <small>v1.0 • 2025</small>
+      </div>
+    </aside>
+
+    <section class="content" aria-live="polite">
+      <div id="calculator-list" class="calculator-list" aria-label="Lista de calculadoras"></div>
+      <article id="calculator-panel" class="calculator-panel" hidden>
+        <header>
+          <button id="back-to-list" class="btn btn-secondary" aria-label="Voltar para lista">← Voltar</button>
+          <h2 id="calc-title">Calculadora</h2>
+          <p id="calc-subtitle" class="subtitle"></p>
+        </header>
+        <form id="calc-form" novalidate></form>
+        <div id="calc-result" class="result" hidden></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Projeto aberto: Calculadoras de Matemática do Ensino Médio.</p>
+  </footer>
+
+  <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>

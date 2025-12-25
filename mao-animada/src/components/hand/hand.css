@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.hand {
+    width: 100px;
+    height: 200px;
+    background-color: #ffcc00;
+    border-radius: 50px;
+    position: relative;
+    animation: wave 2s infinite;
+}
+
+.finger {
+    width: 20px;
+    height: 60px;
+    background-color: #ffcc00;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.thumb {
+    left: 10px;
+    top: 20px;
+    transform: rotate(30deg);
+}
+
+.index {
+    left: 30px;
+    top: 10px;
+}
+
+.middle {
+    left: 50px;
+    top: 0;
+}
+
+.ring {
+    left: 30px;
+    top: 10px;
+}
+
+.pinky {
+    left: 10px;
+    top: 20px;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(15deg);
+    }
+}

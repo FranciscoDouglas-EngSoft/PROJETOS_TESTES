@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Francisco Douglas">
+    <meta name="description" content="Dashboard do Aluno - E.U. Evaristo Campelo de Matos">
+    <title>Dashboard do Aluno | E.U. Evaristo Campelo de Matos</title>
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./source/img/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./source/css/base.css">
+    <link rel="stylesheet" href="./source/css/layout.css">
+    <link rel="stylesheet" href="./source/css/components.css">
+    <link rel="stylesheet" href="./source/css/area-estudos.css">
+    <link rel="stylesheet" href="./source/css/dashboard.css">
+    <link rel="stylesheet" href="./source/css/animacoes.css">
+</head>
+<body class="dashboard-body">
+    <!-- Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="dash-logo">
+            <a href="index.html">
+                <img src="./source/img/Logo moderno para a .png" alt="Logo da Escola">
+            </a>
+        </div>
+        
+        <div class="dash-search">
+            <form>
+                <input type="search" placeholder="Pesquisar no acervo..." aria-label="Pesquisar no acervo">
+                <button type="submit" aria-label="Pesquisar"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        
+        <div class="dash-user">
+            <div class="notification-icon">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </div>
+            <div class="user-dropdown">
+                <button class="user-btn">
+                    <div class="user-avatar">
+                        <img src="./source/img/avatar-placeholder.jpg" alt="Foto do usuário">
+                    </div>
+                    <span class="user-name">Maria Silva</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#"><i class="fas fa-user"></i> Meu Perfil</a>
+                    <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+                    <a href="#"><i class="fas fa-book"></i> Meus Livros</a>
+                    <a href="#"><i class="fas fa-history"></i> Histórico</a>
+                    <a href="area-estudos.html"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                </div>
+            </div>
+        </div>
+        
+        <button class="menu-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item active">
+                        <a href="dashboard.html" class="nav-link">
+                            <i class="fas fa-home"></i>
+                            <span>Início</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="meus-livros.html" class="nav-link">
+                            <i class="fas fa-book"></i>
+                            <span>Meus Livros</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-bookmark"></i>
+                            <span>Favoritos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-tasks"></i>
+                            <span>Atividades</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Progresso</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-users"></i>
+                            <span>Grupos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-calendar"></i>
+                            <span>Agenda</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Ajuda</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="area-estudos.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="welcome-banner">
+                <div class="welcome-content">
+                    <h1>Olá, Maria Silva!</h1>
+                    <p>Bem-vinda à sua Biblioteca Digital. Continue seus estudos de onde parou.</p>
+                </div>
+            </div>
+            
+            <!-- Continue Reading -->
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2>Continue Lendo</h2>
+                    <a href="#" class="link-more">Ver todos</a>
+                </div>
+                
+                <div class="books-grid">
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="./source/img/livro-matematica.jpg" alt="Livro de Matemática" onerror="this.src='./source/img/book-placeholder.jpg'">
+                            <div class="book-progress">
+                                <div class="book-progress-bar progress-45"></div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">Matemática - 8º Ano</h3>
+                            <p class="book-author">Editora Moderna</p>
+                            <div class="book-stats">
+                                <span>Página 48 de 112</span>
+                                <span>45% concluído</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="./source/img/livro-historia.jpg" alt="Livro de História" onerror="this.src='./source/img/book-placeholder.jpg'">
+                            <div class="book-progress">
+                                <div class="book-progress-bar progress-23"></div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">História do Brasil - 8º Ano</h3>
+                            <p class="book-author">Editora Saraiva</p>
+                            <div class="book-stats">
+                                <span>Página 32 de 140</span>
+                                <span>23% concluído</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="./source/img/livro-geografia.jpg" alt="Livro de Geografia" onerror="this.src='./source/img/book-placeholder.jpg'">
+                            <div class="book-progress">
+                                <div class="book-progress-bar progress-78"></div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">Geografia - 8º Ano</h3>
+                            <p class="book-author">Editora Ática</p>
+                            <div class="book-stats">
+                                <span>Página 86 de 110</span>
+                                <span>78% concluído</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="./source/img/livro-ciencias.jpg" alt="Livro de Ciências" onerror="this.src='./source/img/book-placeholder.jpg'">
+                            <div class="book-progress">
+                                <div class="book-progress-bar progress-10"></div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">Ciências - 8º Ano</h3>
+                            <p class="book-author">Editora Scipione</p>
+                            <div class="book-stats">
+                                <span>Página 12 de 128</span>
+                                <span>10% concluído</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Recentes e Recomendados -->
+            <div class="dashboard-columns">
+                <section class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Adicionados Recentemente</h2>
+                        <a href="#" class="link-more">Ver todos</a>
+                    </div>
+                    
+                    <div class="books-grid books-grid-small">
+                        <div class="book-card">
+                            <div class="book-cover">
+                                <img src="./source/img/livro-portugues.jpg" alt="Livro de Português" onerror="this.src='./source/img/book-placeholder.jpg'">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title">Português - 8º Ano</h3>
+                                <p class="book-author">Editora FTD</p>
+                            </div>
+                        </div>
+                        
+                        <div class="book-card">
+                            <div class="book-cover">
+                                <img src="./source/img/livro-ingles.jpg" alt="Livro de Inglês" onerror="this.src='./source/img/book-placeholder.jpg'">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title">Inglês - 8º Ano</h3>
+                                <p class="book-author">Editora Richmond</p>
+                            </div>
+                        </div>
+                        
+                        <div class="book-card">
+                            <div class="book-cover">
+                                <img src="./source/img/livro-artes.jpg" alt="Livro de Artes" onerror="this.src='./source/img/book-placeholder.jpg'">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title">Artes - 8º Ano</h3>
+                                <p class="book-author">Editora Moderna</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Recomendados para Você</h2>
+                        <a href="#" class="link-more">Ver todos</a>
+                    </div>
+                    
+                    <div class="books-grid books-grid-small">
+                        <div class="book-card">
+                            <div class="book-cover">
+                                <img src="./source/img/livro-literatura.jpg" alt="Livro de Literatura" onerror="this.src='./source/img/book-placeholder.jpg'">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title">Aventuras de Robinson Crusoé</h3>
+                                <p class="book-author">Daniel Defoe</p>
+                            </div>
+                        </div>
+                        
+                        <div class="book-card">
+                            <div class="book-cover">
+                                <img src="./source/img/livro-quimica.jpg" alt="Livro de Química" onerror="this.src='./source/img/book-placeholder.jpg'">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title">Química - 8º Ano</h3>
+                                <p class="book-author">Editora Saraiva</p>
+                            </div>
+                        </div>
+                        
+                        <div class="book-card">
+                            <div class="book-cover">
+                                <img src="./source/img/livro-fisica.jpg" alt="Livro de Física" onerror="this.src='./source/img/book-placeholder.jpg'">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title">Física - 8º Ano</h3>
+                                <p class="book-author">Editora Scipione</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Activities and Progress -->
+            <div class="dashboard-columns">
+                <section class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Atividades Pendentes</h2>
+                        <a href="#" class="link-more">Ver todas</a>
+                    </div>
+                    
+                    <div class="activities-list">
+                        <div class="activity-item">
+                            <div class="activity-icon math">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="activity-info">
+                                <h3>Exercícios de Álgebra</h3>
+                                <p>Matemática - Capítulo 3</p>
+                                <div class="activity-meta">
+                                    <span><i class="fas fa-clock"></i> Prazo: 15/08/2023</span>
+                                    <span class="status pending">Pendente</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon history">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                            <div class="activity-info">
+                                <h3>Questionário sobre Brasil Império</h3>
+                                <p>História - Capítulo 5</p>
+                                <div class="activity-meta">
+                                    <span><i class="fas fa-clock"></i> Prazo: 18/08/2023</span>
+                                    <span class="status pending">Pendente</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon portuguese">
+                                <i class="fas fa-feather-alt"></i>
+                            </div>
+                            <div class="activity-info">
+                                <h3>Redação: Aquecimento Global</h3>
+                                <p>Português - Dissertação</p>
+                                <div class="activity-meta">
+                                    <span><i class="fas fa-clock"></i> Prazo: 20/08/2023</span>
+                                    <span class="status pending">Pendente</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Seu Progresso Semanal</h2>
+                        <a href="#" class="link-more">Ver detalhes</a>
+                    </div>
+                    
+                    <div class="progress-container">
+                        <div class="progress-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">12h</div>
+                                <div class="stat-label">Tempo de Leitura</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">8</div>
+                                <div class="stat-label">Livros Acessados</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">24</div>
+                                <div class="stat-label">Exercícios Concluídos</div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-chart">
+                            <div class="chart-container">
+                                <!-- Em uma implementação real, inserir gráfico via JavaScript -->
+                                <div class="chart-placeholder">
+                                    <div class="chart-bar height-20"><span>Dom</span></div>
+                                    <div class="chart-bar height-45"><span>Seg</span></div>
+                                    <div class="chart-bar height-65"><span>Ter</span></div>
+                                    <div class="chart-bar height-35"><span>Qua</span></div>
+                                    <div class="chart-bar height-70"><span>Qui</span></div>
+                                    <div class="chart-bar height-50"><span>Sex</span></div>
+                                    <div class="chart-bar active height-30"><span>Sáb</span></div>
+                                </div>
+                            </div>
+                            <div class="chart-legend">Tempo de estudo por dia (horas)</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./source/js/script_primary.js"></script>
+    <script>
+        // Script específico para o dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configuração de dropdown
+            const userButton = document.querySelector('.user-btn');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            
+            if (userButton && dropdownMenu) {
+                userButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+                });
+                
+                // Fechar dropdown quando clicar fora
+                document.addEventListener('click', function(e) {
+                    if (!userButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                        dropdownMenu.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Configuração do menu responsivo
+            const menuToggle = document.querySelector('.menu-toggle');
+            const dashboardBody = document.querySelector('.dashboard-body');
+            
+            if (menuToggle && dashboardBody) {
+                menuToggle.addEventListener('click', function() {
+                    dashboardBody.classList.toggle('sidebar-collapsed');
+                });
+            }
+            
+            // Configurar os cartões de livros para redirecionamento
+            const bookCards = document.querySelectorAll('.book-card');
+            if (bookCards.length > 0) {
+                bookCards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        // Redirecionar para o leitor digital
+                        window.location.href = 'leitor-digital.html';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

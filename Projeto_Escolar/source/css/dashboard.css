@@ -1,0 +1,556 @@
+/* Estilos adicionais para o dashboard */
+
+/* Layout base */
+.dashboard-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    padding: 0;
+    margin-right: 1rem;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: var(--transition);
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+    width: 250px;
+    background-color: #fff;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 64px);
+    position: sticky;
+    top: 64px;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 1.5rem 0;
+    overflow-y: auto;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    margin-bottom: 0.5rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    color: #555;
+    transition: all 0.2s;
+    border-left: 4px solid transparent;
+}
+
+.nav-link i {
+    margin-right: 1rem;
+    width: 20px;
+    text-align: center;
+    font-size: 1.125rem;
+}
+
+.nav-item:hover .nav-link {
+    color: var(--color-primary);
+    background-color: #f0f5ff;
+}
+
+.nav-item.active .nav-link {
+    color: var(--color-primary);
+    background-color: #f0f5ff;
+    border-left: 4px solid var(--color-primary);
+    font-weight: 600;
+}
+
+.sidebar-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    color: #555;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.logout-btn i {
+    margin-right: 1rem;
+}
+
+.logout-btn:hover {
+    background-color: #f0f0f0;
+    color: var(--color-primary);
+}
+
+/* Sidebar collapsed state */
+.sidebar-collapsed .dashboard-sidebar {
+    transform: translateX(-100%);
+}
+
+.sidebar-collapsed .dashboard-main {
+    margin-left: 0;
+}
+
+/* Welcome Banner */
+.welcome-banner {
+    background-color: var(--color-primary);
+    background-image: linear-gradient(135deg, var(--color-primary) 0%, #1a4e9c 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 47, 113, 0.2);
+}
+
+.welcome-content h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-content p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Dashboard Main */
+.dashboard-main {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.dashboard-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+.section-header h2 {
+    font-size: 1.25rem;
+    color: #333;
+    font-weight: 600;
+    margin: 0;
+}
+
+.link-more {
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.link-more:hover {
+    text-decoration: underline;
+}
+
+/* Grids de livros */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.books-grid-small {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.book-card {
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Progresso do livro */
+.book-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #e0e0e0;
+}
+
+.book-progress-bar {
+    height: 100%;
+    background-color: var(--color-primary);
+}
+
+/* Classes para barras de progresso específicas */
+.progress-45 {
+    width: 45%;
+}
+
+.progress-23 {
+    width: 23%;
+}
+
+.progress-78 {
+    width: 78%;
+}
+
+.progress-10 {
+    width: 10%;
+}
+
+/* Colunas de dashboard */
+.dashboard-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Lista de atividades */
+.activities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.activity-item:hover {
+    background-color: #f0f5ff;
+}
+
+.activity-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: white;
+    font-size: 1.25rem;
+}
+
+.activity-icon.math {
+    background-color: #2196f3;
+}
+
+.activity-icon.history {
+    background-color: #ff9800;
+}
+
+.activity-icon.portuguese {
+    background-color: #4caf50;
+}
+
+.activity-info {
+    flex: 1;
+}
+
+.activity-info h3 {
+    font-size: 1rem;
+    margin: 0 0 0.25rem 0;
+    color: #333;
+}
+
+.activity-info p {
+    font-size: 0.875rem;
+    color: #666;
+    margin: 0 0 0.5rem 0;
+}
+
+.activity-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.status {
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.status.pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status.completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Estatísticas de progresso */
+.progress-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+/* Gráfico de progresso */
+.progress-chart {
+    padding-top: 1rem;
+}
+
+.chart-container {
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.chart-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 1rem;
+}
+
+.chart-bar {
+    width: 12%;
+    background-color: #e0e0e0;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    transition: all 0.3s;
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+    
+    .dashboard-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+        transform: translateX(0);
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .sidebar-collapsed .dashboard-sidebar {
+        display: none;
+    }
+    
+    .dash-search {
+        margin: 0 1rem;
+    }
+    
+    .user-name {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .books-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .dashboard-columns {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-main {
+        padding: 1rem;
+    }
+}
+
+.chart-bar.active {
+    background-color: var(--color-primary);
+}
+
+.chart-bar span {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.chart-legend {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 1.5rem;
+}
+
+/* Classes para alturas do gráfico */
+.height-20 {
+    height: 20%;
+}
+
+.height-30 {
+    height: 30%;
+}
+
+.height-35 {
+    height: 35%;
+}
+
+.height-45 {
+    height: 45%;
+}
+
+.height-50 {
+    height: 50%;
+}
+
+.height-65 {
+    height: 65%;
+}
+
+.height-70 {
+    height: 70%;
+}
+
+/* Responsivo */
+@media (max-width: 1200px) {
+    .books-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .books-grid-small {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .dashboard-columns {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .books-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .dashboard-main {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-banner {
+        padding: 1.5rem;
+    }
+    
+    .welcome-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .dashboard-section {
+        padding: 1.25rem;
+    }
+    
+    .progress-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .activity-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .activity-icon {
+        margin-right: 0;
+        margin-bottom: 0.75rem;
+    }
+    
+    .activity-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .books-grid,
+    .books-grid-small {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-container {
+        height: 150px;
+    }
+    
+    .chart-bar span {
+        font-size: 0.7rem;
+    }
+}

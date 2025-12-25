@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Francisco Douglas">
+    <meta name="description" content="Leitor Digital de Livros - E.U. Evaristo Campelo de Matos">
+    <title>Leitor Digital | E.U. Evaristo Campelo de Matos</title>
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./source/img/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./source/css/base.css">
+    <link rel="stylesheet" href="./source/css/layout.css">
+    <link rel="stylesheet" href="./source/css/components.css">
+    <link rel="stylesheet" href="./source/css/area-estudos.css">
+    <link rel="stylesheet" href="./source/css/leitor-digital.css">
+    <link rel="stylesheet" href="./source/css/animacoes.css">
+</head>
+<body class="dashboard-body">
+    <!-- Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="dash-logo">
+            <a href="index.html">
+                <img src="./source/img/Logo moderno para a .png" alt="Logo da Escola">
+            </a>
+        </div>
+        
+        <div class="dash-search">
+            <form>
+                <input type="search" placeholder="Pesquisar no acervo..." aria-label="Pesquisar no acervo">
+                <button type="submit" aria-label="Pesquisar"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        
+        <div class="dash-user">
+            <div class="notification-icon">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </div>
+            <div class="user-dropdown">
+                <button class="user-btn">
+                    <div class="user-avatar">
+                        <img src="./source/img/avatar-placeholder.jpg" alt="Foto do usuário">
+                    </div>
+                    <span class="user-name">Maria Silva</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#"><i class="fas fa-user"></i> Meu Perfil</a>
+                    <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+                    <a href="#"><i class="fas fa-book"></i> Meus Livros</a>
+                    <a href="#"><i class="fas fa-history"></i> Histórico</a>
+                    <a href="area-estudos.html"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                </div>
+            </div>
+        </div>
+        
+        <button class="menu-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link">
+                            <i class="fas fa-home"></i>
+                            <span>Início</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="meus-livros.html" class="nav-link">
+                            <i class="fas fa-book"></i>
+                            <span>Meus Livros</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-bookmark"></i>
+                            <span>Favoritos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-tasks"></i>
+                            <span>Atividades</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Progresso</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-users"></i>
+                            <span>Grupos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-calendar"></i>
+                            <span>Agenda</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Ajuda</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="area-estudos.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Leitor Digital -->
+        <main class="reader-main">
+            <div class="reader-header">
+                <div class="book-info">
+                    <h1>Matemática - 8º Ano</h1>
+                    <p>Capítulo 3: Álgebra e Funções</p>
+                </div>
+                
+                <div class="reader-actions">
+                    <button class="action-btn" title="Adicionar marcador"><i class="fas fa-bookmark"></i></button>
+                    <button class="action-btn" title="Fazer anotação"><i class="fas fa-pen"></i></button>
+                    <button class="action-btn" title="Compartilhar"><i class="fas fa-share"></i></button>
+                    <button class="action-btn" title="Imprimir página"><i class="fas fa-print"></i></button>
+                    <button class="action-btn" title="Baixar para leitura offline"><i class="fas fa-download"></i></button>
+                </div>
+            </div>
+            
+            <div class="reader-container">
+                <div class="reader-nav">
+                    <button class="nav-btn prev" title="Página anterior"><i class="fas fa-chevron-left"></i></button>
+                    <div class="page-info">Página <span id="currentPage">48</span> de <span id="totalPages">112</span></div>
+                    <button class="nav-btn next" title="Próxima página"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                
+                <div class="reader-view">
+                    <div class="book-page">
+                        <img src="./source/img/matematica-pagina.jpg" alt="Página do livro de matemática" class="page-image" onerror="this.src='./source/img/page-placeholder.jpg'">
+                        
+                        <!-- Área de anotações ativa -->
+                        <div class="note-area note-area-1">
+                            <div class="note-icon"><i class="fas fa-sticky-note"></i></div>
+                        </div>
+                        
+                        <!-- Área destacada -->
+                        <div class="highlight-area highlight-area-1"></div>
+                    </div>
+                </div>
+                
+                <div class="reader-tools">
+                    <div class="tool-section">
+                        <h3>Navegação</h3>
+                        <div class="toc-container">
+                            <ul class="toc-list">
+                                <li><a href="#" class="toc-item">Capa</a></li>
+                                <li><a href="#" class="toc-item">Sumário</a></li>
+                                <li class="toc-expanded">
+                                    <a href="#" class="toc-item">Capítulo 1: Números</a>
+                                    <ul>
+                                        <li><a href="#" class="toc-subitem">1.1 Números inteiros</a></li>
+                                        <li><a href="#" class="toc-subitem">1.2 Números racionais</a></li>
+                                        <li><a href="#" class="toc-subitem">1.3 Números reais</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" class="toc-item">Capítulo 2: Geometria</a></li>
+                                <li class="toc-expanded current">
+                                    <a href="#" class="toc-item current">Capítulo 3: Álgebra e Funções</a>
+                                    <ul>
+                                        <li><a href="#" class="toc-subitem">3.1 Expressões algébricas</a></li>
+                                        <li><a href="#" class="toc-subitem current">3.2 Equações do 1º grau</a></li>
+                                        <li><a href="#" class="toc-subitem">3.3 Sistemas lineares</a></li>
+                                        <li><a href="#" class="toc-subitem">3.4 Funções</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" class="toc-item">Capítulo 4: Estatística</a></li>
+                                <li><a href="#" class="toc-item">Exercícios</a></li>
+                                <li><a href="#" class="toc-item">Glossário</a></li>
+                                <li><a href="#" class="toc-item">Referências</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="tool-section">
+                        <h3>Minhas Anotações</h3>
+                        <div class="notes-container">
+                            <div class="note-item">
+                                <div class="note-header">
+                                    <span class="note-page">Página 48</span>
+                                    <div class="note-actions">
+                                        <button class="note-btn" title="Editar"><i class="fas fa-edit"></i></button>
+                                        <button class="note-btn" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                    </div>
+                                </div>
+                                <p class="note-text">Lembrar que para resolver equações com parênteses, primeiro é preciso aplicar a propriedade distributiva.</p>
+                            </div>
+                            
+                            <div class="note-item">
+                                <div class="note-header">
+                                    <span class="note-page">Página 45</span>
+                                    <div class="note-actions">
+                                        <button class="note-btn" title="Editar"><i class="fas fa-edit"></i></button>
+                                        <button class="note-btn" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                    </div>
+                                </div>
+                                <p class="note-text">Exemplo importante para a prova de recuperação: resolver equações com frações.</p>
+                            </div>
+                            
+                            <button class="btn btn-outline btn-sm">Ver todas as anotações</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="reader-footer">
+                <div class="zoom-controls">
+                    <button class="zoom-btn" title="Diminuir zoom"><i class="fas fa-search-minus"></i></button>
+                    <span class="zoom-level">100%</span>
+                    <button class="zoom-btn" title="Aumentar zoom"><i class="fas fa-search-plus"></i></button>
+                </div>
+                
+                <div class="page-slider">
+                    <input type="range" min="1" max="112" value="48" class="slider" id="pageSlider" aria-label="Navegar pelas páginas">
+                </div>
+                
+                <div class="view-options">
+                    <button class="view-btn" title="Visualização em página única"><i class="fas fa-file"></i></button>
+                    <button class="view-btn active" title="Visualização em duas páginas"><i class="fas fa-book-open"></i></button>
+                    <button class="view-btn" title="Modo tela cheia"><i class="fas fa-expand"></i></button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modais -->
+    <!-- Modal de Anotação -->
+    <div class="note-modal" id="noteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Anotação - Página 48</h2>
+                <button class="modal-close" aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <textarea class="note-textarea" placeholder="Digite sua anotação aqui...">Lembrar que para resolver equações com parênteses, primeiro é preciso aplicar a propriedade distributiva.</textarea>
+                
+                <div class="note-format-toolbar">
+                    <button class="format-btn" title="Negrito"><i class="fas fa-bold"></i></button>
+                    <button class="format-btn" title="Itálico"><i class="fas fa-italic"></i></button>
+                    <button class="format-btn" title="Sublinhar"><i class="fas fa-underline"></i></button>
+                    <button class="format-btn" title="Lista numerada"><i class="fas fa-list-ol"></i></button>
+                    <button class="format-btn" title="Lista com marcadores"><i class="fas fa-list-ul"></i></button>
+                    <div class="color-picker">
+                        <button class="color-btn yellow" title="Amarelo"></button>
+                        <button class="color-btn green" title="Verde"></button>
+                        <button class="color-btn blue" title="Azul"></button>
+                        <button class="color-btn red" title="Vermelho"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline">Cancelar</button>
+                <button class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Exercício Interativo -->
+    <div class="exercise-modal" id="exerciseModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Exercício Interativo</h2>
+                <button class="modal-close" aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="exercise-question">
+                    <h3>Questão 1 de 5</h3>
+                    <p>Resolva a equação: 3x + 5 = 2x - 7</p>
+                    
+                    <div class="exercise-options">
+                        <label class="option-container">
+                            <input type="radio" name="answer" value="a">
+                            <span class="option-text">x = -12</span>
+                        </label>
+                        <label class="option-container">
+                            <input type="radio" name="answer" value="b">
+                            <span class="option-text">x = -3</span>
+                        </label>
+                        <label class="option-container">
+                            <input type="radio" name="answer" value="c">
+                            <span class="option-text">x = 12</span>
+                        </label>
+                        <label class="option-container">
+                            <input type="radio" name="answer" value="d">
+                            <span class="option-text">x = -1/3</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline">Pular</button>
+                <button class="btn btn-primary">Verificar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./source/js/script_primary.js"></script>
+    <script src="./source/js/script_leitor_digital.js"></script>
+</body>
+</html>

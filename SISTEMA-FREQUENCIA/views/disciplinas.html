@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disciplinas - Sistema de Frequência</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/theme.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../img/logo.svg" alt="Logo">
+                <h2>FrequênciaApp</h2>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="dashboard.html" class="menu-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="escolas.html" class="menu-item">
+                        <i class="fas fa-school"></i>
+                        <span>Escolas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="professores.html" class="menu-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Professores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="disciplinas.html" class="menu-item active">
+                        <i class="fas fa-book"></i>
+                        <span>Disciplinas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="relatorios.html" class="menu-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.html" class="menu-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h1>Gestão de Disciplinas</h1>
+                <div class="user-info">
+                    <img src="../img/avatar.svg" alt="User Avatar" class="user-avatar">
+                    <span class="user-name">Administrador</span>
+                </div>
+            </div>
+            
+            <!-- Search & Add -->
+            <div class="toolbar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar disciplina..." id="searchDisciplina">
+                    <button title="Buscar"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="toolbar-actions">
+                    <button class="btn btn-outline" id="filterBtn">
+                        <i class="fas fa-filter"></i> Filtrar
+                    </button>
+                    <button class="btn btn-primary" id="addDisciplinaBtn">
+                        <i class="fas fa-plus"></i> Nova Disciplina
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter Options -->
+            <div class="filter-options" id="filterOptions">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label for="filterArea">Área do Conhecimento</label>
+                        <select id="filterArea">
+                            <option value="all">Todas as áreas</option>
+                            <option value="exatas">Exatas</option>
+                            <option value="humanas">Humanas</option>
+                            <option value="biologicas">Biológicas</option>
+                            <option value="linguagens">Linguagens</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterNivel">Nível de Ensino</label>
+                        <select id="filterNivel">
+                            <option value="all">Todos os níveis</option>
+                            <option value="fundamental1">Fundamental I</option>
+                            <option value="fundamental2">Fundamental II</option>
+                            <option value="medio">Médio</option>
+                            <option value="tecnico">Técnico</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterStatus">Status</label>
+                        <select id="filterStatus">
+                            <option value="all">Todos</option>
+                            <option value="active">Ativa</option>
+                            <option value="inactive">Inativa</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button class="btn" id="clearFilterBtn">Limpar Filtros</button>
+                    <button class="btn btn-primary" id="applyFilterBtn">Aplicar</button>
+                </div>
+            </div>
+            
+            <!-- Disciplines List -->
+            <div class="card">
+                <div class="card-title">
+                    <h2>Lista de Disciplinas</h2>
+                    <div class="card-actions">
+                        <button class="btn-icon" id="refreshBtn" title="Atualizar lista"><i class="fas fa-sync-alt"></i></button>
+                        <button class="btn-icon" id="exportBtn" title="Exportar dados"><i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Área</th>
+                                <th>Níveis de Ensino</th>
+                                <th>Professores</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="disciplinaTable">
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <div class="discipline-info">
+                                        <i class="fas fa-calculator discipline-icon math"></i>
+                                        <div>
+                                            <div class="discipline-name">Matemática</div>
+                                            <div class="discipline-code">MAT-001</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Exatas</td>
+                                <td>Fundamental I, Fundamental II, Médio</td>
+                                <td>3 professores</td>
+                                <td><span class="status present">Ativa</span></td>
+                                <td class="actions">
+                                    <button title="Editar"><i class="fas fa-edit"></i></button>
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                    <button title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>
+                                    <div class="discipline-info">
+                                        <i class="fas fa-book-open discipline-icon language"></i>
+                                        <div>
+                                            <div class="discipline-name">Português</div>
+                                            <div class="discipline-code">POR-001</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Linguagens</td>
+                                <td>Fundamental I, Fundamental II, Médio</td>
+                                <td>4 professores</td>
+                                <td><span class="status present">Ativa</span></td>
+                                <td class="actions">
+                                    <button title="Editar"><i class="fas fa-edit"></i></button>
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                    <button title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>
+                                    <div class="discipline-info">
+                                        <i class="fas fa-flask discipline-icon science"></i>
+                                        <div>
+                                            <div class="discipline-name">Física</div>
+                                            <div class="discipline-code">FIS-001</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Exatas</td>
+                                <td>Médio, Técnico</td>
+                                <td>2 professores</td>
+                                <td><span class="status present">Ativa</span></td>
+                                <td class="actions">
+                                    <button title="Editar"><i class="fas fa-edit"></i></button>
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                    <button title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>
+                                    <div class="discipline-info">
+                                        <i class="fas fa-landmark discipline-icon humanities"></i>
+                                        <div>
+                                            <div class="discipline-name">História</div>
+                                            <div class="discipline-code">HIS-001</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Humanas</td>
+                                <td>Fundamental II, Médio</td>
+                                <td>1 professor</td>
+                                <td><span class="status present">Ativa</span></td>
+                                <td class="actions">
+                                    <button title="Editar"><i class="fas fa-edit"></i></button>
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                    <button title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>
+                                    <div class="discipline-info">
+                                        <i class="fas fa-dna discipline-icon biology"></i>
+                                        <div>
+                                            <div class="discipline-name">Biologia</div>
+                                            <div class="discipline-code">BIO-001</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Biológicas</td>
+                                <td>Médio, Técnico</td>
+                                <td>1 professor</td>
+                                <td><span class="status absent">Inativa</span></td>
+                                <td class="actions">
+                                    <button title="Editar"><i class="fas fa-edit"></i></button>
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                    <button title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination">
+                    <button title="Página anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="active">1</button>
+                    <button>2</button>
+                    <button title="Próxima página"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Discipline Modal -->
+    <div class="modal" id="disciplinaModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Adicionar Nova Disciplina</h3>
+                <button class="modal-close" id="closeDisciplinaModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="disciplinaForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="disciplinaName">Nome da Disciplina</label>
+                            <input type="text" id="disciplinaName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="disciplinaCode">Código</label>
+                            <input type="text" id="disciplinaCode" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="disciplinaArea">Área do Conhecimento</label>
+                            <select id="disciplinaArea" required>
+                                <option value="" selected disabled>Selecione a área</option>
+                                <option value="exatas">Exatas</option>
+                                <option value="humanas">Humanas</option>
+                                <option value="biologicas">Biológicas</option>
+                                <option value="linguagens">Linguagens</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="disciplinaStatus">Status</label>
+                            <select id="disciplinaStatus" required>
+                                <option value="active">Ativa</option>
+                                <option value="inactive">Inativa</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="disciplinaNiveis">Níveis de Ensino</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="niveis" value="fundamental1"> Fundamental I (1º ao 5º ano)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="niveis" value="fundamental2"> Fundamental II (6º ao 9º ano)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="niveis" value="medio"> Ensino Médio
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="niveis" value="tecnico"> Ensino Técnico
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="disciplinaDescription">Descrição</label>
+                        <textarea id="disciplinaDescription" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="disciplinaCargaHoraria">Carga Horária Semanal</label>
+                            <input type="number" id="disciplinaCargaHoraria" min="1" max="40" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="disciplinaIcone">Ícone</label>
+                            <select id="disciplinaIcone">
+                                <option value="calculator">Calculadora</option>
+                                <option value="book-open">Livro</option>
+                                <option value="flask">Laboratório</option>
+                                <option value="globe">Globo</option>
+                                <option value="language">Idioma</option>
+                                <option value="dna">DNA</option>
+                                <option value="atom">Átomo</option>
+                                <option value="landmark">Monumento</option>
+                                <option value="palette">Arte</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="disciplinaProfessores">Professores Habilitados</label>
+                        <select id="disciplinaProfessores" multiple>
+                            <option value="1">João Silva</option>
+                            <option value="2">Ana Oliveira</option>
+                            <option value="3">Carlos Ferreira</option>
+                            <option value="4">Maria Santos</option>
+                        </select>
+                        <small class="form-help">Pressione CTRL para selecionar múltiplos professores.</small>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="cancelDisciplinaBtn">Cancelar</button>
+                <button class="btn btn-primary" id="saveDisciplinaBtn">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Discipline Detail Modal -->
+    <div class="modal" id="disciplinaDetailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Detalhes da Disciplina</h3>
+                <button class="modal-close" id="closeDisciplinaDetailModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="discipline-detail">
+                    <div class="discipline-header">
+                        <div class="discipline-badge math">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="discipline-header-info">
+                            <h2 id="detailName">Matemática</h2>
+                            <div class="discipline-code-badge" id="detailCode">MAT-001</div>
+                            <div class="status-badge present" id="detailStatusBadge">Ativa</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Informações Gerais</h4>
+                        <div class="detail-row">
+                            <div class="detail-label">Área do Conhecimento</div>
+                            <div class="detail-value" id="detailArea">Exatas</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Níveis de Ensino</div>
+                            <div class="detail-value" id="detailNiveis">Fundamental I, Fundamental II, Médio</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Carga Horária Semanal</div>
+                            <div class="detail-value" id="detailCargaHoraria">4 horas</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Descrição</div>
+                            <div class="detail-value" id="detailDescription">
+                                A disciplina de Matemática visa desenvolver o raciocínio lógico, a capacidade de abstração
+                                e a resolução de problemas. Abrange desde os conceitos fundamentais até tópicos avançados,
+                                adaptados a cada nível de ensino.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Professores Habilitados</h4>
+                        <div class="professors-list" id="detailProfessores">
+                            <div class="professor-item">
+                                <img src="../img/avatar-professor.svg" alt="Professor" class="small-avatar">
+                                <div class="professor-info">
+                                    <div>João Silva</div>
+                                    <div class="professor-schools">E.E. Maria José, Colégio São Paulo, Instituto Técnico</div>
+                                </div>
+                            </div>
+                            <div class="professor-item">
+                                <img src="../img/avatar-professor-3.svg" alt="Professor" class="small-avatar">
+                                <div class="professor-info">
+                                    <div>Carlos Ferreira</div>
+                                    <div class="professor-schools">Colégio São Paulo</div>
+                                </div>
+                            </div>
+                            <div class="professor-item">
+                                <img src="../img/avatar-professor-4.svg" alt="Professor" class="small-avatar">
+                                <div class="professor-info">
+                                    <div>Maria Santos</div>
+                                    <div class="professor-schools">Instituto Técnico</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Escolas com esta Disciplina</h4>
+                        <div class="schools-list" id="detailEscolas">
+                            <div class="school-item">
+                                <div class="school-icon"><i class="fas fa-school"></i></div>
+                                <div class="school-info">
+                                    <div>E.E. Maria José</div>
+                                    <div class="school-detail">7 turmas - 210 alunos</div>
+                                </div>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-icon"><i class="fas fa-school"></i></div>
+                                <div class="school-info">
+                                    <div>Colégio São Paulo</div>
+                                    <div class="school-detail">5 turmas - 150 alunos</div>
+                                </div>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-icon"><i class="fas fa-school"></i></div>
+                                <div class="school-info">
+                                    <div>Instituto Técnico</div>
+                                    <div class="school-detail">3 turmas - 90 alunos</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="closeDetailBtn">Fechar</button>
+                <button class="btn btn-outline" id="editFromDetailBtn">Editar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal" id="deleteConfirmModal">
+        <div class="modal-content small-modal">
+            <div class="modal-header">
+                <h3>Confirmar Exclusão</h3>
+                <button class="modal-close" id="closeDeleteModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja excluir a disciplina <span id="deleteDisciplinaName">Matemática</span>?</p>
+                <p class="warning-text">Esta ação não pode ser desfeita.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="cancelDeleteBtn">Cancelar</button>
+                <button class="btn btn-danger" id="confirmDeleteBtn">Excluir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/common.js"></script>
+    <script src="../js/disciplines.js"></script>
+</body>
+</html>

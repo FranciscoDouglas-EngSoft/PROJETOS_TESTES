@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Sistema de Frequência</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/theme.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../img/logo.svg" alt="Logo">
+                <h2>FrequênciaApp</h2>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="dashboard-professor.html" class="menu-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="minhas-escolas.html" class="menu-item">
+                        <i class="fas fa-school"></i>
+                        <span>Minhas Escolas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="marcar-presenca.html" class="menu-item">
+                        <i class="fas fa-qrcode"></i>
+                        <span>Marcar Presença</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="meu-historico.html" class="menu-item">
+                        <i class="fas fa-history"></i>
+                        <span>Meu Histórico</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="perfil.html" class="menu-item active">
+                        <i class="fas fa-user"></i>
+                        <span>Meu Perfil</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h1>Meu Perfil</h1>
+                <div class="user-info">
+                    <img src="../img/avatar-professor.svg" alt="User Avatar" class="user-avatar">
+                    <span class="user-name" id="professorName">Professor Silva</span>
+                </div>
+            </div>
+            
+            <div class="profile-container">
+                <div class="card profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar-container">
+                            <img src="../img/avatar-professor.svg" alt="Profile Avatar" class="profile-avatar" id="profileAvatar">
+                            <button class="change-avatar-btn" id="changeAvatarBtn">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="profile-name">
+                            <h2 id="profileName">Professor Silva</h2>
+                            <span class="profile-role" id="profileRole">Professor</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-actions">
+                        <button class="btn btn-outline" id="editProfileBtn">
+                            <i class="fas fa-edit"></i> Editar Perfil
+                        </button>
+                        <button class="btn btn-outline" id="changePasswordBtn">
+                            <i class="fas fa-lock"></i> Alterar Senha
+                        </button>
+                    </div>
+                    
+                    <div class="profile-info">
+                        <div class="info-section">
+                            <h3>Informações Pessoais</h3>
+                            <div class="info-group">
+                                <div class="info-label">Nome Completo</div>
+                                <div class="info-value" id="fullName">João Silva Santos</div>
+                            </div>
+                            <div class="info-group">
+                                <div class="info-label">Data de Nascimento</div>
+                                <div class="info-value" id="birthDate">15/05/1985</div>
+                            </div>
+                            <div class="info-group">
+                                <div class="info-label">CPF</div>
+                                <div class="info-value" id="cpf">123.456.789-00</div>
+                            </div>
+                            <div class="info-group">
+                                <div class="info-label">RG</div>
+                                <div class="info-value" id="rg">12.345.678-9</div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h3>Informações de Contato</h3>
+                            <div class="info-group">
+                                <div class="info-label">E-mail</div>
+                                <div class="info-value" id="email">joao.silva@example.com</div>
+                            </div>
+                            <div class="info-group">
+                                <div class="info-label">Telefone</div>
+                                <div class="info-value" id="phone">(11) 98765-4321</div>
+                            </div>
+                            <div class="info-group">
+                                <div class="info-label">Endereço</div>
+                                <div class="info-value" id="address">Rua das Flores, 123, Apto 101 - Jardim Primavera</div>
+                            </div>
+                            <div class="info-group">
+                                <div class="info-label">Cidade/UF</div>
+                                <div class="info-value" id="cityState">São Paulo/SP</div>
+                            </div>
+                            <div class="info-group">
+                                <div class="info-label">CEP</div>
+                                <div class="info-value" id="zipCode">01234-567</div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h3>Informações Profissionais</h3>
+                            <div class="info-group">
+                                <div class="info-label">Formação</div>
+                                <div class="info-value" id="education">Licenciatura em Matemática - Universidade Estadual de São Paulo (2007)</div>
+                            </div>
+                            <div class="info-group">
+                                <div class="info-label">Registro Profissional</div>
+                                <div class="info-value" id="professionalId">MEC-12345678</div>
+                            </div>
+                            <div class="info-group">
+                                <div class="info-label">Disciplinas</div>
+                                <div class="info-value" id="subjects">Matemática, Estatística</div>
+                            </div>
+                            <div class="info-group">
+                                <div class="info-label">Data de Admissão</div>
+                                <div class="info-value" id="hireDate">01/03/2020</div>
+                            </div>
+                            <div class="info-group">
+                                <div class="info-label">Carga Horária Semanal</div>
+                                <div class="info-value" id="weeklyHours">40 horas</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card notification-settings">
+                    <div class="card-title">
+                        <h2>Notificações</h2>
+                    </div>
+                    <div class="settings-group">
+                        <div class="toggle-setting">
+                            <div class="setting-info">
+                                <div class="setting-name">E-mail de lembrete de aula</div>
+                                <div class="setting-desc">Receba lembretes por e-mail antes de suas aulas</div>
+                            </div>
+                            <div class="toggle-container">
+                                <input type="checkbox" id="emailNotifications" class="toggle-checkbox" checked>
+                                <label for="emailNotifications" class="toggle-label"></label>
+                            </div>
+                        </div>
+                        <div class="toggle-setting">
+                            <div class="setting-info">
+                                <div class="setting-name">Notificações no aplicativo</div>
+                                <div class="setting-desc">Receba alertas no aplicativo</div>
+                            </div>
+                            <div class="toggle-container">
+                                <input type="checkbox" id="appNotifications" class="toggle-checkbox" checked>
+                                <label for="appNotifications" class="toggle-label"></label>
+                            </div>
+                        </div>
+                        <div class="toggle-setting">
+                            <div class="setting-info">
+                                <div class="setting-name">SMS de confirmação</div>
+                                <div class="setting-desc">Receba confirmações de presença por SMS</div>
+                            </div>
+                            <div class="toggle-container">
+                                <input type="checkbox" id="smsNotifications" class="toggle-checkbox">
+                                <label for="smsNotifications" class="toggle-label"></label>
+                            </div>
+                        </div>
+                        <div class="toggle-setting">
+                            <div class="setting-info">
+                                <div class="setting-name">Relatório semanal</div>
+                                <div class="setting-desc">Receba um resumo semanal da sua frequência</div>
+                            </div>
+                            <div class="toggle-container">
+                                <input type="checkbox" id="weeklyReport" class="toggle-checkbox" checked>
+                                <label for="weeklyReport" class="toggle-label"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card app-settings">
+                    <div class="card-title">
+                        <h2>Configurações do Aplicativo</h2>
+                    </div>
+                    <div class="settings-group">
+                        <div class="select-setting">
+                            <div class="setting-info">
+                                <div class="setting-name">Tema</div>
+                                <div class="setting-desc">Escolha o tema visual do aplicativo</div>
+                            </div>
+                            <div class="setting-control">
+                                <select id="themeSelector" class="form-control">
+                                    <option value="light" selected>Claro</option>
+                                    <option value="dark">Escuro</option>
+                                    <option value="system">Sistema</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="select-setting">
+                            <div class="setting-info">
+                                <div class="setting-name">Idioma</div>
+                                <div class="setting-desc">Selecione o idioma do aplicativo</div>
+                            </div>
+                            <div class="setting-control">
+                                <select id="languageSelector" class="form-control">
+                                    <option value="pt-br" selected>Português (Brasil)</option>
+                                    <option value="en">English</option>
+                                    <option value="es">Español</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="toggle-setting">
+                            <div class="setting-info">
+                                <div class="setting-name">Login com biometria</div>
+                                <div class="setting-desc">Use sua biometria para fazer login rapidamente</div>
+                            </div>
+                            <div class="toggle-container">
+                                <input type="checkbox" id="biometricLogin" class="toggle-checkbox" checked>
+                                <label for="biometricLogin" class="toggle-label"></label>
+                            </div>
+                        </div>
+                        <div class="toggle-setting">
+                            <div class="setting-info">
+                                <div class="setting-name">Modo de economia de dados</div>
+                                <div class="setting-desc">Reduz o uso de dados móveis do aplicativo</div>
+                            </div>
+                            <div class="toggle-container">
+                                <input type="checkbox" id="dataSaver" class="toggle-checkbox">
+                                <label for="dataSaver" class="toggle-label"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card privacy-section">
+                <div class="card-title">
+                    <h2>Privacidade e Segurança</h2>
+                </div>
+                <div class="privacy-options">
+                    <div class="privacy-option">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-shield-alt"></i> Verificação em Duas Etapas
+                        </button>
+                        <div class="option-desc">Configure uma camada extra de segurança para sua conta</div>
+                    </div>
+                    <div class="privacy-option">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-history"></i> Atividade da Conta
+                        </button>
+                        <div class="option-desc">Veja histórico de login e atividades recentes</div>
+                    </div>
+                    <div class="privacy-option">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-download"></i> Baixar Meus Dados
+                        </button>
+                        <div class="option-desc">Faça o download de todos os seus dados pessoais</div>
+                    </div>
+                    <div class="privacy-option">
+                        <button class="btn btn-danger-outline">
+                            <i class="fas fa-trash-alt"></i> Excluir Conta
+                        </button>
+                        <div class="option-desc">Remover permanentemente sua conta e todos os seus dados</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-footer">
+                <div class="app-info">
+                    <p>FrequênciaApp v1.0.0</p>
+                    <div class="app-links">
+                        <a href="#">Termos de Uso</a>
+                        <a href="#">Política de Privacidade</a>
+                        <a href="#">Central de Ajuda</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Editar Perfil Modal -->
+    <div class="modal" id="editProfileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Editar Perfil</h3>
+                <button class="modal-close" id="closeEditProfileModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="editProfileForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editFullName">Nome Completo</label>
+                            <input type="text" id="editFullName" value="João Silva Santos" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editBirthDate">Data de Nascimento</label>
+                            <input type="date" id="editBirthDate" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editEmail">E-mail</label>
+                            <input type="email" id="editEmail" value="joao.silva@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editPhone">Telefone</label>
+                            <input type="tel" id="editPhone" value="(11) 98765-4321" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editAddress">Endereço</label>
+                        <input type="text" id="editAddress" value="Rua das Flores, 123, Apto 101 - Jardim Primavera" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editCity">Cidade</label>
+                            <input type="text" id="editCity" value="São Paulo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editState">UF</label>
+                            <select id="editState" required>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP" selected>SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editZipCode">CEP</label>
+                            <input type="text" id="editZipCode" value="01234-567" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="cancelEditProfileBtn">Cancelar</button>
+                <button class="btn btn-primary" id="saveProfileBtn">Salvar Alterações</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Alterar Senha Modal -->
+    <div class="modal" id="changePasswordModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Alterar Senha</h3>
+                <button class="modal-close" id="closeChangePasswordModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="changePasswordForm">
+                    <div class="form-group">
+                        <label for="currentPassword">Senha Atual</label>
+                        <div class="password-input">
+                            <input type="password" id="currentPassword" required>
+                            <button type="button" class="toggle-password"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="newPassword">Nova Senha</label>
+                        <div class="password-input">
+                            <input type="password" id="newPassword" required>
+                            <button type="button" class="toggle-password"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-meter">
+                                <div class="strength-segment"></div>
+                                <div class="strength-segment"></div>
+                                <div class="strength-segment"></div>
+                                <div class="strength-segment"></div>
+                            </div>
+                            <div class="strength-text">Senha fraca</div>
+                        </div>
+                        <ul class="password-requirements">
+                            <li class="requirement" data-requirement="length"><i class="fas fa-circle"></i> Mínimo de 8 caracteres</li>
+                            <li class="requirement" data-requirement="uppercase"><i class="fas fa-circle"></i> Pelo menos uma letra maiúscula</li>
+                            <li class="requirement" data-requirement="lowercase"><i class="fas fa-circle"></i> Pelo menos uma letra minúscula</li>
+                            <li class="requirement" data-requirement="number"><i class="fas fa-circle"></i> Pelo menos um número</li>
+                            <li class="requirement" data-requirement="special"><i class="fas fa-circle"></i> Pelo menos um caractere especial</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar Nova Senha</label>
+                        <div class="password-input">
+                            <input type="password" id="confirmPassword" required>
+                            <button type="button" class="toggle-password"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="cancelChangePasswordBtn">Cancelar</button>
+                <button class="btn btn-primary" id="savePasswordBtn">Alterar Senha</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Alterar Avatar Modal -->
+    <div class="modal" id="changeAvatarModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Alterar Foto de Perfil</h3>
+                <button class="modal-close" id="closeChangeAvatarModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="avatar-preview-container">
+                    <img src="../img/avatar-professor.svg" alt="Preview" id="avatarPreview" class="avatar-preview">
+                </div>
+                <div class="avatar-upload-controls">
+                    <label for="avatarUpload" class="btn btn-outline upload-btn">
+                        <i class="fas fa-upload"></i> Escolher Imagem
+                    </label>
+                    <input type="file" id="avatarUpload" accept="image/*" style="display:none">
+                    
+                    <div class="avatar-options">
+                        <button class="avatar-option active" data-avatar="../img/avatar-professor.svg">
+                            <img src="../img/avatar-professor.svg" alt="Avatar padrão">
+                        </button>
+                        <button class="avatar-option" data-avatar="../img/avatar-professor-2.svg">
+                            <img src="../img/avatar-professor-2.svg" alt="Avatar alternativo 1">
+                        </button>
+                        <button class="avatar-option" data-avatar="../img/avatar-professor-3.svg">
+                            <img src="../img/avatar-professor-3.svg" alt="Avatar alternativo 2">
+                        </button>
+                        <button class="avatar-option" data-avatar="../img/avatar-professor-4.svg">
+                            <img src="../img/avatar-professor-4.svg" alt="Avatar alternativo 3">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="cancelAvatarBtn">Cancelar</button>
+                <button class="btn btn-primary" id="saveAvatarBtn">Salvar Avatar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/common.js"></script>
+    <script src="../js/profile.js"></script>
+</body>
+</html>

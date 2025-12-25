@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professores - Sistema de Frequência</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/theme.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../img/logo.svg" alt="Logo">
+                <h2>FrequênciaApp</h2>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="dashboard.html" class="menu-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="escolas.html" class="menu-item">
+                        <i class="fas fa-school"></i>
+                        <span>Escolas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="professores.html" class="menu-item active">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Professores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="disciplinas.html" class="menu-item">
+                        <i class="fas fa-book"></i>
+                        <span>Disciplinas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="relatorios.html" class="menu-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.html" class="menu-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h1>Gestão de Professores</h1>
+                <div class="user-info">
+                    <img src="../img/avatar.svg" alt="User Avatar" class="user-avatar">
+                    <span class="user-name">Administrador</span>
+                </div>
+            </div>
+            
+            <!-- Search & Add -->
+            <div class="toolbar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar professor..." id="searchProfessor">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="toolbar-actions">
+                    <button class="btn btn-outline" id="filterBtn">
+                        <i class="fas fa-filter"></i> Filtrar
+                    </button>
+                    <button class="btn btn-primary" id="addProfessorBtn">
+                        <i class="fas fa-plus"></i> Novo Professor
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter Options (Hidden by default) -->
+            <div class="filter-options" id="filterOptions" style="display:none;">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label for="filterSchool">Escola</label>
+                        <select id="filterSchool">
+                            <option value="all">Todas as escolas</option>
+                            <option value="1">E.E. Maria José</option>
+                            <option value="2">Colégio São Paulo</option>
+                            <option value="3">Instituto Técnico</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterDiscipline">Disciplina</label>
+                        <select id="filterDiscipline">
+                            <option value="all">Todas as disciplinas</option>
+                            <option value="1">Matemática</option>
+                            <option value="2">Português</option>
+                            <option value="3">Física</option>
+                            <option value="4">História</option>
+                            <option value="5">Geografia</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterStatus">Status</label>
+                        <select id="filterStatus">
+                            <option value="all">Todos</option>
+                            <option value="active">Ativo</option>
+                            <option value="inactive">Inativo</option>
+                            <option value="vacation">Em férias</option>
+                            <option value="license">Em licença</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button class="btn" id="clearFilterBtn">Limpar Filtros</button>
+                    <button class="btn btn-primary" id="applyFilterBtn">Aplicar</button>
+                </div>
+            </div>
+            
+            <!-- Professor List -->
+            <div class="card">
+                <div class="card-title">
+                    <h2>Lista de Professores</h2>
+                    <div class="card-actions">
+                        <button class="btn-icon" id="refreshBtn" title="Atualizar lista"><i class="fas fa-sync-alt"></i></button>
+                        <button class="btn-icon" id="exportBtn" title="Exportar dados"><i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Disciplinas</th>
+                                <th>Escolas</th>
+                                <th>Contato</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="professorTable">
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <div class="user-info-table">
+                                        <img src="../img/avatar-professor.svg" alt="Professor Silva" class="small-avatar">
+                                        <div>
+                                            <div class="user-name-table">João Silva</div>
+                                            <div class="user-email">joao.silva@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Matemática, Estatística</td>
+                                <td>E.E. Maria José, Colégio São Paulo, Instituto Técnico</td>
+                                <td>(11) 98765-4321</td>
+                                <td><span class="status present">Ativo</span></td>
+                                <td class="actions">
+                                    <button title="Editar"><i class="fas fa-edit"></i></button>
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                    <button title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>
+                                    <div class="user-info-table">
+                                        <img src="../img/avatar-professor-2.svg" alt="Professora Ana" class="small-avatar">
+                                        <div>
+                                            <div class="user-name-table">Ana Oliveira</div>
+                                            <div class="user-email">ana.oliveira@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Português, Literatura</td>
+                                <td>E.E. Maria José, Colégio São Paulo</td>
+                                <td>(11) 97654-3210</td>
+                                <td><span class="status present">Ativo</span></td>
+                                <td class="actions">
+                                    <button title="Editar"><i class="fas fa-edit"></i></button>
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                    <button title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>
+                                    <div class="user-info-table">
+                                        <img src="../img/avatar-professor-3.svg" alt="Professor Carlos" class="small-avatar">
+                                        <div>
+                                            <div class="user-name-table">Carlos Ferreira</div>
+                                            <div class="user-email">carlos.ferreira@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>História, Geografia</td>
+                                <td>Colégio São Paulo</td>
+                                <td>(11) 95432-1098</td>
+                                <td><span class="status late">Em licença</span></td>
+                                <td class="actions">
+                                    <button title="Editar"><i class="fas fa-edit"></i></button>
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                    <button title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>
+                                    <div class="user-info-table">
+                                        <img src="../img/avatar-professor-4.svg" alt="Professora Maria" class="small-avatar">
+                                        <div>
+                                            <div class="user-name-table">Maria Santos</div>
+                                            <div class="user-email">maria.santos@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Biologia, Ciências</td>
+                                <td>Instituto Técnico</td>
+                                <td>(11) 94321-0987</td>
+                                <td><span class="status absent">Inativo</span></td>
+                                <td class="actions">
+                                    <button title="Editar"><i class="fas fa-edit"></i></button>
+                                    <button title="Ver detalhes"><i class="fas fa-eye"></i></button>
+                                    <button title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination">
+                    <button title="Página anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="active">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button title="Próxima página"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Professor Modal -->
+    <div class="modal" id="professorModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Adicionar Novo Professor</h3>
+                <button class="modal-close" id="closeProfessorModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="professorForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="professorName">Nome Completo</label>
+                            <input type="text" id="professorName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="professorEmail">E-mail</label>
+                            <input type="email" id="professorEmail" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="professorPhone">Telefone</label>
+                            <input type="tel" id="professorPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="professorCPF">CPF</label>
+                            <input type="text" id="professorCPF" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="professorBirth">Data de Nascimento</label>
+                            <input type="date" id="professorBirth" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="professorStatus">Status</label>
+                            <select id="professorStatus" required>
+                                <option value="active">Ativo</option>
+                                <option value="inactive">Inativo</option>
+                                <option value="vacation">Em férias</option>
+                                <option value="license">Em licença</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="professorAddress">Endereço</label>
+                        <input type="text" id="professorAddress" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="professorCity">Cidade</label>
+                            <input type="text" id="professorCity" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="professorState">UF</label>
+                            <select id="professorState" required>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP" selected>SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="professorZip">CEP</label>
+                            <input type="text" id="professorZip" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="professorDisciplines">Disciplinas</label>
+                        <select id="professorDisciplines" multiple required>
+                            <option value="1">Matemática</option>
+                            <option value="2">Português</option>
+                            <option value="3">Física</option>
+                            <option value="4">História</option>
+                            <option value="5">Geografia</option>
+                            <option value="6">Biologia</option>
+                            <option value="7">Química</option>
+                            <option value="8">Inglês</option>
+                            <option value="9">Educação Física</option>
+                            <option value="10">Artes</option>
+                            <option value="11">Filosofia</option>
+                            <option value="12">Sociologia</option>
+                            <option value="13">Estatística</option>
+                            <option value="14">Literatura</option>
+                        </select>
+                        <small class="form-help">Pressione CTRL para selecionar múltiplas disciplinas.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="professorSchools">Escolas</label>
+                        <select id="professorSchools" multiple required>
+                            <option value="1">E.E. Maria José</option>
+                            <option value="2">Colégio São Paulo</option>
+                            <option value="3">Instituto Técnico</option>
+                        </select>
+                        <small class="form-help">Pressione CTRL para selecionar múltiplas escolas.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="professorNotes">Observações</label>
+                        <textarea id="professorNotes" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="cancelProfessorBtn">Cancelar</button>
+                <button class="btn btn-primary" id="saveProfessorBtn">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Professor Detail Modal -->
+    <div class="modal" id="professorDetailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Detalhes do Professor</h3>
+                <button class="modal-close" id="closeProfessorDetailModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="professor-detail">
+                    <div class="professor-header">
+                        <div class="professor-avatar">
+                            <img src="../img/avatar-professor.svg" alt="Professor Avatar" id="detailAvatar">
+                        </div>
+                        <div class="professor-info">
+                            <h2 id="detailName">João Silva</h2>
+                            <div class="detail-item">
+                                <i class="fas fa-envelope"></i>
+                                <span id="detailEmail">joao.silva@example.com</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-phone"></i>
+                                <span id="detailPhone">(11) 98765-4321</span>
+                            </div>
+                            <div class="detail-badge" id="detailStatus">Ativo</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Informações Pessoais</h4>
+                        <div class="detail-row">
+                            <div class="detail-label">CPF</div>
+                            <div class="detail-value" id="detailCPF">123.456.789-00</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Data de Nascimento</div>
+                            <div class="detail-value" id="detailBirth">15/05/1985</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Endereço</div>
+                            <div class="detail-value" id="detailAddress">Rua das Flores, 123, Apto 101 - Jardim Primavera, São Paulo/SP, 01234-567</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Disciplinas</h4>
+                        <div class="detail-tags" id="detailDisciplines">
+                            <span class="tag">Matemática</span>
+                            <span class="tag">Estatística</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Escolas</h4>
+                        <div class="detail-tags" id="detailSchools">
+                            <span class="tag">E.E. Maria José</span>
+                            <span class="tag">Colégio São Paulo</span>
+                            <span class="tag">Instituto Técnico</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Horários</h4>
+                        <div class="schedule-table" id="detailSchedule">
+                            <div class="schedule-row">
+                                <div class="schedule-day">Segunda-feira</div>
+                                <div class="schedule-classes">
+                                    <div class="class-badge">E.E. Maria José - 08:00 às 10:00 (Matemática)</div>
+                                </div>
+                            </div>
+                            <div class="schedule-row">
+                                <div class="schedule-day">Terça-feira</div>
+                                <div class="schedule-classes">
+                                    <div class="class-badge">Instituto Técnico - 19:00 às 22:00 (Estatística)</div>
+                                </div>
+                            </div>
+                            <div class="schedule-row">
+                                <div class="schedule-day">Quarta-feira</div>
+                                <div class="schedule-classes">
+                                    <div class="class-badge">E.E. Maria José - 08:00 às 10:00 (Matemática)</div>
+                                </div>
+                            </div>
+                            <div class="schedule-row">
+                                <div class="schedule-day">Quinta-feira</div>
+                                <div class="schedule-classes">
+                                    <div class="class-badge">Colégio São Paulo - 10:30 às 12:30 (Matemática)</div>
+                                    <div class="class-badge">Instituto Técnico - 14:00 às 16:00 (Estatística)</div>
+                                </div>
+                            </div>
+                            <div class="schedule-row">
+                                <div class="schedule-day">Sexta-feira</div>
+                                <div class="schedule-classes">
+                                    <div class="class-badge">E.E. Maria José - 08:00 às 10:00 (Matemática)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Observações</h4>
+                        <div class="detail-notes" id="detailNotes">
+                            Professor experiente com mais de 15 anos de atuação na área de matemática e estatística.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="closeDetailBtn">Fechar</button>
+                <button class="btn btn-outline" id="editFromDetailBtn">Editar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal" id="deleteConfirmModal">
+        <div class="modal-content small-modal">
+            <div class="modal-header">
+                <h3>Confirmar Exclusão</h3>
+                <button class="modal-close" id="closeDeleteModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja excluir o professor <span id="deleteTeacherName">João Silva</span>?</p>
+                <p class="warning-text">Esta ação não pode ser desfeita.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="cancelDeleteBtn">Cancelar</button>
+                <button class="btn btn-danger" id="confirmDeleteBtn">Excluir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/common.js"></script>
+    <script src="../js/professors.js"></script>
+</body>
+</html>
